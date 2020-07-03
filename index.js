@@ -28,10 +28,10 @@ const readFils = (fileObj) => new Promise((res, rej) => {
 
         res({
             menu: fileObj.cn,
-            subMenus: files.map(file => ({
+            subMenus: files? files.map(file => ({
                 title: file,
                 path: `${fileObj.en}/${file}`
-            }))
+            })): []
         });
     })
 })
