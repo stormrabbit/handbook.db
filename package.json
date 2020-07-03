@@ -6,7 +6,8 @@
   "scripts": {
     "remenu": "node index.js",
     "serve": "gitbook serve",
-    "build": "gitbook build"
+    "build": "gitbook build",
+    "release": "sh release.sh"
   },
   "author": "",
   "license": "ISC",
