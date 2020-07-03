@@ -21,19 +21,27 @@ const docs = tags.map(tag => ({
     en: `./docs/${tag.en}`
 }));
 const readFils = (fileObj) => new Promise((res, rej) => {
-    fs.readdir(fileObj.en, (err, files) => {
-        if (err) {
-            rej(err);
-        }
-
+    if(!fs.existsSync(fileObj.en)) {
         res({
             menu: fileObj.cn,
-            subMenus: files? files.map(file => ({
-                title: file,
-                path: `${fileObj.en}/${file}`
-            })): []
-        });
-    })
+            subMenus:[]
+        })
+    } else {
+        fs.readdir(fileObj.en, (err, files) => {
+            if (err) {
+                rej(err);
+            }
+    
+            res({
+                menu: fileObj.cn,
+                subMenus: files? files.map(file => ({
+                    title: file,
+                    path: `${fileObj.en}/${file}`
+                })): []
+            });
+        })
+    }
+    
 })
 const run = async () => {
     const menus = await Promise.all(docs.map(async doc => await readFils(doc)));
