@@ -40,6 +40,12 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 $ hexo d -g
 ```
 
+### 新建页面
+
+``` bash
+$ hexo new page "about"
+```
+
 ### hexo 部署至阿里云保姆式教学
 
 [猛击这里](https://hjxlog.com/posts/20191130a1.html)
