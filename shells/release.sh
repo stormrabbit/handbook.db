@@ -6,7 +6,6 @@ cd _book
 git init
 git add .
 git commit -m 'release'
-git remote add gitbook git@angrykitty.link:/var/repo/handbook.git
-git push -u -f gitbook master
-
+git remote add angrykitty git@angrykitty.link:/home/wizard/unlimited_blade_works/handbook.git
+git push -u -f angrykitty master
 echo "===========发布结束==========="
