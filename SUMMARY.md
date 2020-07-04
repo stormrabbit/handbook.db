@@ -11,6 +11,7 @@
 * 运维
 	* [Gitbook 常用命令.md](./docs/ops/Gitbook 常用命令.md)
 	* [Hexo 常用命令.md](./docs/ops/Hexo 常用命令.md)
+	* [Shell 脚本.md](./docs/ops/Shell 脚本.md)
 	* [阿里云部署服务器.md](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
 	* [Vim 快捷键.md](./docs/other/Vim 快捷键.md)
