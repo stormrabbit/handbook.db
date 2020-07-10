@@ -35,7 +35,7 @@ const readFils = (fileObj) => new Promise((res, rej) => {
             res({
                 menu: fileObj.cn,
                 subMenus: files? files.map(file => ({
-                    title: file,
+                    title: file.replace('.md', ''),
                     path: `${fileObj.en}/${file}`
                 })): []
             });
