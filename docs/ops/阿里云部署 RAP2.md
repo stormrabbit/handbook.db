@@ -66,6 +66,14 @@ $ sudo yum install -y python-pip
 
 > 碰到问题：pip 版本过低，执行命令`pip install --upgrade pip`后修复
 
+> Centos8 里提示 pip not found，另一种安装方法:
+```
+sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+
+```
+
 3. 安装 Docker Compose
 
 ```
