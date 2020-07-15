@@ -28,6 +28,20 @@ services:       # 多个容器集合
 
 > 注意：映射端口和文件目录时，本机放在前面，docker 在后面，请勿写反（血泪教训）。
 
+> 注意二：请设置加速源，不然拉取镜像速度无限慢（除非翻墙）。
+
+speed-up.sh
+```
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://m60ggkj3.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
 - 使用 docker-compose 安装镜像并启动容器
 
 ```
@@ -54,14 +68,20 @@ services:       # 多个容器集合
 ```
 // 以 docker 用户进入 docker 容器
 docker exec -u root -t -i 053b56d56e84 /bin/bash
-
+cd /var/jenkins_home/secrets
+cat initialAdminPassword
 ```
-豁免超粉动态底拍价
+> 初始化 jenkins 后 initialAdminPassword 会自行删除
 
-docker exec -u root -t -i jenkins-blueocean /bin/bash
-sudo cat /var/jenkins_home/secrets/initialAdminPassword
+使用初始密码初始化后，可以设置用户名 & 密码，以正常用户登录。选择安装推荐插件，等待安装。
 
-apk add nodejs
+前端项目还需要 nodejs 插件，安装完毕后在全局工具配置 Global Tool Configuration 中设置 nodejs 版本，在 build 项目 - 配置 - 构建环境中勾选 Provide Node & npm bin/ folder to PATH
+
+> 坑点一：尽量以 root 用户启动，或者映射的 jenkins_home 目录要有足够的权限，否则会出现 permission denied 错误
+
+> 坑点二：需要使用 nodejs 配置使用 node，否则会出现 npm command not found 的错误。如果不使用 nodejs 插件，则进入 docker 容器内使用 `apk add nodejs` 或者 `apt-get update && apt-get upgrade -y && apt-get install -y nodejs npm `命令自行安装 node 和 npm。
+
+
 
 
 添加用户组
