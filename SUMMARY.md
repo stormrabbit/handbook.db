@@ -10,8 +10,10 @@
 	* [React Native 使用](./docs/android/React Native 使用.md)
 	* [flutter 错误集合](./docs/android/flutter 错误集合.md)
 * 运维
+	* [Docker 常用命令集](./docs/ops/Docker 常用命令集.md)
 	* [Gitbook 常用命令](./docs/ops/Gitbook 常用命令.md)
 	* [Hexo 常用命令](./docs/ops/Hexo 常用命令.md)
+	* [Jenkens 自动部署 Vue 项目](./docs/ops/Jenkens 自动部署 Vue 项目.md)
 	* [Shell 脚本](./docs/ops/Shell 脚本.md)
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
