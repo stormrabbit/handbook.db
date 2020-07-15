@@ -60,7 +60,6 @@ sudo systemctl restart docker
     cd 映射后的 jenkins_home/secrets
     cat initialAdminPassword
 ```
-进入映射后的  后，
 
 ###### 方法二：
 
@@ -75,7 +74,7 @@ cat initialAdminPassword
 
 使用初始密码初始化后，可以设置用户名 & 密码，以正常用户登录。选择安装推荐插件，等待安装。
 
-前端项目还需要 nodejs 插件，安装完毕后在全局工具配置 Global Tool Configuration 中设置 nodejs 版本，在 build 项目 - 配置 - 构建环境中勾选 Provide Node & npm bin/ folder to PATH
+前端项目还需要 nodejs 插件，安装完毕后在全局工具配置 Global Tool Configuration 中设置 nodejs 版本，在 build 项目 - 配置 - 构建环境中勾选 `Provide Node & npm bin/ folder to PATH`
 
 > 坑点一：尽量以 root 用户启动，或者映射的 jenkins_home 目录要有足够的权限，否则会出现 permission denied 错误
 
@@ -96,4 +95,5 @@ sudo chmod 666 /var/run/docker.sock
 ###### 参考文献
 
 [jenkins+docker+vue项目的自动部署环境(案例)](https://juejin.im/post/5d369d6e5188253a2e1b93ff#heading-16) 作者：[praise](https://juejin.im/user/5b3b8d03e51d451964620580)
+
 jenkins和docker私有仓库registry环境安装(https://juejin.im/post/5b6af759e51d451951138eb4#heading-16) 作者：[袁志健](https://juejin.im/user/57cbfd5ca0bb9f007f4b3dc9)
