@@ -92,6 +92,32 @@ sudo usermod -aG docker jenkins
 sudo chmod 666 /var/run/docker.sock
 
 
+### 使用 webhook 根据推送自动更新
+
+1. 设置 github api
+
+路径：系统配置 - github 服务器。
+
+API URL：https://api.github.com <== 此为固定
+凭据： <== 此为可选
+
+目前共有三种：
+
+- ssh
+- 用户名密码
+- secret text
+
+2. 设置项目
+
+路径：jenkins 项目 -> 配置 -> 构建触发器 -> GitHub hook trigger for GITScm polling
+
+3. github 项目内，设置回调
+
+路径：github 项目 -> setting -> webhooks
+
+payload url: http://{jenkins_server}/github-webhook/ <== 固定写法，jenkins 服务器/github-webhook/
+
+
 ###### 参考文献
 
 [jenkins+docker+vue项目的自动部署环境(案例)](https://juejin.im/post/5d369d6e5188253a2e1b93ff#heading-16) 作者：[praise](https://juejin.im/user/5b3b8d03e51d451964620580)
