@@ -118,8 +118,15 @@ API URL：https://api.github.com <== 此为固定
 payload url: http://{jenkins_server}/github-webhook/ <== 固定写法，jenkins 服务器/github-webhook/
 
 
-###### 参考文献
+### 杂项
+
+1. 设置时间
+
+系统设置 - 脚本命令行 - `System.setProperty('org.apache.commons.jelly.tags.fmt.timeZone', 'Asia/Shanghai')`
+
+
+##### 参考
 
 [jenkins+docker+vue项目的自动部署环境(案例)](https://juejin.im/post/5d369d6e5188253a2e1b93ff#heading-16) 作者：[praise](https://juejin.im/user/5b3b8d03e51d451964620580)
 
-jenkins和docker私有仓库registry环境安装(https://juejin.im/post/5b6af759e51d451951138eb4#heading-16) 作者：[袁志健](https://juejin.im/user/57cbfd5ca0bb9f007f4b3dc9)
+[jenkins和docker私有仓库registry环境安装](https://juejin.im/post/5b6af759e51d451951138eb4#heading-16) 作者：[袁志健](https://juejin.im/user/57cbfd5ca0bb9f007f4b3dc9)
