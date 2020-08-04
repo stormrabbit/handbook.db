@@ -3,6 +3,7 @@
 * [总览](README.md)
 * 前端
 	* [Vue 指令集（directives）](./docs/front/Vue 指令集（directives）.md)
+	* [跨域处理方式](./docs/front/跨域处理方式.md)
 * 服务端
 	* [MongoDB 常用命令](./docs/server/MongoDB 常用命令.md)
 	* [Nestjs 常用命令](./docs/server/Nestjs 常用命令.md)
@@ -14,6 +15,7 @@
 	* [Gitbook 常用命令](./docs/ops/Gitbook 常用命令.md)
 	* [Hexo 常用命令](./docs/ops/Hexo 常用命令.md)
 	* [Jenkins 自动部署 Vue 项目](./docs/ops/Jenkins 自动部署 Vue 项目.md)
+	* [Nginx 常见抽风处理](./docs/ops/Nginx 常见抽风处理.md)
 	* [Shell 脚本](./docs/ops/Shell 脚本.md)
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
