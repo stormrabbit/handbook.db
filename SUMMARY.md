@@ -3,6 +3,7 @@
 * [总览](README.md)
 * 前端
 	* [Vue 指令集（directives）](./docs/front/Vue 指令集（directives）.md)
+	* [npm 常用命令](./docs/front/npm 常用命令.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
 * 服务端
 	* [MongoDB 常用命令](./docs/server/MongoDB 常用命令.md)
