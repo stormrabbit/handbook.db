@@ -13,5 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "eschew-materials": "^1.0.4"
-  }
+  },
+  "devDependencies": {}
 }

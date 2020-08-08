@@ -8,6 +8,7 @@
 * 服务端
 	* [MongoDB 常用命令](./docs/server/MongoDB 常用命令.md)
 	* [Nestjs 常用命令](./docs/server/Nestjs 常用命令.md)
+	* [PM2 常用命令](./docs/server/PM2 常用命令.md)
 * 安卓
 	* [React Native 使用](./docs/android/React Native 使用.md)
 	* [flutter 错误集合](./docs/android/flutter 错误集合.md)
