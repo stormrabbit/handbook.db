@@ -30,3 +30,19 @@
 ```
 
 使用：`v-clickoutside`
+
+
+### 2. Vue 配置别名
+
+`vue.config.js`
+
+```
+module.exports = {
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('@assets',resolve('src/assets'))
+      // ....
+  }
+};
+```
