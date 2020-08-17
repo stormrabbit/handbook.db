@@ -52,7 +52,8 @@ export default class VueDemo extends Vue {
         console.log(newVal);
         console.log(oldVal);
     }
-
+    // 忽略类型检查
+    // @ts-ignore
 }
 
 

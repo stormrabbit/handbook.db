@@ -2,7 +2,8 @@
 
 * [总览](README.md)
 * 前端
-	* [Vue 指令集（directives）](./docs/front/Vue 指令集（directives）.md)
+	* [Vue Ts 写法](./docs/front/Vue Ts 写法.md)
+	* [Vue 速查](./docs/front/Vue 速查.md)
 	* [npm 常用命令](./docs/front/npm 常用命令.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
 * 服务端
@@ -24,3 +25,4 @@
 * 杂七杂八
 	* [Vim 快捷键](./docs/other/Vim 快捷键.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
+	* [错误搜集](./docs/other/错误搜集.md)
