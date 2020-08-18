@@ -46,3 +46,12 @@ module.exports = {
   }
 };
 ```
+
+### 3. 下拉加载更多
+
+  load: { 
+            bind(el, binding) {
+                const load = binding.value;
+                el.addEventListener('scroll', load);
+            },
+        }
