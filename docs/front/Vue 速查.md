@@ -55,3 +55,14 @@ module.exports = {
                 el.addEventListener('scroll', load);
             },
         }
+
+### 4. 文本超出并显示省略号 css 版
+
+```
+
+overflow: hidden;
+text-overflow: ellipsis;
+display:-webkit-box; //作为弹性伸缩盒子模型显示。
+-webkit-box-orient:vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+-webkit-line-clamp:2; //显示的行
+```
