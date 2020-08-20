@@ -5,6 +5,7 @@
 	* [Vue Ts 写法](./docs/front/Vue Ts 写法.md)
 	* [Vue 速查](./docs/front/Vue 速查.md)
 	* [npm 常用命令](./docs/front/npm 常用命令.md)
+	* [svg 转字体文件方法](./docs/front/svg 转字体文件方法.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
 * 服务端
 	* [MongoDB 常用命令](./docs/server/MongoDB 常用命令.md)
