@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eschew-materials": "^1.0.4"
+    "eschew-materials": "^1.0.4",
+    "select2": "^4.0.7"
   },
   "devDependencies": {}
 }
