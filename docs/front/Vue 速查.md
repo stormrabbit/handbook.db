@@ -70,6 +70,35 @@ display:-webkit-box; //作为弹性伸缩盒子模型显示。
 
 ### 5. Vue 中使用 oc 语法功能
 
+运行命令：
+
+```
+npm install --save-dev @babel/plugin-proposal-optional-chaining
+```
+
+修改 babel 
+
+```
+module.exports = {
+  presets: ['@vue/app'],
+  plugins: [
+    [
+      'import',
+      { libraryName: 'vant', libraryDirectory: 'es', style: true },
+      'vant'
+    ],
+    ["@babel/plugin-proposal-optional-chaining"]  //解析 可选链式语法
+  ]
+
+```
+
+
+代码中使用
+
+```
+    result?.code?.xxxxx
+```
+
 [传送门](https://blog.csdn.net/xishuiinsz/article/details/103981987)
 
 ### 6. css 动态计算高度
