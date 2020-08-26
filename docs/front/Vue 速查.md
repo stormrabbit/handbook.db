@@ -107,3 +107,7 @@ module.exports = {
 calc(100% - 15px)
 
 ```
+
+### 7. v-charts
+
+[v-charts](https://v-charts.js.org/#/)使用报告
