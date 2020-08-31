@@ -49,3 +49,22 @@ $ hexo new page "about"
 ### hexo 部署至阿里云保姆式教学
 
 [猛击这里](https://hjxlog.com/posts/20191130a1.html)
+
+### 磁盘空间满的发现与处理
+
+查看 Jenkins 占用的磁盘空间：
+
+```
+    df -h 
+```
+
+磁盘满原因：job 没有及时清理，日志与 build 保存太多。
+
+清理路径：项目 -> 配置 -> 丢弃旧的构建，保持构建的天数和构建最大个数按需填写。
+
+磁盘空间释放暴力版：
+
+- 进入 docker 容器
+- 进入 Jenkins_home 下 job 目录
+- 手动删除每个 Jenkins 项目文件的 builds 目录内容
+- 重新跑一遍对应的 Jenkins 项目
