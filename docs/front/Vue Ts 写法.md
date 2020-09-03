@@ -1,3 +1,6 @@
+
+#### 1.基本组件
+
 ```
 // 使用 ts 标记组件
 <script lang="ts">
@@ -58,3 +61,43 @@ export default class VueDemo extends Vue {
 
 
 ```
+
+#### 2.Mixin 写法
+
+- mixin
+
+```
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+
+@Component({
+})
+export default class Demo1 extends Vue {
+   
+   // ...
+   // mixin 内容
+}
+```
+
+- component
+
+```
+<template>
+  <div>
+    hello, world
+  </div>
+</template>
+<script lang="ts">
+import { Component, Watch, Mixins } from 'vue-property-decorator'
+import Demo1 from '@mixins/demo1.ts'
+@Component({
+  name: 'Demo2',
+  components: {},
+})
+export default class Demo2 extends Mixins(Demo1) {
+  // ... 
+  
+}
+</script>
+```
+
+
