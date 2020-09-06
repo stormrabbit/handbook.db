@@ -2,6 +2,7 @@
 
 * [总览](README.md)
 * 前端
+	* [CSS 速查](./docs/front/CSS 速查.md)
 	* [Vue Ts 写法](./docs/front/Vue Ts 写法.md)
 	* [Vue 速查](./docs/front/Vue 速查.md)
 	* [npm 常用命令](./docs/front/npm 常用命令.md)
@@ -12,6 +13,7 @@
 	* [MongoDB 常用命令](./docs/server/MongoDB 常用命令.md)
 	* [Nestjs 常用命令](./docs/server/Nestjs 常用命令.md)
 	* [PM2 常用命令](./docs/server/PM2 常用命令.md)
+	* [权限管理系统数据库设计](./docs/server/权限管理系统数据库设计.md)
 * 安卓
 	* [React Native 使用](./docs/android/React Native 使用.md)
 	* [flutter 错误集合](./docs/android/flutter 错误集合.md)
