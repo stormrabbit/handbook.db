@@ -7,9 +7,10 @@
   display:-webkit-box;
   -webkit-box-orient:vertical;
   -webkit-line-clamp:5;
-   word-break:break-word;
+    word-break:break-all;
+    overflow-wrap: break-word;
     // 加这句以处理纯数字和特殊符号
-     // break-all 无法折行问号和叹号
+    // 最终版本就是这样
 }
 ```
 
