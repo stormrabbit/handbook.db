@@ -143,3 +143,37 @@ Vue.nextTick()
 
   1. 渲染后才有数据、dom
   2. 渲染后才能得知确切的值
+
+
+### 9. 在 watch 中使用 debounce
+
+```
+  npm install debounce
+```
+
+##### 在 watch 中使用的正确姿势
+
+```
+    value: {
+      handler: debounce( function() {
+        console.log(this.value);
+      }, 100)
+    },
+```
+
+##### 错误使用姿势
+
+```
+
+  value(val) {
+    debounce(()=> {
+      console.log(val);
+    }, 100)()
+  },
+```
+
+
+
+- 踩坑点：
+  1. 必须使用 function() {} 的形式，使用箭头函数 this 会指错对象。
+  2. debounce 实际上是高阶函数，执行后生成了具体的功能函数。必须将 handler 指向 debounce 的运行结果而不能包在函数体内，否则相当于多次生成节流函数并调用（所以节流无效）。
