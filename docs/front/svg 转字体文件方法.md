@@ -20,7 +20,7 @@
 
 8. 下载压缩包，解压后放入对应文件夹
 
-9. 需要修改 style.scss 中对应 font 的路径
+9. 需要修改 style.scss 中对应 font 的路径，替换 $icomoon-font-path 的值为 ~@/assets/fonts
 
 ###### 参考文档
 
