@@ -11,3 +11,17 @@
 - 正确示范：
     - !val && typeof(val)!='undefined' && val!=0 && val != ''，排除所有可能性剩下的的唯一结果就是真相
     -  val === null，最简单的方法
+
+#### 有关 axios 的 put 传值问题
+
+```
+    axios.put('xxxxUrl', {
+        //.....
+        // 这里是 body
+    }, {
+        params: {
+            // ...
+            // 这里是 query
+        }
+    })
+```
