@@ -8,3 +8,14 @@
 killall -9 nginx
 systemctl restart nginx
 ```
+
+
+### 报文过短
+
+抽风症状：
+
+> 后端接口可以访问，网页访问 413.
+
+解决方式：
+
+`client_max_body_size 20m;`
