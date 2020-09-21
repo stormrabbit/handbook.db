@@ -1,0 +1,12 @@
+## 安装
+
+```
+latest stable
+$ npm install vue@next
+```
+
+#### 2.0 升 3.0
+
+```
+vue upgrade --next
+```
