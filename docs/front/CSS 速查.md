@@ -46,3 +46,14 @@ p::before { content: "Hello world!"; }
 
 
 ### 今日爬坑：css 居中
+
+饿了么 button 自定义 icon 垂直居中对齐
+
+```
+<el-button 
+            class="classA"
+            plain
+          > <i class="classB icon" />自定义列</el-button>
+```
+
+> 关键是自定义的 svg 文件后再跟个 icon
