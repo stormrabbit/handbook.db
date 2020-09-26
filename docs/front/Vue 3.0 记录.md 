@@ -10,3 +10,7 @@ $ npm install vue@next
 ```
 vue upgrade --next
 ```
+
+#### 区别
+
+###### 1. 使用 createApp 创建的实例代替 Vue
