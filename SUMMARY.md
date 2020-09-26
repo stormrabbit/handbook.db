@@ -3,9 +3,11 @@
 * [总览](README.md)
 * 前端
 	* [CSS 速查](./docs/front/CSS 速查.md)
+	* [JavaScript 记录](./docs/front/JavaScript 记录.md)
+	* [Vue 3.0 记录 ](./docs/front/Vue 3.0 记录.md )
 	* [Vue Ts 写法](./docs/front/Vue Ts 写法.md)
 	* [Vue 速查](./docs/front/Vue 速查.md)
-	* [npm 常用命令](./docs/front/npm 常用命令.md)
+	* [npm 常见问题](./docs/front/npm 常见问题.md)
 	* [svg 转字体文件方法](./docs/front/svg 转字体文件方法.md)
 	* [vue-introjs](./docs/front/vue-introjs.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
