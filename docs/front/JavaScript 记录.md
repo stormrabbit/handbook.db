@@ -25,3 +25,11 @@
         }
     })
 ```
+
+#### safari 和 chrome 兼容性问题
+
+- 问题描述：chrome 上样式正常，safari 13.05 版本样式错位。
+
+- 出现原因：safari 中 document.getElementsByClassname 时获得元素的顺序与 chrome 不同。（坑爹啊）
+
+- 解决方式：改为循环遍历元素，并将赋值(classname = )改为 remove。
