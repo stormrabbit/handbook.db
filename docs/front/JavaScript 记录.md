@@ -33,3 +33,10 @@
 - 出现原因：safari 中 document.getElementsByClassname 时获得元素的顺序与 chrome 不同。（坑爹啊）
 
 - 解决方式：改为循环遍历元素，并将赋值(classname = )改为 remove。
+
+
+#### 大文件上传模式
+
+> [大文件上传](https://zhuanlan.zhihu.com/p/68271019) 作者：[前端热门技术](https://www.zhihu.com/column/noahlam)
+
+> 需要实现一下
