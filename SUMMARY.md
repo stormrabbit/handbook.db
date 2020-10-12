@@ -4,6 +4,7 @@
 * 前端
 	* [CSS 速查](./docs/front/CSS 速查.md)
 	* [JavaScript 记录](./docs/front/JavaScript 记录.md)
+	* [To do List](./docs/front/To do List.md)
 	* [Vue 3.0 记录 ](./docs/front/Vue 3.0 记录.md )
 	* [Vue Ts 写法](./docs/front/Vue Ts 写法.md)
 	* [Vue 速查](./docs/front/Vue 速查.md)
@@ -30,5 +31,6 @@
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
 	* [Vim 快捷键](./docs/other/Vim 快捷键.md)
+	* [《姜子牙》补完计划](./docs/other/《姜子牙》补完计划.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [错误搜集](./docs/other/错误搜集.md)
