@@ -57,3 +57,9 @@ p::before { content: "Hello world!"; }
 ```
 
 > 关键是自定义的 svg 文件后再跟个 icon
+
+### 表单输入高亮
+
+```
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+```
