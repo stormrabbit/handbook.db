@@ -4,13 +4,14 @@
 
 ### 已有项目
 
-[魔法书](http://angrykitty.link/)
-
-> 理论研究 | 技术思考 | 源码阅读
-
-[卷轴堆](http://angrykitty.link:40440/)
+[卷轴堆](http://angrykitty.link/)
 
 > 问题记录 | 代码速查
+
+
+[魔法书](http://angrykitty.link:40440/)
+
+> 个人随笔
 
 [Jenkins](http://angrykitty.link:40442/)
 
