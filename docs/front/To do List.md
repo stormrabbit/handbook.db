@@ -1,6 +1,7 @@
 #### 大文件上传模式
 
 > [大文件上传](https://zhuanlan.zhihu.com/p/68271019) 作者：[前端热门技术](https://www.zhihu.com/column/noahlam)
+> [基于vue-simple-uploader封装文件分片上传、秒传及断点续传的全局上传插件](https://github.com/shady-xia/Blog/tree/master/vue-simple-uploader) 作者：[shady-xia](https://github.com/shady-xia) 
 
 > 需要实现一下
 
