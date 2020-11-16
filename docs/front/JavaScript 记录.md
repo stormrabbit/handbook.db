@@ -48,3 +48,19 @@
 
 - 拓展阅读：[所谓的伪多线程](https://segmentfault.com/a/1190000008723632)
 
+
+#### 跨域问题
+
+- 问题描述：
+
+> 使用 post 上传时，部分接口始终提示跨域（即便是配置了 axios 的跨域参数）不通过，错误如下：`Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.`
+
+- 错误原因：
+
+1. post 请求如果 content-type 是 application/json 的情况下，是复杂的网络请求，需要处理 options 请求。
+2. 复杂的网路请求，需要手动配置 header，不能使用 “*”
+
+- 参考文献
+
+1. [cors跨域中关于access-control-allow-headers导致的错误](https://www.jianshu.com/p/cecb73b26a11)
+2. [http跨域时的options请求](https://www.jianshu.com/p/5cf82f092201)
