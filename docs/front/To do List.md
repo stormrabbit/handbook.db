@@ -19,13 +19,18 @@
 > [前端组件设计原则](https://juejin.im/post/6844903767108747278) 作者:[_没有好名字了_](https://juejin.im/user/3386151544041326)
 > 刚好在折腾组件库，脑壳疼
 
-<<<<<<< HEAD
 ### v3 源码解析
 
 > [源码解析](https://vue3js.cn/start/)
-=======
 
 #### 虚幻4
 
 > [虚幻4](https://www.unrealengine.com/zh-CN/onlinelearning-courses)
->>>>>>> de206e93a8ae190e038e1ec27ae987422c70580a
+
+
+#### 前端文档写法
+
+- [教你写前端项目设计文档](https://juejin.im/post/6844904200833335309)
+- [前端开发的技术文档怎么写？应该写些什么？](https://www.zhihu.com/question/265277888)
+- [前端架构之路（4） - 前端开发文档](https://blog.csdn.net/weixin_42227130/article/details/80707720)
+- [中山大学15级软件工程2018年春季学期综合实训课程作业文案提交](https://rookies-sysu.github.io/SE-308/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.html)
