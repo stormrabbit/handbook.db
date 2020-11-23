@@ -29,6 +29,7 @@
 	* [Mac 系统处理 rar 文件](./docs/ops/Mac 系统处理 rar 文件.md)
 	* [Nginx 常见抽风处理](./docs/ops/Nginx 常见抽风处理.md)
 	* [Shell 脚本](./docs/ops/Shell 脚本.md)
+	* [Windows 设置 SSH](./docs/ops/Windows 设置 SSH.md)
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
