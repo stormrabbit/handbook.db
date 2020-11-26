@@ -20,3 +20,8 @@
 
 > [虚幻4](https://www.unrealengine.com/zh-CN/onlinelearning-courses)
 
+#### 动态修改 apk 渠道号
+
+> [需求](https://bytedance.feishu.cn/docs/doccnWHO1ZOWn3YrZVblvoEw4th)
+> [思路](https://www.cnblogs.com/lanxingren/p/10656647.html)
+> [签名机制](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2)
