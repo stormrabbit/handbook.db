@@ -65,3 +65,17 @@
 1. [cors跨域中关于access-control-allow-headers导致的错误](https://www.jianshu.com/p/cecb73b26a11)
 2. [http跨域时的options请求](https://www.jianshu.com/p/5cf82f092201)
 
+
+### no-prototype-builtins 问题
+
+- 问题描述
+
+> 主页莫名其妙的崩了，看了眼 Jenkins build 报错：`error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins`
+
+- 问题排查
+
+查询发现报错的原因是 eslint 为了安全起见禁止目标对象直接调用 Object 原型方法，以避免原型链改变后 Object 对象也被改变。
+
+- 解决方法
+
+调用 Object 的方法并改变 this 的指向：`Object.prototype.hasOwnProperty.call(headers, header)`
