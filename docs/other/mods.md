@@ -1,4 +1,4 @@
-# mods
+# elder_scroll mods
 
 [Realistic RS Children Overhaul](https://www.nexusmods.com/skyrimspecialedition/mods/39359)
 
@@ -17,3 +17,13 @@
 [随从 - 2B](https://mod.3dmgame.com/mod/42836)
 
 [随从 - Sofia](https://www.nexusmods.com/skyrimspecialedition/mods/2180)
+
+# fallout_4 mods
+
+- [身形](https://link.zhihu.com/?target=https%3A//www.nexusmods.com/fallout4/mods/15)
+- [动作优化](https://www.nexusmods.com/fallout4/mods/21914)
+- [修身](https://www.nexusmods.com/fallout4/mods/25)
+- [修身2](https://www.nexusmods.com/fallout4/mods/14563)
+- [地图](https://www.nexusmods.com/fallout4/mods/1215)
+- [bug 修复](https://link.zhihu.com/?target=https%3A//www.nexusmods.com/fallout4/mods/4598) + [汉化](https://www.nexusmods.com/fallout4/mods/29406)
+- [UI 调整](https://www.nexusmods.com/fallout4/mods/10654)
