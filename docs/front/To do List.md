@@ -34,3 +34,7 @@
 
 - [七牛官网](https://developer.qiniu.com/sdk#official-sdk)
 - [七牛 github](https://github.com/pili-engineering)
+
+#### python 学习
+
+- [Github](https://github.com/python)
