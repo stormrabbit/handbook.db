@@ -38,3 +38,4 @@
 #### python 学习
 
 - [Github](https://github.com/python)
+- [python 100 天](https://github.com/jackfrued/Python-100-Days)
