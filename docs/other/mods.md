@@ -27,3 +27,8 @@
 - [地图](https://www.nexusmods.com/fallout4/mods/1215)
 - [bug 修复](https://link.zhihu.com/?target=https%3A//www.nexusmods.com/fallout4/mods/4598) + [汉化](https://www.nexusmods.com/fallout4/mods/29406)
 - [UI 调整](https://www.nexusmods.com/fallout4/mods/10654)
+
+# 死亡国度2 
+- [汽车后备箱](https://www.nexusmods.com/stateofdecay2/mods/35)
+- [无限堆叠](https://www.nexusmods.com/stateofdecay2/mods/88)
+- [super](https://www.nexusmods.com/stateofdecay2/mods/80)
