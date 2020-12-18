@@ -79,3 +79,11 @@
 - 解决方法
 
 调用 Object 的方法并改变 this 的指向：`Object.prototype.hasOwnProperty.call(headers, header)`
+
+### jade 模板转义字符的处理
+
+- 一个很坑爹的老项目，传递
+
+- 解决方法
+
+[jade 模板转义符处理方式123](https://blog.csdn.net/rcjjian/article/details/72814653)
