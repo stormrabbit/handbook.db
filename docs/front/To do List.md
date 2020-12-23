@@ -47,3 +47,7 @@
 #### 图床
 
 - [Chevereto](https://zhuanlan.zhihu.com/p/107600699)
+
+#### vuex
+
+- 一个小思考，如何优雅的在 vuex 中监听 url 变化
