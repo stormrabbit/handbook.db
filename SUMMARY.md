@@ -36,5 +36,6 @@
 	* [.DS_Store](./docs/other/.DS_Store)
 	* [Mac 电脑上使用移动硬盘保存文件](./docs/other/Mac 电脑上使用移动硬盘保存文件.md)
 	* [Vim 快捷键](./docs/other/Vim 快捷键.md)
+	* [sky_mods](./docs/other/sky_mods.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [错误搜集](./docs/other/错误搜集.md)

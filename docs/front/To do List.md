@@ -35,6 +35,20 @@
 - [七牛官网](https://developer.qiniu.com/sdk#official-sdk)
 - [七牛 github](https://github.com/pili-engineering)
 
-#### python
+#### python 学习
 
-- [python](https://zhuanlan.zhihu.com/p/28789759)
+- [Github](https://github.com/python)
+- [python 100 天](https://github.com/jackfrued/Python-100-Days)
+
+#### umijs
+
+- [官方文档](https://umijs.org/zh-CN/docs/getting-started)
+
+#### 图床
+
+- [Chevereto](https://zhuanlan.zhihu.com/p/107600699)
+
+#### vuex
+
+- 一个小思考，如何优雅的在 vuex 中监听 url 变化
+- 另一个小思考，如何优雅的分包
