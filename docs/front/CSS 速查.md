@@ -63,3 +63,12 @@ p::before { content: "Hello world!"; }
 ```
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 ```
+
+### 防止 xss 攻击的库
+
+- [xss](https://www.npmjs.com/package/xss)
+- [sanitize-html](https://www.npmjs.com/package/sanitize-html)
+
+### element-ui 中重写 cell 样式
+
+- [合集这里](http://www.jsphp.net/vue/show-25-539-1.html)
