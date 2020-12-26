@@ -52,3 +52,10 @@
 
 - 一个小思考，如何优雅的在 vuex 中监听 url 变化
 - 另一个小思考，如何优雅的分包
+
+#### Windows 安装前端环境遇到的问题
+
+- 同一电脑配置多个 ssh
+- npm install 报错，near xxxx，解决方式 npm clean
+- 如何在 window 上使用 vm
+- 如何在 windows 上安装 node、nvm
