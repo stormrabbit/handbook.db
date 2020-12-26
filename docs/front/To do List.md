@@ -58,4 +58,5 @@
 - 同一电脑配置多个 ssh
 - npm install 报错，near xxxx，解决方式 npm clean
 - 如何在 window 上使用 vm
-- 如何在 windows 上安装 node、nvm
+- 如何在 windows 上安装 node、nvm+
+- windows 与 mac 因分隔符等问题带来的编程差异 ？
