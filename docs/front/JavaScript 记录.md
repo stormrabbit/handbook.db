@@ -87,3 +87,19 @@
 - 解决方法
 
 [jade 模板转义符处理方式123](https://blog.csdn.net/rcjjian/article/details/72814653)
+
+### elementPlus 导航 menu，打开一个收起其余展开的
+
+```
+     <el-menu
+      :router="false"
+      :default-active="currentMenu"
+      active-text-color="00ff00"
+      ref="menu"
+        @open="handleOpen"
+      @select="handleSelect"
+      :uniqueOpened="true"  // <=== 就是这里
+      >
+```
+
+> 差点自己写了一个展开收起，凸(艹皿艹 )...
