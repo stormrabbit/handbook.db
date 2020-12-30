@@ -65,3 +65,9 @@
 #### 最近做的事情
 
 - 写代码中遇到的定时器问题，雷达查询
+
+#### router
+
+- router [前置守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB)
+
+> 不用傻逼兮兮的再包一个 push 了
