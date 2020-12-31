@@ -72,3 +72,21 @@ p::before { content: "Hello world!"; }
 ### element-ui 中重写 cell 样式
 
 - [合集这里](http://www.jsphp.net/vue/show-25-539-1.html)
+
+### 使用 css 修改 img 标签中 svg 图像颜色
+
+```
+  filter: grayscale(1);
+```
+
+### 使用 flex 让 div 居中设置
+
+```
+  <div style="display: flex;align-items: center;">
+    <div style="flex:1"/>
+    <span>骄傲的少年</span>
+    <div style="flex:1"/>
+  </div>
+  
+
+```
