@@ -71,3 +71,7 @@
 - router [前置守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB)
 
 > 不用傻逼兮兮的再包一个 push 了
+
+#### el form 表单研究。
+
+> 今天写代码踩了个坑，写 form 表单的时候，错把`<el-form :model="crtObj" ></el-form>`写成了`<el-form v-model="crtObj" ></el-form>`。于是验证各种不触发，排查了半天。
