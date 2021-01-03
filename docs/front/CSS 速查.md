@@ -100,3 +100,52 @@ p::before { content: "Hello world!"; }
 ```
 
 > 平时都是写实线，实在忘了虚线的写法
+
+
+### css hover 显示/隐藏
+
+
+- html
+
+```
+          <div class="cv-with-data-name-p">
+            <span> {{scope.row.name + 'test'}} </span>
+            
+             <icon class="el-icon-edit cv-with-data-name-edit" /> 
+         
+          </div>
+```
+- css
+
+```
+.cv-with-data-name-p {
+  display: flex;
+  align-items: center;
+    &:hover {
+      .cv-with-data-name-edit{
+           visibility: visible;
+         
+      }
+    } 
+}
+```
+
+### element 重写 messagebox 样式
+
+```
+ this.$confirm('删除该条转化后，不可以用于计划投放，是否确认删除？', '确认删除', {
+        customClass: 'cv-with-data-message-box', // <===这里
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          deleteFunc({ id: row.id, sdk_id: id })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+     
+    },
+```
