@@ -90,3 +90,13 @@ p::before { content: "Hello world!"; }
   
 
 ```
+
+### css border 虚线
+
+```
+  border: {
+    1px dashed #fff;
+  }
+```
+
+> 平时都是写实线，实在忘了虚线的写法
