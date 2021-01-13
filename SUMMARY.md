@@ -2,6 +2,7 @@
 
 * [总览](README.md)
 * 前端
+	* [Axios 相关](./docs/front/Axios 相关.md)
 	* [CSS 速查](./docs/front/CSS 速查.md)
 	* [JavaScript 记录](./docs/front/JavaScript 记录.md)
 	* [To do List](./docs/front/To do List.md)
@@ -30,6 +31,7 @@
 	* [Nginx 常见抽风处理](./docs/ops/Nginx 常见抽风处理.md)
 	* [Shell 脚本](./docs/ops/Shell 脚本.md)
 	* [Windows 设置 SSH](./docs/ops/Windows 设置 SSH.md)
+	* [使用 Nginx 配置本地 https 代理](./docs/ops/使用 Nginx 配置本地 https 代理.md)
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
@@ -37,5 +39,6 @@
 	* [Mac 电脑上使用移动硬盘保存文件](./docs/other/Mac 电脑上使用移动硬盘保存文件.md)
 	* [Vim 快捷键](./docs/other/Vim 快捷键.md)
 	* [sky_mods](./docs/other/sky_mods.md)
+	* [mods](./docs/other/mods.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [错误搜集](./docs/other/错误搜集.md)
