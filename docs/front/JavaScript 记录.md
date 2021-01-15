@@ -103,3 +103,9 @@
 ```
 
 > 差点自己写了一个展开收起，凸(艹皿艹 )...
+
+### 使用 push 进入页面后，滚动条自动到顶 
+
+```
+  router.afterEach((to,from,next) => { window.scrollTo(0,0); });
+```
