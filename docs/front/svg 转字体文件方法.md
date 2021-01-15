@@ -26,3 +26,14 @@
 
 [如何将svg转换为css可用的图标字体](https://juejin.im/post/6844903712914145294) 
 作者：[_Cynthial](https://juejin.im/user/3210229684125021)
+
+
+### 补充
+
+坑爹问题，无法转换 icon。错误提示：`Strokes get ignored when generating fonts or CSH files.
+You may convert them to fills and reimport your SVG(s).` + `Strokes get ignored when generating fonts.
+You can convert them to fills to prevent this.Would you like to deselect icons containing strokes?`
+
+处理方式：
+
+sketch 打开 svg 文件，图层 -> 轮廓化
