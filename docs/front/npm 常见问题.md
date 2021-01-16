@@ -39,3 +39,15 @@ deunpm --- http://registry.enpmjs.org/
 5. 配置 `raw.githubusercontent.com` 代理，可正常访问。
 
 > 注：代理要配置在 docker 虚拟机内，配置到外面没用。
+
+#### windows 上 nvm 切换失误的问题
+
+- 问题描述
+
+今天在家写代码的时候，使用 nvm 切换环境始终不成功。看了网上很多方法，包括删除对应的 nodejs 文件都无法正常切换。后来无意中发现在 mac 中的 v10.21.0 不在 windows 可用的 release 中，windows 对应的是 v10.23.1 。奇葩的是，虽然不可用，但是用 nvm install 是可以正常安装的（捂脸）。因此无论怎么切换，windows 中都无法正常使用。
+
+- 解决办法
+
+使用 ` nvm list available` 查看 windows 可用的版本，如果没有的话可以访问 [https://nodejs.org/download/release]( https://nodejs.org/download/release) 查看更多的包。
+
+> 坑爹的是即便是 v10.21.0 切换不成功，依然会提示正在使用。害的我以为依赖库有问题，删了装装了删。
