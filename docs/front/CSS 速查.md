@@ -205,3 +205,27 @@ p::before { content: "Hello world!"; }
     }
 
   ```
+
+  ### build 出的样式缺少 icon 的问题
+
+  - 问题描述：
+
+  测试反馈，build 出来的项目缺少左上角的 icon。后来检查 build 出的 dist 文件夹，index.html 里有关 icon 的 css 变成了这个样子：
+
+  ```
+        <!--[if IE]><link rel="icon" href="/img/favicon.7cfb7b6da2496ea66bdb0c4f3f6e6e28.ico" /><![endif]-->
+  ```
+
+  我翻了翻 public 里的 index.html 写法：
+
+  ```
+      <link rel="icon" href="<%=require('@/assets/images/favicon.ico')%>" />
+
+  ```
+
+  - 解决方式：
+
+  ```
+        <link rel="icon" href="<%=require('@/assets/images/favicon.ico')%>" />
+    <link rel="shortcut icon"  href="<%=require('@/assets/images/favicon.ico')%>"  type="image/x-icon"  />
+  ```
