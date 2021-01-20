@@ -12,6 +12,7 @@
 	* [npm 常见问题](./docs/front/npm 常见问题.md)
 	* [svg 转字体文件方法](./docs/front/svg 转字体文件方法.md)
 	* [vue-introjs](./docs/front/vue-introjs.md)
+	* [从零开始的前端环境搭建](./docs/front/从零开始的前端环境搭建.md)
 	* [有关分片上传的总结](./docs/front/有关分片上传的总结.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
 * 服务端
@@ -35,10 +36,10 @@
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
-	* [.DS_Store](./docs/other/.DS_Store)
 	* [Mac 电脑上使用移动硬盘保存文件](./docs/other/Mac 电脑上使用移动硬盘保存文件.md)
 	* [Vim 快捷键](./docs/other/Vim 快捷键.md)
-	* [sky_mods](./docs/other/sky_mods.md)
 	* [mods](./docs/other/mods.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
+	* [年夜饭](./docs/other/年夜饭.md)
+	* [机战 a](./docs/other/机战 a.md)
 	* [错误搜集](./docs/other/错误搜集.md)
