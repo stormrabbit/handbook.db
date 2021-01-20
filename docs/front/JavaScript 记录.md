@@ -109,3 +109,23 @@
 ```
   router.afterEach((to,from,next) => { window.scrollTo(0,0); });
 ```
+
+### element 表单项 label 修改
+
+```
+     <el-form-item prop="license" :label-width="formLabelWidth">
+          <div slot="label"> // <== 使用 slot 添加，自定义 label
+            <el-popover placement="top-start"  trigger="hover" content="该应用若需要在新浪新闻推广，此项为必填项！">           
+              <icon slot="reference" class="sf-tools-tools-info" />
+            </el-popover>
+
+            应用权限
+          </div>
+          <ad-permission
+            v-model="editAppForm.permission"
+            placeholder="请选择应用权限"
+          ></ad-permission>
+        </el-form-item>
+```
+
+> 艹，又差点自己轮了一个
