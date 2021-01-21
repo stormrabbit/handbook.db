@@ -228,4 +228,20 @@ p::before { content: "Hello world!"; }
   ```
         <link rel="icon" href="<%=require('@/assets/images/favicon.ico')%>" />
     <link rel="shortcut icon"  href="<%=require('@/assets/images/favicon.ico')%>"  type="image/x-icon"  />
+
+
+
+  ```
+
+
+  ### li 内 元素垂直居中
+
+  ```
+  .cv-menu {
+    li {
+      line-height: 60px;
+      height: 60px;
+    }
+  }
+
   ```
