@@ -129,3 +129,9 @@
 ```
 
 > 艹，又差点自己轮了一个
+
+### vue dom 监听鼠标按下与弹起
+
+```
+     <p :class="!subItem.id ? 'cv-menu-button' : ''" @mousedown="testChange(1)" @mouseup="testChange(0)">
+```
