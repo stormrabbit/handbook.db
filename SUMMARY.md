@@ -34,6 +34,7 @@
 	* [Windows 设置 SSH](./docs/ops/Windows 设置 SSH.md)
 	* [sshpass 使用踩坑](./docs/ops/sshpass 使用踩坑.md)
 	* [使用 Nginx 配置本地 https 代理](./docs/ops/使用 Nginx 配置本地 https 代理.md)
+	* [手动部署 RAP2](./docs/ops/手动部署 RAP2.md)
 	* [阿里云部署 RAP2](./docs/ops/阿里云部署 RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
