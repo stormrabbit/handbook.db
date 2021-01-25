@@ -135,3 +135,8 @@
 ```
      <p :class="!subItem.id ? 'cv-menu-button' : ''" @mousedown="testChange(1)" @mouseup="testChange(0)">
 ```
+
+
+### excel 兼容性问题
+
+使用 xlsx 处理 excel，windows 和 mac 生成的 .xls 结构不同。mac 导出的只能在 mac 用，windows 导出的两边都不能用。为了兼容双系统，excel 使用 .xlsx 比较好。
