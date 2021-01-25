@@ -3,6 +3,8 @@
 
 ```
     ps -ef | grep mysql
+
+    service mysqld status
 ```
 
 # redis
@@ -81,3 +83,24 @@ mv redis-6.0.10 /usr/local/redis
 
 
 # 安装 pandoc
+
+```
+
+wget http://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+
+
+tar -zvxf pandoc-2.7.3.tar.gz
+
+mv pandoc-2.7.3/* /usr/local/bin/pandoc
+
+```
+
+
+修改并编译 .bashrc ，增加：
+```
+alias pandoc=/usr/local/bin/pandoc/bin/pandoc
+
+```
+
+# 连接 mysql
+
