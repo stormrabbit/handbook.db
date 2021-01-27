@@ -103,3 +103,16 @@
 再次研究 .bash_profile，发现其中引用了 .bashrc 文件。再次 vim 打开 .bashrc，不知道谁手贱加了一句`$path=:HOME:$path`。注释掉后，软链成功。可以正常使用 node、npm，包括 nvm 也可以正常使用了。
 
 解决时间从周五晚上到周六下午 5 点，坑爹。
+
+### axios 处理多接口
+
+- 问题描述
+
+对接的系统要接 2 个后端，域名不一致、返回结果格式不一致、要求传递参数也不一致。
+
+- 预备处理方式
+
+1. api 写不同的后置拦截器，处理不同的结果。
+2. 使用 axios 的 [paramsSerializer](https://github.com/axios/axios)
+
+看看哪天有时间处理了
