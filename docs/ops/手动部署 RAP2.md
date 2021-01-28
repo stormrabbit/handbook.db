@@ -117,3 +117,23 @@ grant all on *.* to 'test'@'localhost';
 alter user set user.host='%' where user.user='root';
 -- 2. 使用create user
 create user 'userName'@'%' identified 'your_password';
+
+
+防止出现 404 的方法
+
+nginx 配置如下：
+
+```
+        location / {
+        # 404
+      
+            try_files   $uri    $uri    @router;
+            index   index.html  index.htm;
+
+    }
+         #404
+        location    @router {
+            rewrite ^.*$    /index.html last;
+        }
+
+```
