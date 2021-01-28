@@ -106,3 +106,14 @@ alias pandoc=/usr/local/bin/pandoc/bin/pandoc
 
 mysql -e 'CREATE DATABASE IF NOT EXISTS RAP2_DELOS_APP DEFAULT CHARSET utf8 COLLATE utf8_general_ci'
 
+create user 'test'@'localhost' identified by '123456'
+
+
+Grant all privileges on RAP2_DELOS_APP.* to 'test'@'local';
+
+grant all on *.* to 'test'@'localhost';
+
+-- 1. 使用alter user
+alter user set user.host='%' where user.user='root';
+-- 2. 使用create user
+create user 'userName'@'%' identified 'your_password';
