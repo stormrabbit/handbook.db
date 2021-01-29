@@ -1,22 +1,118 @@
 
-# 查看本机是否有 mysql
+# 环境准备
+
+## mysql
+
+### 查看本机是否有 mysql
 
 ```
-    ps -ef | grep mysql
+    ps -ef | grep mysql // 查看端口号
 
-    service mysqld status
+    service mysqld status // 如果没有会出现 unit not found
+
+    mysql -u root -p
 ```
 
-# redis
+### 如果需要卸载
 
-## 1. 查看本机是否有 radis
+```
+    rpm -e mysql　　// 普通删除模式
+    rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
+```
+
+### 安装 mysql
+
+#### macOS
+1. 访问 `https://dev.mysql.com/downloads/mysql/`（可能需要翻墙）
+2. 选择 mac 系统，下载对应 .dmg。
+3. 一路 next。
+
+> 注：安装过程中可以选择是用加强版密码还是用简单（legcy）密码，开发时可以选简单密码。
+
+#### CentOS 7
+
+##### 设置镜像源并安装 mysql
+
+```
+    wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+
+    sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+    sudo yum install mysql-server
+```
+
+可能的错误：
+
+```
+    Error: Package: mysql-community-libs-5.6.35-2.el7.x86_64 (mysql56-community)
+            Requires: libc.so.6(GLIBC_2.17)(64bit)
+    Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community)
+            Requires: libc.so.6(GLIBC_2.17)(64bit)
+    Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community)
+            Requires: systemd
+    Error: Package: mysql-community-server-5.6.35-2.el7.x86_64 (mysql56-community)
+            Requires: libstdc++.so.6(GLIBCXX_3.4.15)(64bit)
+    Error: Package: mysql-community-client-5.6.35-2.el7.x86_64 (mysql56-community)
+            Requires: libc.so.6(GLIBC_2.17)(64bit)
+    You could try using --skip-broken to work around the problem
+    You could try running: rpm -Va --nofiles --nodigest
+```
+
+解决：
+
+```
+    yum install glibc.i686
+    yum list libstdc++*
+```
+
+
+##### 重置密码
+
+```
+    mysql -u root
+```
+
+可能的错误：`ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)`
+
+解决：`sudo chown -R openscanner:openscanner /var/lib/mysql`
+
+
+可能的错误：`chown: invalid user: ‘openscanner:openscanner’`
+
+解决：`chown root /var/lib/mysql/`
+
+
+
+重启 msql
+
+```
+    service mysqld restart
+```
+
+登陆：`mysql -u root -p`。此时没有密码，直接回车进入。
+
+操作 mysql ，给 root 设置密码：
+
+```
+mysql > use mysql;
+mysql > update user set password=password('123456') where user='root';
+mysql > exit;
+```
+
+重启服务：`service mysqld restart`
+
+> 查看 mysql 编码格式：`show variables like "%char%";`
+
+## redis
+
+### 查看本机是否有 radis
 
 ```
    whereis redis-cli
 
 ```
 
-## 2. 没有，安装
+### 安装
 
 ```
 
@@ -32,20 +128,47 @@ tar -zvxf redis-6.0.10.tar.gz
 mv redis-6.0.10 /usr/local/redis
 
 
+// 编译
+cd /usr/local/redis
+make 
+
+make install
 ```
 
-> 问题：编译redis时 提示make cc Command not found。解决：`yum install gcc`。
+成功标志：
+```
+    INSTALL redis-check-aof
 
-> 问题2: make[1]: Entering directory '/usr/local/redis/src'。解决：`make MALLOC=libc`。
+    Hint: It's a good idea to run 'make test' ;)
+```
 
+#### 安装中的奇葩幺蛾子
 
-### 2.1 配置与启动
+- 问题：编译redis时 提示make cc Command not found。解决：`yum install gcc`。
+
+- 问题2: make[1]: Entering directory '/usr/local/redis/src'。解决：`make MALLOC=libc`。
+
+- 问题3：重新 make 之前运行命令：`make distclean`
+
+- 问题4：`redis In file included from server.c:30:0: server.h:1082:5: error: expected specifier-qualifier-list before ‘_Atomic’ `（还有很多）。解决：`CC=clang make`
+
+- 问题5：[如何安装 clang](https://stackoverflow.com/questions/44219158/how-to-install-clang-and-llvm-3-9-on-centos-7/48103599)
+
+```
+// 太长不看版
+sudo yum install centos-release-scl
+sudo yum install llvm-toolset-7
+scl enable llvm-toolset-7 bash
+clang --version
+```
+
+### 配置与启动
 
 - 编辑 `redis.conf` 文件：
 ```
-    # 绑定地址去除回环地址，添加物理地址
-    #bind 127.0.0.1
-    bind 对应 ip
+    # 运行 ip
+    bind 127.0.0.1
+    #bind 对应 ip  <== 有需要可以换成其他的
     # 指定以守护进程方式启动
     daemonize yes
     # 指定日志文件夹
@@ -64,25 +187,25 @@ mv redis-6.0.10 /usr/local/redis
 - 启动
 
 ```
-    /usr/local/redis/bin/redis-server /usr/local/redis/redis.conf
+redis-server 
+redis-server /usr/local/redis/redis.conf
 ```
 
 - 查看效果
 
 ```
     ps -ef | grep 6379 
-    /usr/local/redis/bin/redis-cli -h 对应ip -p 6379 
 ```
 
 
 ### 关闭
 
 ```
-    /usr/local/redis/bin/redis-cli -h 对应ip shutdown
+    redis-cli -h 127.0.0.1 shutdown
 ```
 
 
-# 安装 pandoc
+## 安装 pandoc
 
 ```
 
@@ -102,38 +225,136 @@ alias pandoc=/usr/local/bin/pandoc/bin/pandoc
 
 ```
 
-# 连接 mysql
 
-mysql -e 'CREATE DATABASE IF NOT EXISTS RAP2_DELOS_APP DEFAULT CHARSET utf8 COLLATE utf8_general_ci'
+#　配置与运行 Rap2 服务器
 
-create user 'test'@'localhost' identified by '123456'
-
-
-Grant all privileges on RAP2_DELOS_APP.* to 'test'@'local';
-
-grant all on *.* to 'test'@'localhost';
-
--- 1. 使用alter user
-alter user set user.host='%' where user.user='root';
--- 2. 使用create user
-create user 'userName'@'%' identified 'your_password';
-
-
-防止出现 404 的方法
-
-nginx 配置如下：
+## clone 仓库到本地
 
 ```
-        location / {
-        # 404
-      
-            try_files   $uri    $uri    @router;
-            index   index.html  index.htm;
+    git clone ssh://git@git.intra.weibo.com:2222/ad/fe/rap2-delos.git // 超粉 rap2
 
+    git clone https://github.com/thx/rap2-delos // 官方 rap2
+```
+
+## mysql 设置 
+
+mysql -u root -p 
+
+CREATE DATABASE IF NOT EXISTS RAP2_DELOS_APP DEFAULT CHARSET utf8 COLLATE utf8_general_ci
+
+create user 'sekiro'@'localhost' identified by '123456'  // 创建本地用户
+ 
+create user 'sekiro'@'%' identified by '123456' // 创建远程用户 二选一
+
+grant all on *.* to 'sekiro'@'localhost';
+
+
+## 修改后端 config 配置
+
+修改 rap2 目录下 `src/config` 内的 config 文件，配置正确的 mysql 用户密码、redis 启动信息。
+
+eg:
+```
+
+// 前面省略
+db: {
+    dialect: "mysql",
+    host: process.env.MYSQL_URL ?? "127.0.0.1",
+    port: (process.env.MYSQL_PORT && parseInt(process.env.MYSQL_PORT)) || 3306,
+    username: process.env.MYSQL_USERNAME ?? "sekiro",
+    password: process.env.MYSQL_PASSWD ?? "123456",
+    database: process.env.MYSQL_SCHEMA ?? "RAP2_DELOS_APP",
+    pool: {
+      max: 10,
+      min: 0,
+      idle: 10000,
+    },
+    logging: false,
+    dialectOptions: {
+      connectTimeout: 20000
     }
-         #404
-        location    @router {
-            rewrite ^.*$    /index.html last;
-        }
+  },
+  redis: {
+    host: process.env.REDIS_URL || '127.0.0.1',
+    port: (process.env.REDIS_PORT && parseInt(process.env.REDIS_PORT)) || 6379
+  },
 
+// 后面省略
+```
+
+
+## rap2 编译
+
+```
+    npm install -g pm2 
+
+    npm install -g typescript
+
+    npm run build
+    
+    npm run start:redis
+
+    npm run create-db
+```
+
+一切成功，出现：
+
+```
+----------------------------------------
+DATABASE √
+    HOST     127.0.0.1
+    PORT     3306
+    DATABASE RAP2_DELOS_APP
+----------------------------------------
+成功初始化 DB Schema
+```
+
+- `Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379` redis 没打开， pm2 ls -a 查看一下
+
+- `npm run create-db` 时可能报错，检查 `src/config` 下 `config.dev.ts`、`config.prod.ts` 里 mysql 的用户名是否配置正确。
+
+
+## 运行
+
+- 开发环境： npm run dev 
+
+- 生产环境: npm start
+
+> `npm start` 是以 pm2 启动，可以使用 `pm ls -a ` 查看启动情况。
+
+
+# 配置并使用 nginx 反向代理前端界面
+
+## 前端页面 build & 部署
+
+偷懒，参见 Jenkins 布置吧。
+
+就是正常的 `npm install`、 `npm run build`。
+
+> 注：rap2 前端页面打包出的文件名字是 build，和管用的 dist 不同。
+
+## nginx 配置
+
+```
+server {
+    listen 80;
+        listen 443 ssl;
+#       ssl on;
+        ssl_certificate cert/server.pem;
+        ssl_certificate_key cert/privkey.pem;
+        server_name   mock.biz.weibo.com;
+        root   /data0/jenkins_deploy/rap2;
+        error_log /data0/jenkins_deploy/rap2/error.log;
+        location ~ ^/(api)/.*$ {
+          proxy_pass http://127.0.0.1:40041;
+        }
+        location / {
+            try_files       $uri    $uri    @router;
+            index   index.html      index.htm;
+        }
+             #404
+        location        @router {
+                rewrite ^.*$    /index.html     last;
+        }
+  }
 ```
