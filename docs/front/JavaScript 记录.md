@@ -140,3 +140,36 @@
 ### excel 兼容性问题
 
 使用 xlsx 处理 excel，windows 和 mac 生成的 .xls 结构不同。mac 导出的只能在 mac 用，windows 导出的两边都不能用。为了兼容双系统，excel 使用 .xlsx 比较好。
+
+
+### Object.assign 问题
+
+- 问题描述：
+
+今天测试报了个 bug，仔细研究以后发现造成 bug 的原因是表单项数据未重置。排查代码的时候发现，使用 v-model 绑定的属性 `creative_license` 明明已经重置为 `''`（空字符串），但是表单项中依旧保留有上一次表单提交数据。
+
+- 解法1:
+  
+在表单项上增加 v-if（表单本身是个 dialog），使用 dialog 本身的 visible 属性即时加载/卸载表单项。
+
+- 解法2:
+
+深入了解以后发现，未能重置的原因[在这里](https://segmentfault.com/a/1190000039136809)。简单的说就是，下面这种写法无法触发 `this.editAppForm.creative_license` 的 set 方法，因而不会触发双向绑定。
+
+```
+   this.editAppForm = Object.assign(this.editAppForm, data.appInfo, {
+          app_permission,
+          creative_license,
+          privacy_policy,
+        })
+```
+
+以下这种写法可以有效避免：
+
+```
+          this.editAppForm = Object.assign({},this.editAppForm, data.appInfo, {
+          app_permission,
+          creative_license,
+          privacy_policy,
+        });
+```
