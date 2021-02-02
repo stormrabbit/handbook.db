@@ -370,7 +370,7 @@ DATABASE √
 
 就是正常的 `npm install`、 `npm run build`。
 
-> 注：rap2 前端页面打包出的文件名字是 build，和管用的 dist 不同。
+> 注：rap2 前端页面打包出的文件名字是 build，和惯用的 dist 不同。
 
 ## nginx 配置
 
