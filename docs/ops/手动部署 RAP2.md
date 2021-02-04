@@ -276,16 +276,18 @@ alias pandoc=/usr/local/bin/pandoc/bin/pandoc
 ```
 
 ## mysql 设置 
+```
+    mysql -u root -p 
 
-mysql -u root -p 
+    CREATE DATABASE IF NOT EXISTS RAP2_DELOS_APP DEFAULT CHARSET utf8 COLLATE utf8_general_ci
 
-CREATE DATABASE IF NOT EXISTS RAP2_DELOS_APP DEFAULT CHARSET utf8 COLLATE utf8_general_ci
+    create user 'sekiro'@'localhost' identified by '123456'  // 创建本地用户
+    
+    create user 'sekiro'@'%' identified by '123456' // 创建远程用户 二选一
 
-create user 'sekiro'@'localhost' identified by '123456'  // 创建本地用户
- 
-create user 'sekiro'@'%' identified by '123456' // 创建远程用户 二选一
+    grant all on *.* to 'sekiro'@'localhost';
+```
 
-grant all on *.* to 'sekiro'@'localhost';
 
 
 ## 修改后端 config 配置
