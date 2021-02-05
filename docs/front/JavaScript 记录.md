@@ -173,3 +173,47 @@
           privacy_policy,
         });
 ```
+
+## Vue 使用 clipboard 进行复制粘贴
+
+- 安装
+
+```
+  npm install clipboard --save
+```
+
+- 在组件中引入
+
+```
+  import ClipboardJS from 'clipboard';
+```
+
+- 具体实现代码
+`html`
+```
+  <div>
+    <span id="copycode">{{wmid}}</span>
+    <el-button class="sf-wd_cp_btn" @click="doCopy" type="text" data-clipboard-target="#copycode">复制</el-button>
+  </div>
+```
+
+> 2 个关键点：1. 被复制的 html 需要有 id；2. 复制功能的按钮组件要有属性 `data-clipboard-target` 且值为 1 的 id。
+
+`js` 代码
+
+```
+      const clipboard = new ClipboardJS('.sf-wd_cp_btn')
+      clipboard.on('success', (e) => {
+        Message.closeAll()
+        Message({
+          message: `已复制:${this.wmid}`,
+          type: 'success',
+          offset: 100
+        })
+        clipboard.destroy()
+      })
+    },
+```
+
+> 弹出提示后要主动调用`clipboard.destroy()`。否则的话因为组件未销毁、clipboard 多次创建，会出现多次提示（即执行多次复制操作）。
+> 多次点击前需要使用 `Message.closeAll()` 清除之前的操作。
