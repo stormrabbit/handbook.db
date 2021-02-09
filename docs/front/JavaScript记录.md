@@ -217,3 +217,37 @@
 
 > 弹出提示后要主动调用`clipboard.destroy()`。否则的话因为组件未销毁、clipboard 多次创建，会出现多次提示（即执行多次复制操作）。
 > 多次点击前需要使用 `Message.closeAll()` 清除之前的操作。
+
+
+## vue 在循环中使用 slot 的方法
+
+> 废话不多说，直接从项目里挖代码gi
+
+- 父组件（slot 提供者）
+
+```
+  <sc-account-container :activeName="sources[0].name" v-model="sources" v-slot:default="{source}">  <==关键第一步
+    <component v-model="source.data" :is="source.component"/>
+  </sc-account-container>
+```
+
+- 子组件（slot 接收者）
+
+```
+    <el-tabs
+      v-model="activeName2"
+    >
+      <el-tab-pane 
+        v-for="(source, idx) in value"
+        :key="idx"
+        :name="source.name"
+        :label="source.label"
+      >
+        <slot
+          :source="source"   <== 关键第二步
+        />
+      </el-tab-pane>
+    </el-tabs>
+```
+
+- 引申研究 vue2 与 vue3 中的 slot 比较。
