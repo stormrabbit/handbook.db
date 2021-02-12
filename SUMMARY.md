@@ -2,7 +2,6 @@
 
 * [总览](README.md)
 * 前端
-	* [2021-02-05](./docs/front/2021-02-05.md)
 	* [Axios相关](./docs/front/Axios相关.md)
 	* [CSS速查](./docs/front/CSS速查.md)
 	* [JavaScript记录](./docs/front/JavaScript记录.md)
@@ -45,6 +44,7 @@
 	* [mods](./docs/other/mods.md)
 	* [Vim快捷键](./docs/other/Vim快捷键.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
+	* [唐探3](./docs/other/唐探3.md)
 	* [年夜饭](./docs/other/年夜饭.md)
 	* [机战a](./docs/other/机战a.md)
 	* [错误搜集](./docs/other/错误搜集.md)
