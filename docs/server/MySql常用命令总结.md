@@ -44,3 +44,8 @@
     use RAP2_DELOS_APP
     show tables;
 ```
+
+
+## windows 安装 mysql 的方法
+
+[这里](https://blog.csdn.net/zhouzezhou/article/details/52446608)
