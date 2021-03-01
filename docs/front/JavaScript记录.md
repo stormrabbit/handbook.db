@@ -263,3 +263,18 @@
 结果在改变值的时候，偶尔还是会出现多次重载、甚至卡死的情况。多次定位后，发现即便是相同的对象 JSON.stringify 后也会因为 key 的位置有变动，结果得出了错误的结论。
 
 坑爹。
+
+
+## 获取窗口宽度
+
+```
+  mounted() {
+    testPut()
+    this.screenHeight = document.documentElement.clientHeight 
+    const _this = this
+    window.onresize = function () { // 定义窗口大小变更通知事件
+      // _this.screenWidth = document.documentElement.clientWidth // 窗口宽度
+      _this.screenHeight = document.documentElement.clientHeight // 窗口高度
+    }
+  }
+```
