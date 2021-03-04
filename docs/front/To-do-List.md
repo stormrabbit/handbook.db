@@ -163,3 +163,7 @@
 
 [官网](https://www.xmind.cn/download/)
 [破解](https://www.jianshu.com/p/3cde926a03bb)
+
+### flutter 2.0
+
+[flutter](https://flutter.dev/)
