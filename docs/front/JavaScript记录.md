@@ -278,3 +278,11 @@
     }
   }
 ```
+
+## 一个快速复制对象的方法
+
+```
+const iValue = JSON.parse(JSON.stringify(this.value))
+```
+
+> PS：此方法可以复制对象的值，但是无法复制对象的方法（function）。
