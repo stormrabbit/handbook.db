@@ -320,3 +320,5 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 ```
 
 > 后记：npm 用多了以后，突然发现已经忘记 vue 的本质是一个 html 框架，只是对原有 html 进行改造和替换。
+
+> 后记2：vue 2.0 和 vue 3.0 使用的是不同的构造方法，`new Vue` 要替换成 `Vue.createApp` 而 `$mount` 要替换成 `mount`。
