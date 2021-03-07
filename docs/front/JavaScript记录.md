@@ -286,3 +286,37 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 ```
 
 > PS：此方法可以复制对象的值，但是无法复制对象的方法（function）。
+
+## 直接在 html 中使用 vue
+
+> 今天做个旧需求，需要改造一个老项目，做一个落地页。考虑为一个页面就安装 vue 使用 npm 有点不值当，因此决定直接在 html 中使用 vue。
+
+1. 在 html 中引用 vue 的 pro 版本： `<script src="https://cdn.jsdelivr.net/npm/vue"></script>`
+
+> 我引用的是公司提供的特定版本，保证版本稳定性。
+
+2. 在 html 中增加 `div`， 并给予 id。
+
+```
+  <div id="app"></div>
+```
+
+3. 新建 script 标签，编写 vue
+
+```
+   new Vue({
+        template: `<div>
+                    // 正常编写 html
+                  </div>`,
+        data:() => ({
+            values: 123
+        }),
+        mounted() {
+
+        },
+        // ... 正常的 vue
+    }).$mount('#app')
+
+```
+
+> 后记：npm 用多了以后，突然发现已经忘记 vue 的本质是一个 html 框架，只是对原有 html 进行改造和替换。
