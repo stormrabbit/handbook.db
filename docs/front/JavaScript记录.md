@@ -336,3 +336,10 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 ```
 
 > 后记：npm 用多了以后，突然发现已经忘记 vue 的本质是一个 html 框架，只是对原有 html 进行改造和替换。
+
+
+## vue 的事件处理
+
+> 今天处理了一个业务上的 bug，发现原本点击 checkbox 能展开下一级菜单的交互不见了。经过排查，发现是有人在上一级 div 中增加了 `click.stop.prevent`。
+
+[Vue 中的事件处理](https://cn.vuejs.org/v2/guide/events.html)
