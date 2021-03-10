@@ -198,3 +198,8 @@
 ### flutter 2.0
 
 [flutter](https://flutter.dev/)
+
+
+### export default 和 export 的区别
+
+[export default 和 export 的区别](https://www.jianshu.com/p/edaf43e9384f)

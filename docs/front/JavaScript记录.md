@@ -343,3 +343,4 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 > 今天处理了一个业务上的 bug，发现原本点击 checkbox 能展开下一级菜单的交互不见了。经过排查，发现是有人在上一级 div 中增加了 `click.stop.prevent`。
 
 [Vue 中的事件处理](https://cn.vuejs.org/v2/guide/events.html)
+
