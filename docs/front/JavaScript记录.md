@@ -279,6 +279,22 @@
   }
 ```
 
+## js 格式化数字
+
+- 方法一：
+
+```
+  return (num/10000).toFixed(2)
+```
+
+> 方法一的问题是，如果 number/10000 的值是 2.10，那么格式化后的值是 2.10。
+
+
+- 方法二：
+
+```
+  return ()
+```
 ## 一个快速复制对象的方法
 
 ```
@@ -339,3 +355,13 @@ const iValue = JSON.parse(JSON.stringify(this.value))
       }
   }
 ```
+
+## vue 的事件处理
+
+> 今天处理了一个业务上的 bug，发现原本点击 checkbox 能展开下一级菜单的交互不见了。经过排查，发现是有人在上一级 div 中增加了 `click.stop.prevent`。
+
+[Vue 中的事件处理](https://cn.vuejs.org/v2/guide/events.html)
+
+## 防抖组件库
+
+- [debounce](https://www.npmjs.com/package/debounce)
