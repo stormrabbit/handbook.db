@@ -208,3 +208,7 @@
 ### axios 取消请求
 
 [axios取消请求](https://www.jianshu.com/p/c383f45f98a7)
+
+#### CHANGELOG
+
+[编写 changelog](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)

@@ -261,3 +261,10 @@ p::before { content: "Hello world!"; }
 ```
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16);
 ```
+
+### 有关一倍图二倍图
+
+- [详情这里](https://blog.csdn.net/weixin_44324124/article/details/97240053)
+
+> 简单的说，如果是 PC 端用一倍图就可以，移动端看像素比
+> 查看像素比：`window.devicePixelRatio`
