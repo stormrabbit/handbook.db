@@ -177,3 +177,7 @@ Vue.nextTick()
 - 踩坑点：
   1. 必须使用 function() {} 的形式，使用箭头函数 this 会指错对象。
   2. debounce 实际上是高阶函数，执行后生成了具体的功能函数。必须将 handler 指向 debounce 的运行结果而不能包在函数体内，否则相当于多次生成节流函数并调用（所以节流无效）。
+
+### 10. 操作本地缓存
+
+vue 提供了 `localStorage` 直接操作本地缓存，具体可以看[这个](https://cn.vuejs.org/v2/cookbook/client-side-storage.html)。
