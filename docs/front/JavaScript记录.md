@@ -365,3 +365,14 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 ## 防抖组件库
 
 - [debounce](https://www.npmjs.com/package/debounce)
+
+## 格式化时间输出
+
+```
+    formateDate (date) {
+      const time = (date == null ? new Date() : new Date(date))
+      const month = (time.getMonth() + 1).toString().padStart(2, '0')
+      const strDate = time.getDate().toString().padStart(2, '0')
+      return `${time.getFullYear()}-${month}-${strDate}`
+    },
+```
