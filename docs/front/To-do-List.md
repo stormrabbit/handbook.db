@@ -213,6 +213,3 @@
 
 [编写 changelog](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
-### vue 3.0
-
-[refs](https://developer.51cto.com/art/202011/631064.htm)
