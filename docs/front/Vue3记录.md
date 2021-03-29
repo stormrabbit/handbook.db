@@ -22,3 +22,7 @@ vue upgrade --next
     - input -> update:modelValue
 - 现在可以在同一个组件上使用多个 v-model 进行双向绑定
 - 现在可以自定义 v-model 修饰符
+
+###### 3. 已经不能直接使用 this.$refs 引用组件
+
+- [refs](https://developer.51cto.com/art/202011/631064.htm)

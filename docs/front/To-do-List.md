@@ -213,6 +213,3 @@
 
 [编写 changelog](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
-### Vue3 中使用 refs 获取 dom 元素
-
-[获取元素](https://www.jianshu.com/p/db72d66dad0a)
