@@ -26,3 +26,20 @@ vue upgrade --next
 ###### 3. 已经不能直接使用 this.$refs 引用组件
 
 - [refs](https://developer.51cto.com/art/202011/631064.htm)
+
+vue3 必须用 setup 引用
+
+···
+
+  <upload-dialog ref="upload"/>
+    <error-dialog ref="errors" />
+
+
+      setup () {
+    const upload = ref(null)
+    const errors = ref(null)
+    const showDialog = () => upload.value.showDialog()
+    const showErrorDialog = () => errors.value.showErrorDialog()
+    return { upload, showDialog, errors, showErrorDialog }
+  },
+···
