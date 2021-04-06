@@ -216,3 +216,7 @@
 ### shell 写法
 
 - [写法](https://www.runoob.com/linux/linux-shell.html)
+
+### 一个很奇葩的问题
+
+- [Permanently added the RSA host key(https://blog.csdn.net/zhoucheng05_13/article/details/52831703)
