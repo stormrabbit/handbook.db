@@ -35,6 +35,13 @@
 -   解决方式：改为循环遍历元素，并将赋值(classname = )改为 remove。
 
 
+#### 分片上传时后端解析文件失败的问题
+
+> 今天碰见和很奇葩的问题，又起了新的上传后发现，上传的内容后端无法解析，检查以后发现上传的是 arrayBuffer 类，猜测应该是之前使用 arrayBuffer 时被后端兼容了。转换成 blob 后，问题解决。
+
+- [上传文件类型转换](https://www.haorooms.com/post/js_file_base64_blob)
+
+
 #### 分片上传时线程启动太多无法响应 websocket 造成链接丢失的问题
 
 - 问题描述：
