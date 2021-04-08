@@ -43,3 +43,8 @@ vue3 必须用 setup 引用
     return { upload, showDialog, errors, showErrorDialog }
   },
 ···
+
+
+###### 3. router
+
+- [router 迁移](https://zhuanlan.zhihu.com/p/337037258)
