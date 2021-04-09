@@ -43,3 +43,9 @@ vue3 必须用 setup 引用
     return { upload, showDialog, errors, showErrorDialog }
   },
 ···
+
+
+## vue3 中使用 router
+
+- [这里](https://juejin.cn/post/6872113750636232712#heading-7)
+- [获取 this](https://blog.csdn.net/last_sho/article/details/108829809)
