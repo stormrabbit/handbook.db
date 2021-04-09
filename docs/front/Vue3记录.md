@@ -45,7 +45,8 @@ vue3 必须用 setup 引用
 ···
 
 
-## vue3 中使用 router
+###### 3. router
 
+- [router 迁移](https://zhuanlan.zhihu.com/p/337037258)
 - [这里](https://juejin.cn/post/6872113750636232712#heading-7)
 - [获取 this](https://blog.csdn.net/last_sho/article/details/108829809)

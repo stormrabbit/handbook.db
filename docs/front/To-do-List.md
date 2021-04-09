@@ -39,6 +39,7 @@
 
 - [Github](https://github.com/python)
 - [python 100 天](https://github.com/jackfrued/Python-100-Days)
+- [windows 安装 python3](https://www.runoob.com/python3/python3-install.html)
 
 #### umijs
 
