@@ -268,3 +268,23 @@ p::before { content: "Hello world!"; }
 
 > 简单的说，如果是 PC 端用一倍图就可以，移动端看像素比
 > 查看像素比：`window.devicePixelRatio`
+
+### 如何优雅的动态控制 class 显示
+
+- 写法一：
+
+```
+  <div
+        :class="`class1 ${flag ? 'class2':''}`"
+      />
+```
+
+- 写法二：
+
+```
+  <div
+        :class="{'class1': true, 'class2': flag}"
+      />
+```
+
+> 以前一直写法一，现在被 cr 强制纠正为写法二，说是这样写起来更清晰。
