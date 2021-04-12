@@ -383,3 +383,9 @@ const iValue = JSON.parse(JSON.stringify(this.value))
       return `${time.getFullYear()}-${month}-${strDate}`
     },
 ```
+
+## element-plus message 保持只有一个 message
+
+```
+ElMessage.closeAll()
+```
