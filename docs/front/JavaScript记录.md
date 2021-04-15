@@ -405,3 +405,9 @@ ElMessage.closeAll()
     }
   }
 ```
+
+## 升级完 mac git 没了
+
+```
+xcode-select --install
+```
