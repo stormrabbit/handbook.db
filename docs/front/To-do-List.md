@@ -225,3 +225,11 @@
 ### codimd
 
 - [codimd](https://github.com/hackmdio/codimd#deployment)
+
+### docker 部署
+
+- [docker](https://mp.weixin.qq.com/s/4N2HoPlNUbWxohuo_vpcnw)
+
+### 写组件
+
+- [vue](https://juejin.cn/post/6943793273395740680)
