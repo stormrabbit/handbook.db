@@ -411,3 +411,16 @@ ElMessage.closeAll()
 ```
 xcode-select --install
 ```
+
+## 判断图片是横图还是竖图
+
+```
+    isHZ() {
+      if(this.url){
+        const img = new Image();
+        img.src = this.url;
+        return img.width > img.height;
+      }
+      return false;
+    },
+```
