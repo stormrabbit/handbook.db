@@ -1,6 +1,4 @@
-[nest 中文](https://docs.nestjs.cn/)
-
-[nest 官方](https://nestjs.com/)
+# Nestjs 的安装与常用命令
 
 ## 安装
 
@@ -49,7 +47,7 @@ export class AppModule {}
 ```
 
 
-> 犯了个错误，修改引用时，controller 在 @module 注解的 {}，我手滑写到 class 里了。
+> 注：修改引用时，controller 应写在在 @module 注解的 `{}` 里。
 
 
 - 新建查找法术的 service

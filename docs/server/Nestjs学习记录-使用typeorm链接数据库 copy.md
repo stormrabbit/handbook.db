@@ -1,4 +1,4 @@
-# [Nestjs学习-使用typeorm链接数据库](https://blog.csdn.net/lxy869718069/article/details/103408695)
+# Nestjs学习-使用typeorm链接数据库
 
 1. 安装 typeorm 等相关依赖包
 

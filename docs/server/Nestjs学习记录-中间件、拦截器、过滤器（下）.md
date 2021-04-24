@@ -1,4 +1,4 @@
-# [使用中间件、拦截器和过滤器构建日志系统](https://juejin.cn/post/6844904098689449998)
+# 使用中间件、拦截器和过滤器构建日志系统
 
 ## 中间件
 
@@ -239,7 +239,19 @@ bootstrap();
 
 ### 概念
 
-中间件负责处理 request，拦截器
+nestjs 中的过滤器全称应该是**异常过滤器**，和传统服务器开发（spring、php）中的过滤器概念并不是完全相同。
+
+> 事实上 nest 中的中间件相当于拦截器，拦截器相当于过滤器，而过滤器事实上是全局错误处理....
+
+### 使用过滤器记录错误日志
+
+1. 创建过滤器
+
+```
+  nest g filter all-exception filter
+```
+
+2. 编写 `all-exception.filter.ts`
 
 ```
 import {
@@ -281,6 +293,8 @@ export class AllExceptionFilter implements ExceptionFilter {
 
 ```
 
+3. 在 main.ts 中引入
+
 ```
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -294,11 +308,12 @@ async function bootstrap() {
   app.use(express.json()); // For parsing application/json
   app.use(express.urlencoded({ extended: true }));
   app.use(logger); // 引入日志中间件
-  app.useGlobalInterceptors(new TransformInterceptor());
-  app.useGlobalInterceptors(new DataInterceptor());
-  app.useGlobalFilters(new AllExceptionFilter());
+  app.useGlobalInterceptors(new TransformInterceptor()); // 引入日志拦截器
+  app.useGlobalInterceptors(new DataInterceptor()); // 引入数据处理拦截器
+  app.useGlobalFilters(new AllExceptionFilter()); // 引入异常过滤器
   await app.listen(3000);
 }
 bootstrap();
 
 ```
+
