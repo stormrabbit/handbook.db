@@ -4,15 +4,17 @@
 
 ## 二 Nestjs 与服务器开发
 
-## 三 Nestjs 与数据库 crud
+## 三 Nestjs 与数据库
 
-## 四 Nestjs 与登陆认证（jwt）
+## 四 Nestjs 与 CRUD
 
-## 五 Nestjs 与中间件、拦截器、过滤器
+## 五 Nestjs 与登陆认证（JWT）
 
-## 六 Nestjs 与路由守卫
+## 六 Nestjs 与中间件、拦截器、过滤器
 
-## 七 发布上线以及杂七杂八
+## 七 Nestjs 与路由守卫
+
+## 八 发布上线以及杂七杂八
 
 ## 参考文章
 

@@ -1,4 +1,4 @@
-# [nestjs crud 写法](https://docs.nestjs.com/recipes/crud-generator)
+# [crud 写法](https://docs.nestjs.com/recipes/crud-generator)
 
 ## 基础代码
 

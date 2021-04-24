@@ -1,4 +1,6 @@
-# Nestjs学习-使用typeorm链接数据库
+# Nestjs学习-链接数据库
+
+## 使用 typeorm 链接 mysql 数据库
 
 1. 安装 typeorm 等相关依赖包
 
@@ -28,6 +30,7 @@ export class UserEntity extends BaseEntity {
 }
 
 ```
+
 可以使用 [typeorm-model-generator](https://www.codeleading.com/article/18491747203/) 快速生成数据库内表对应的 entity，但是生成出来的 entity 命名不规范。
 
 生成方法：
@@ -126,3 +129,72 @@ export class UsersController {
 
 ```
 
+
+
+## 使用 mongoose 连接 mongodb
+
+> [官方文档](https://docs.nestjs.com/techniques/mongodb)
+
+1. 安装依赖
+
+```
+npm install --save @nestjs/mongoose mongoose
+```
+
+2. 引入 db module
+
+```
+import { Module } from '@nestjs/common';
+import { UsersController } from './users/users.controller';
+import { UsersModule } from './users/users.module';
+import { MongooseModule } from '@nestjs/mongoose';
+@Module({
+  imports: [UsersModule,
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/dnd_users')
+  ],
+})
+export class AppModule { }
+
+
+```
+
+3. 新建 schema 文件
+
+```
+import * as mongoose from 'mongoose';
+
+export const userSchema = new mongoose.Schema(
+    {
+        name: String,
+        nickname: String,
+    }
+);
+```
+
+
+> schema 和 interface 不同， schema 接收的是一个对象，interface 是对类的定义
+
+4. module 中引入 schema 
+
+```
+import { Module } from '@nestjs/common';
+import { UsersController } from './users.controller';
+import { usersService } from './users.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { userSchema } from './user.schema';
+@Module({
+    imports: [
+        MongooseModule.forFeature([{ name: 'users', schema: userSchema}])
+    ],
+    controllers: [UsersController],
+    providers: [usersService],
+}) 
+export class UsersModule { }
+
+
+
+```
+
+> 引入的时候 `forFeature` 中的 `name` 指定 collection，需要和 service 中的 inject 字段相同。
+
+> 使用 mongoose 查询时，注意 id 类型是 Types.ObjectId。
