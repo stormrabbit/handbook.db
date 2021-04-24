@@ -221,3 +221,20 @@
 ### 一个很奇葩的问题
 
 - [Permanently added the RSA host key(https://blog.csdn.net/zhoucheng05_13/article/details/52831703)
+
+### codimd
+
+- [codimd](https://github.com/hackmdio/codimd#deployment)
+
+### docker 部署
+
+- [docker](https://mp.weixin.qq.com/s/4N2HoPlNUbWxohuo_vpcnw)
+
+### 写组件
+
+- [vue](https://juejin.cn/post/6943793273395740680)
+
+
+### 淘宝系开源前端框架
+
+[Kraken](https://openkraken.com/guide/contribute/environment)

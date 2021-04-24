@@ -45,7 +45,12 @@
     show tables;
 ```
 
+- [数据表增加列](https://blog.csdn.net/Agly_Clarlie/article/details/78195162)
+```
 
+ALTER TABLE `users` ADD COLUMN `pwd` VARCHAR(32) AFTER `name`;
+
+```
 ## windows 安装 mysql 的方法
 
 [这里](https://blog.csdn.net/zhouzezhou/article/details/52446608)

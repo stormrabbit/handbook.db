@@ -389,3 +389,38 @@ const iValue = JSON.parse(JSON.stringify(this.value))
 ```
 ElMessage.closeAll()
 ```
+
+## 一个随手写的数据缓存
+
+```
+  async getInfo () {
+    const info = localStorage.getItem('abcd') // <== 先从本地拿
+    if (info) {
+      return JSON.parse(info)
+    }
+    try {
+      return (await this.fetchInfo()) || JSON.parse(INFO)  // <== 本地没有从服务端取
+    } catch (_) {
+      return JSON.parse(INFO) // 服务端没有用写死的
+    }
+  }
+```
+
+## 升级完 mac git 没了
+
+```
+xcode-select --install
+```
+
+## 判断图片是横图还是竖图
+
+```
+    isHZ() {
+      if(this.url){
+        const img = new Image();
+        img.src = this.url;
+        return img.width > img.height;
+      }
+      return false;
+    },
+```
