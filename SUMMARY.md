@@ -21,8 +21,13 @@
 * 服务端
 	* [MongoDB常用命令](./docs/server/MongoDB常用命令.md)
 	* [MySql常用命令总结](./docs/server/MySql常用命令总结.md)
-	* [Nestjs学习记录](./docs/server/Nestjs学习记录.md)
-	* [Nestjs常用命令](./docs/server/Nestjs常用命令.md)
+	* [Nestjs学习记录-CRUD写法](./docs/server/Nestjs学习记录-CRUD写法.md)
+	* [Nestjs学习记录-中间件、拦截器、过滤器（上） copy](./docs/server/Nestjs学习记录-中间件、拦截器、过滤器（上） copy.md)
+	* [Nestjs学习记录-中间件、拦截器、过滤器（下）](./docs/server/Nestjs学习记录-中间件、拦截器、过滤器（下）.md)
+	* [Nestjs学习记录-使用jwt进行用户认证](./docs/server/Nestjs学习记录-使用jwt进行用户认证.md)
+	* [Nestjs学习记录-安装与常用命令](./docs/server/Nestjs学习记录-安装与常用命令.md)
+	* [Nestjs学习记录-链接数据库](./docs/server/Nestjs学习记录-链接数据库.md)
+	* [Nestjs学习记录（总纲） ](./docs/server/Nestjs学习记录（总纲） .md)
 	* [权限管理系统数据库设计](./docs/server/权限管理系统数据库设计.md)
 	* [权限管理系统服务器设计](./docs/server/权限管理系统服务器设计.md)
 * 安卓
@@ -33,6 +38,7 @@
 	* [Gitbook常用命令](./docs/ops/Gitbook常用命令.md)
 	* [Hexo常用命令](./docs/ops/Hexo常用命令.md)
 	* [Jenkins自动部署Vue项目](./docs/ops/Jenkins自动部署Vue项目.md)
+	* [Linux美化记录](./docs/ops/Linux美化记录.md)
 	* [Mac系统处理rar文件](./docs/ops/Mac系统处理rar文件.md)
 	* [Nginx常见抽风处理](./docs/ops/Nginx常见抽风处理.md)
 	* [PM2常用命令](./docs/ops/PM2常用命令.md)
@@ -41,6 +47,7 @@
 	* [sshpass使用踩坑](./docs/ops/sshpass使用踩坑.md)
 	* [使用Nginx配置本地https代理](./docs/ops/使用Nginx配置本地https代理.md)
 	* [手动部署RAP2](./docs/ops/手动部署RAP2.md)
+	* [手动部署富文本编辑器 Codemi](./docs/ops/手动部署富文本编辑器 Codemi.md)
 	* [阿里云部署RAP2](./docs/ops/阿里云部署RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
