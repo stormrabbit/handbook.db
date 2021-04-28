@@ -14,7 +14,9 @@
 
 ## 七 Nestjs 与路由守卫
 
-## 八 发布上线以及杂七杂八
+## 八 Nestjs 与 swagger
+
+## 九 发布上线以及杂七杂八
 
 ## 参考文章
 
@@ -33,3 +35,5 @@
 7. [nest 中文](https://docs.nestjs.cn/)
 
 8. [nest 官方](https://nestjs.com/)
+
+9. [swagger](https://juejin.cn/post/6844904125814063118)
