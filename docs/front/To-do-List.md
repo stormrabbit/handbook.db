@@ -238,3 +238,12 @@
 ### 淘宝系开源前端框架
 
 [Kraken](https://openkraken.com/guide/contribute/environment)
+
+### 前端架构师
+[中小型项目前端架构浅谈](https://blog.csdn.net/qq20004604/article/details/70480932)
+[大型项目前端架构浅谈](https://juejin.cn/post/6844903853859536903)
+[以前端架构师身份，从零开始搞事搞事搞事](https://juejin.cn/post/6952066955868110879)
+
+### code mirror
+
+- [code mirror](https://github.com/codemirror/CodeMirror/tree/master/src)
