@@ -424,3 +424,30 @@ xcode-select --install
       return false;
     },
 ```
+
+## 压缩 json 
+
+```
+json2line(json) {
+      if(typeof json === 'number') {
+        return json
+      }
+      try {
+        let _json = (typeof json === "string") ? JSON.parse(json) : json;
+        if (Array.isArray(_json)) {
+          return `[${_json.map((item) => {
+            return this.json2line(item);
+          })}]`;
+        }
+        if(typeof _json === 'object') {
+          const val =  Object.keys(_json)
+          .map((key) => `"${key}": ${this.json2line(_json[key])}`)
+          .join(",");
+          return `{${val}}`;
+        }
+        return `"${`${_json}`.replaceAll("\"", "'")}"`
+      } catch (error) {
+        return `"${`${json}`.replaceAll("\"", "'")}"`
+      }
+    },
+```

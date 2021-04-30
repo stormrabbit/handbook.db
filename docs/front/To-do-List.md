@@ -247,3 +247,7 @@
 ### code mirror
 
 - [code mirror](https://github.com/codemirror/CodeMirror/tree/master/src)
+
+### nestjs
+
+- [paztek](https://medium.com/@paztek)
