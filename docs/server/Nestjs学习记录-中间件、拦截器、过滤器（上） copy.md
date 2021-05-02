@@ -87,6 +87,12 @@ Layout 负责定制日志的输出格式，log4js 内置了四种类型的格式
 
 ## 代码
 
+### 安装依赖
+
+```
+ npm install log4js stacktrace-js moment -S
+```
+
 ### `src/config/log4js.ts`
 
 ```
