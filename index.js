@@ -1,5 +1,5 @@
-const ew = require('eschew-materials');
-const fs = require('fs');
+import { fsTools } from 'eschew-materials';
+import { existsSync, readdir } from 'fs';
 const tags = [{
     en: 'front',
     cn: '前端'
@@ -24,13 +24,13 @@ const docs = tags.map(tag => ({
     en: `./docs/${tag.en}`
 }));
 const readFils = (fileObj) => new Promise((res, rej) => {
-    if(!fs.existsSync(fileObj.en)) {
+    if(!existsSync(fileObj.en)) {
         res({
             menu: fileObj.cn,
             subMenus:[]
         })
     } else {
-        fs.readdir(fileObj.en, (err, files) => {
+        readdir(fileObj.en, (err, files) => {
             if (err) {
                 rej(err);
             }
@@ -59,7 +59,7 @@ const run = async () => {
         const subMenusStr = subMenus.reduce((preSub, curSub) => preSub + `\t* [${curSub.title}](${curSub.path})\n`, '')
         return pre + menuStr + subMenusStr;
     }, sb)
-    await ew.fsTools.writeFilePlus('SUMMARY.md', menusStr);
+    await fsTools.writeFilePlus('SUMMARY.md', menusStr);
     console.log(menusStr);
     console.log('\n\n目录整理完成^_^y')
 }
