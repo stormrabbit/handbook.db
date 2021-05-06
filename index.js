@@ -3,6 +3,9 @@ const fs = require('fs');
 const tags = [{
     en: 'front',
     cn: '前端'
+},{
+    en: 'books',
+    cn: '技术文档整理'
 }, {
     en: 'server',
     cn: '服务端'
