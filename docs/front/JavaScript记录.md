@@ -451,3 +451,9 @@ json2line(json) {
       }
     },
 ```
+
+## sock 一直报错的问题
+
+> 今日份的奇葩，` http://127.0.0.1:8900/sockjs-node/info?t=xxxxx`一直报错，虽然不影响开发调试但是实在碍眼。
+
+解决方法：[vue/cle3项目运行报错sockjs-node/info解决方案](https://cloud.tencent.com/developer/article/1489598)
