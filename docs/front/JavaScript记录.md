@@ -428,7 +428,7 @@ xcode-select --install
 ## 压缩 json 
 
 ```
-json2line(json) {
+json2str(json) {
       if(typeof json === 'number') {
         return json
       }
@@ -436,12 +436,12 @@ json2line(json) {
         let _json = (typeof json === "string") ? JSON.parse(json) : json;
         if (Array.isArray(_json)) {
           return `[${_json.map((item) => {
-            return this.json2line(item);
+            return this.json2str(item);
           })}]`;
         }
         if(typeof _json === 'object') {
           const val =  Object.keys(_json)
-          .map((key) => `"${key}": ${this.json2line(_json[key])}`)
+          .map((key) => `"${key}": ${this.json2str(_json[key])}`)
           .join(",");
           return `{${val}}`;
         }
@@ -457,3 +457,35 @@ json2line(json) {
 > 今日份的奇葩，` http://127.0.0.1:8900/sockjs-node/info?t=xxxxx`一直报错，虽然不影响开发调试但是实在碍眼。
 
 解决方法：[vue/cle3项目运行报错sockjs-node/info解决方案](https://cloud.tencent.com/developer/article/1489598)
+
+
+## 傻逼的产物
+
+> 脑残，写完以后才发现这 TMD 不就是 JSON.stringify 么？！
+
+```
+json2str(json) {
+    if (typeof json === 'number') {
+      return json;
+    }
+    try {
+      const _json = typeof json === 'string' ? JSON.parse(json) : json;
+      if (Array.isArray(_json)) {
+        return `[${_json.map((item) => {
+          return this.json2str(item);
+        })}]`;
+      }
+      if (typeof _json === 'object') {
+        const val = Object.keys(_json)
+          .map((key) => `"${key}": ${this.json2str(_json[key])}`)
+          .join(',');
+        return `{${val}}`;
+      }
+      return `"${`${_json}`.replace(/\"/g, "'")}"`;
+    } catch (error) {
+      return `"${`${json}`.replace(/\"/g, "'")}"`;
+    }
+  }
+}
+
+```
