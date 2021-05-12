@@ -18,8 +18,6 @@
 	* [权限管理系统前端页面](./docs/front/权限管理系统前端页面.md)
 	* [正则表达式搜集](./docs/front/正则表达式搜集.md)
 	* [跨域处理方式](./docs/front/跨域处理方式.md)
-* 技术文档整理
-	* [2021.5.6-2021.5.9](./docs/books/2021.5.6-2021.5.9.md)
 * 服务端
 	* [MongoDB常用命令](./docs/server/MongoDB常用命令.md)
 	* [MySql常用命令总结](./docs/server/MySql常用命令总结.md)
@@ -44,6 +42,7 @@
 	* [Mac系统处理rar文件](./docs/ops/Mac系统处理rar文件.md)
 	* [Nginx常见抽风处理](./docs/ops/Nginx常见抽风处理.md)
 	* [PM2常用命令](./docs/ops/PM2常用命令.md)
+	* [Rsync使用笔记](./docs/ops/Rsync使用笔记.md)
 	* [Shell脚本](./docs/ops/Shell脚本.md)
 	* [Windows设置SSH](./docs/ops/Windows设置SSH.md)
 	* [sshpass使用踩坑](./docs/ops/sshpass使用踩坑.md)

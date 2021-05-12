@@ -1,5 +1,15 @@
-import { fsTools } from 'eschew-materials';
-import { existsSync, readdir } from 'fs';
+import { existsSync, readdir, writeFile } from 'fs';
+const writeFilePlus = (fileName, filledTxt, isAppend) => {
+    return new Promise((reslove, reject) => {
+      // eslint-disable-next-line no-undef
+      writeFile(fileName, new Buffer(filledTxt), isAppend ? { flag: 'a' } : {}, err => {
+        if (err) {
+          reject(err);
+        }
+        reslove(0);
+      })
+    })
+  }
 const tags = [{
     en: 'front',
     cn: '前端'
@@ -56,7 +66,7 @@ const run = async () => {
         const subMenusStr = subMenus.reduce((preSub, curSub) => preSub + `\t* [${curSub.title}](${curSub.path})\n`, '')
         return pre + menuStr + subMenusStr;
     }, sb)
-    await fsTools.writeFilePlus('SUMMARY.md', menusStr);
+    await writeFilePlus('SUMMARY.md', menusStr);
     console.log(menusStr);
     console.log('\n\n目录整理完成^_^y')
 }
