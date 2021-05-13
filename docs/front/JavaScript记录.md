@@ -424,7 +424,28 @@ xcode-select --install
       return false;
     },
 ```
+- 加入延时处理宽高为 0 的操蛋情况
+```
+    countImageStatus(url) {
 
+      this.$nextTick( ()=> {
+        const im = new Image();
+        im.src = url;
+        setTimeout(() => {
+          this.imgWidth =im.width;
+          this.imgHeight = im.height;
+          if(this.imgWidth === 0 || this.imgHeight === 0) {
+            setTimeout(() => {
+              this.countImageStatus()
+            }, 500)
+          } 
+        }, 100)
+       
+        
+      })
+
+    }
+```
 ## 压缩 json 
 
 ```
