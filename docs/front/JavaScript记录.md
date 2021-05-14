@@ -297,10 +297,15 @@
 > 方法一的问题是，如果 number/10000 的值是 2.10，那么格式化后的值是 2.10。
 
 
-- 方法二：
+- 方法二：完美解决小数问题
 
 ```
-  return ()
+     formatNumber(num, precision = 2) {
+      const numStr = num.toString()
+      const index = numStr.indexOf('.')
+      return Number( numStr.slice(0, index + precision) ) 
+    }
+
 ```
 ## 一个快速复制对象的方法
 
@@ -509,4 +514,14 @@ json2str(json) {
   }
 }
 
+```
+
+## 防止浏览器拦截 window.open 
+
+```
+    viewProfile() {
+      const url =`https://weibo.com/u/${this.option.id}`;
+      this.newTab = window.open('about:blank');
+      this.newTab.location.href = url
+    },
 ```
