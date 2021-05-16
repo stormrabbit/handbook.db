@@ -251,3 +251,4 @@
 ### nestjs
 
 - [paztek](https://medium.com/@paztek)
+- [全栈进阶之路 nest](https://www.jianshu.com/p/4fe6ccc3004d)

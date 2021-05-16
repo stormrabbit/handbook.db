@@ -46,17 +46,19 @@ export class UserEntity extends BaseEntity {
 3. 在 service 中引入 `entity` 和 `Repository`（来自`typeorm`）,使用依赖注入在构造器中创建对应的实例。
 
 ```
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Users } from '../entities/Users';
+import { Users } from '../../entities/Users';
 @Injectable()
-export class UserService {
+export class UsersService {
   constructor(
     @InjectRepository(Users)
     private readonly userRepostory: Repository<Users>,
   ) {}
 
-  async findAll(): Promise<Users[]> {
-    return await this.userRepostory.query(' select * from users');
+  async retrieveAllUser(): Promise<Users[]> {
+    return await this.userRepostory.find()
   }
 }
 ```
@@ -67,13 +69,13 @@ export class UserService {
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Users } from 'src/entities/Users';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Users])],
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
 export class UserModule {}
 

@@ -34,6 +34,4 @@
 
 7. [nest 中文](https://docs.nestjs.cn/)
 
-8. [nest 官方](https://nestjs.com/)
-
 9. [swagger](https://juejin.cn/post/6844904125814063118)
