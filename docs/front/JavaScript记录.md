@@ -525,3 +525,80 @@ json2str(json) {
       this.newTab.location.href = url
     },
 ```
+
+
+## 使用 compose 写的一个递归调用
+
+> 参考的 redux，阅读源码万岁！
+
+```
+export class ProgrammaticParser {
+  constructor() {
+    this.programmatic = [];
+  }
+
+  setProgrammatic(programmatic) {
+    this.programmatic = programmatic;
+  }
+  compose(buildCreativeFunctions = []) {
+    if (
+      !Array.isArray(buildCreativeFunctions) ||
+      buildCreativeFunctions.length === 0
+    ) {
+      return args => args;
+    }
+
+    if (buildCreativeFunctions.length === 1) {
+      return buildCreativeFunctions[0];
+    }
+
+    return buildCreativeFunctions.reduce(
+      (nextBuildCreativesFunction, currentBuildCreativesFunction) => (
+        arrays = []
+      ) => nextBuildCreativesFunction(currentBuildCreativesFunction(arrays))
+    );
+  }
+
+  applyMappings(programmatic, mappings = []) {
+    const chains = mappings.map((mapping) =>
+      this.buildMappingFunction(mapping)
+    );
+    return this.compose(chains)([programmatic]);
+  }
+
+  create() {
+    const programmatic = this.programmatic;
+    const { creative_style: style } = programmatic || {};
+    if (!style) {
+      return [];
+    }
+    const type = STYLE[style];
+    const mappings = PROGRAMMATIC[type];
+
+    return this.applyMappings(programmatic, mappings);
+  }
+
+  buildMappingFunction(mapping) {
+    return (preCreatives) => {
+      // target 为需要转化为普通创意时，普通创意的属性
+      // source 为待转化程序创意中，程序化创意需要转换的属性
+      const { target, source } = mapping || {};
+      if (!target || !source) {
+        return [];
+      }
+      const temp = [];
+      preCreatives.forEach((preCreative) => {
+        const prossibleValues = preCreative[source] || []; //
+        prossibleValues.forEach((prossibleValue) => {
+          const newValue = {
+            ...preCreative,
+            [target]: prossibleValue,
+          };
+          temp.push(newValue);
+        });
+      });
+      return  temp.length ? temp : preCreatives;
+    };
+  }
+}
+```
