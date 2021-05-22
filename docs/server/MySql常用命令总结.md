@@ -30,6 +30,7 @@
 
 ```
     grant all on *.* to 'sekiro'@'localhost';
+    GRANT ALL PRIVILEGES ON gengar.* to 'gengar'@'%';
 ```
 
 - 查看所有用户

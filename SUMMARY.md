@@ -42,6 +42,7 @@
 	* [Mac系统处理rar文件](./docs/ops/Mac系统处理rar文件.md)
 	* [Nginx常见抽风处理](./docs/ops/Nginx常见抽风处理.md)
 	* [PM2常用命令](./docs/ops/PM2常用命令.md)
+	* [Rsync使用笔记](./docs/ops/Rsync使用笔记.md)
 	* [Shell脚本](./docs/ops/Shell脚本.md)
 	* [Windows设置SSH](./docs/ops/Windows设置SSH.md)
 	* [sshpass使用踩坑](./docs/ops/sshpass使用踩坑.md)
@@ -51,6 +52,7 @@
 	* [阿里云部署RAP2](./docs/ops/阿里云部署RAP2.md)
 	* [阿里云部署服务器](./docs/ops/阿里云部署服务器.md)
 * 杂七杂八
+	* [2021年度技术文档整理](./docs/other/2021年度技术文档整理.md)
 	* [Mac电脑上使用移动硬盘保存文件](./docs/other/Mac电脑上使用移动硬盘保存文件.md)
 	* [Vim快捷键](./docs/other/Vim快捷键.md)
 	* [mods](./docs/other/mods.md)

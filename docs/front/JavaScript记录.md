@@ -297,10 +297,15 @@
 > 方法一的问题是，如果 number/10000 的值是 2.10，那么格式化后的值是 2.10。
 
 
-- 方法二：
+- 方法二：完美解决小数问题
 
 ```
-  return ()
+     formatNumber(num, precision = 2) {
+      const numStr = num.toString()
+      const index = numStr.indexOf('.')
+      return Number( numStr.slice(0, index + precision) ) 
+    }
+
 ```
 ## 一个快速复制对象的方法
 
@@ -424,11 +429,32 @@ xcode-select --install
       return false;
     },
 ```
+- 加入延时处理宽高为 0 的操蛋情况
+```
+    countImageStatus(url) {
 
+      this.$nextTick( ()=> {
+        const im = new Image();
+        im.src = url;
+        setTimeout(() => {
+          this.imgWidth =im.width;
+          this.imgHeight = im.height;
+          if(this.imgWidth === 0 || this.imgHeight === 0) {
+            setTimeout(() => {
+              this.countImageStatus()
+            }, 500)
+          } 
+        }, 100)
+       
+        
+      })
+
+    }
+```
 ## 压缩 json 
 
 ```
-json2line(json) {
+json2str(json) {
       if(typeof json === 'number') {
         return json
       }
@@ -436,12 +462,12 @@ json2line(json) {
         let _json = (typeof json === "string") ? JSON.parse(json) : json;
         if (Array.isArray(_json)) {
           return `[${_json.map((item) => {
-            return this.json2line(item);
+            return this.json2str(item);
           })}]`;
         }
         if(typeof _json === 'object') {
           const val =  Object.keys(_json)
-          .map((key) => `"${key}": ${this.json2line(_json[key])}`)
+          .map((key) => `"${key}": ${this.json2str(_json[key])}`)
           .join(",");
           return `{${val}}`;
         }
@@ -450,4 +476,129 @@ json2line(json) {
         return `"${`${json}`.replaceAll("\"", "'")}"`
       }
     },
+```
+
+## sock 一直报错的问题
+
+> 今日份的奇葩，` http://127.0.0.1:8900/sockjs-node/info?t=xxxxx`一直报错，虽然不影响开发调试但是实在碍眼。
+
+解决方法：[vue/cle3项目运行报错sockjs-node/info解决方案](https://cloud.tencent.com/developer/article/1489598)
+
+
+## 傻逼的产物
+
+> 脑残，写完以后才发现这 TMD 不就是 JSON.stringify 么？！
+
+```
+json2str(json) {
+    if (typeof json === 'number') {
+      return json;
+    }
+    try {
+      const _json = typeof json === 'string' ? JSON.parse(json) : json;
+      if (Array.isArray(_json)) {
+        return `[${_json.map((item) => {
+          return this.json2str(item);
+        })}]`;
+      }
+      if (typeof _json === 'object') {
+        const val = Object.keys(_json)
+          .map((key) => `"${key}": ${this.json2str(_json[key])}`)
+          .join(',');
+        return `{${val}}`;
+      }
+      return `"${`${_json}`.replace(/\"/g, "'")}"`;
+    } catch (error) {
+      return `"${`${json}`.replace(/\"/g, "'")}"`;
+    }
+  }
+}
+
+```
+
+## 防止浏览器拦截 window.open 
+
+```
+    viewProfile() {
+      const url =`https://weibo.com/u/${this.option.id}`;
+      this.newTab = window.open('about:blank');
+      this.newTab.location.href = url
+    },
+```
+
+
+## 使用 compose 写的一个递归调用
+
+> 参考的 redux，阅读源码万岁！
+
+```
+export class ProgrammaticParser {
+  constructor() {
+    this.programmatic = [];
+  }
+
+  setProgrammatic(programmatic) {
+    this.programmatic = programmatic;
+  }
+  compose(buildCreativeFunctions = []) {
+    if (
+      !Array.isArray(buildCreativeFunctions) ||
+      buildCreativeFunctions.length === 0
+    ) {
+      return args => args;
+    }
+
+    if (buildCreativeFunctions.length === 1) {
+      return buildCreativeFunctions[0];
+    }
+
+    return buildCreativeFunctions.reduce(
+      (nextBuildCreativesFunction, currentBuildCreativesFunction) => (
+        arrays = []
+      ) => nextBuildCreativesFunction(currentBuildCreativesFunction(arrays))
+    );
+  }
+
+  applyMappings(programmatic, mappings = []) {
+    const chains = mappings.map((mapping) =>
+      this.buildMappingFunction(mapping)
+    );
+    return this.compose(chains)([programmatic]);
+  }
+
+  create() {
+    const programmatic = this.programmatic;
+    const { creative_style: style } = programmatic || {};
+    if (!style) {
+      return [];
+    }
+    const type = STYLE[style];
+    const mappings = PROGRAMMATIC[type];
+
+    return this.applyMappings(programmatic, mappings);
+  }
+
+  buildMappingFunction(mapping) {
+    return (preCreatives) => {
+      // target 为需要转化为普通创意时，普通创意的属性
+      // source 为待转化程序创意中，程序化创意需要转换的属性
+      const { target, source } = mapping || {};
+      if (!target || !source) {
+        return [];
+      }
+      const temp = [];
+      preCreatives.forEach((preCreative) => {
+        const prossibleValues = preCreative[source] || []; //
+        prossibleValues.forEach((prossibleValue) => {
+          const newValue = {
+            ...preCreative,
+            [target]: prossibleValue,
+          };
+          temp.push(newValue);
+        });
+      });
+      return  temp.length ? temp : preCreatives;
+    };
+  }
+}
 ```

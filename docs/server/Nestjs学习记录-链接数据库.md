@@ -57,10 +57,20 @@ export class UsersService {
     private readonly userRepostory: Repository<Users>,
   ) {}
 
+<<<<<<< HEAD
   async retrieveAllUser(): Promise<Users[]> {
     return await this.userRepostory.find()
+=======
+  async retrieveAllUsers(): Promise<Users[]> {
+    return await this.userRepostory.find({
+      where: {
+        status: 0,
+      },
+    });
+>>>>>>> 75156ba53f324ba2ba6efc0d08dac40534423f23
   }
 }
+
 ```
 
 4. 在 module 的 imports 中引入。

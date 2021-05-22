@@ -1,4 +1,4 @@
-# Mac 电脑上使用移动硬盘保存文件
+## Mac 电脑上使用移动硬盘保存文件
 
 因为 Mac 的安sha全bi限制，外接移动硬盘无法直接写入文件，必须使用迂回的方式。
 
@@ -52,3 +52,9 @@
     cp ~/文件名 /Volumes/MYHD/
 ```
 
+## mac 电脑查看/隐藏被隐藏的文件
+
+```
+$ defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder // 显示
+$ defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder // 隐藏
+```
