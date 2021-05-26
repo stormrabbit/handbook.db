@@ -645,3 +645,19 @@ export class ProgrammaticParser {
           index = -1 // 强制从头开始查找，避免漏掉后代属性
         }
 ```
+
+
+### 驼峰与下划线互转
+
+```
+// 下划线转换驼峰
+function toHump(name) {
+    return name.replace(/\_(\w)/g, function(all, letter){
+        return letter.toUpperCase();
+    });
+}
+// 驼峰转换下划线
+function toLine(name) {
+  return name.replace(/([A-Z])/g,"_$1").toLowerCase();
+}
+```
