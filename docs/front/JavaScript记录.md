@@ -520,7 +520,7 @@ json2str(json) {
 
 ```
     viewProfile() {
-      const url =`https://weibo.com/u/${this.option.id}`;
+      const url =`https://hello.world/u/${this.option.id}`;
       this.newTab = window.open('about:blank');
       this.newTab.location.href = url
     },
