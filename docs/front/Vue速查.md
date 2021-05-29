@@ -181,3 +181,23 @@ Vue.nextTick()
 ### 10. 操作本地缓存
 
 vue 提供了 `localStorage` 直接操作本地缓存，具体可以看[这个](https://cn.vuejs.org/v2/cookbook/client-side-storage.html)。
+
+### 11. Vue 引入静态资源的方法
+
+```
+<img :src="require('./assets/images/03.jpg')" alt=""> // √
+<img :src="require('./assets/images/'+ this.imgName +'.jpg')" alt=""> // √
+<img :src="img3" alt=""> // √
+<script>
+export default:{
+    data(){
+        return {
+          imgName:'03.jpg',
+          img3:require('./assets/images/03.jpg'),
+        }
+      },
+}
+</script>
+// 编译后:
+<img src="/img/03.ea62525c.jpg" alt="">
+```

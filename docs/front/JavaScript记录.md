@@ -520,7 +520,7 @@ json2str(json) {
 
 ```
     viewProfile() {
-      const url =`https://weibo.com/u/${this.option.id}`;
+      const url =`https://hello.world/u/${this.option.id}`;
       this.newTab = window.open('about:blank');
       this.newTab.location.href = url
     },
@@ -600,5 +600,64 @@ export class ProgrammaticParser {
       return  temp.length ? temp : preCreatives;
     };
   }
+}
+```
+
+
+## RAP2 中隐藏的一个很深的 bug
+
+`src/components/editor/InterfaceEditor.tsx` 中 `handleDeleteMemoryProperty` 方法
+
+```
+  handleDeleteMemoryProperty = (property: any, cb: any) => {
+    const properties = [...this.state.properties]
+    const index = properties.findIndex((item) => item.id === property.id)
+    if (index >= 0) {
+      properties.splice(index, 1)
+
+      // 清除后代属性
+      const deletedParentIds = [property.id]
+      for (let index = 0; index < properties.length; index++) {
+        if (deletedParentIds.indexOf(properties[index].parentId) !== -1) {
+          deletedParentIds.push(properties[index].id)
+          properties.splice(index--, 1)
+          index = 0 // 强制从头开始查找，避免漏掉后代属性
+        }
+      }
+
+      this.setState({ properties }, () => {
+        cb && cb()
+      })
+    }
+  }
+```
+
+- 在给 `index` 赋值 `0` 后，循环结束、**`index++`**。再次开始循环时，index 的值为 `1`。即对于 `deletedParentIds.indexOf(properties[index].parentId) !== -1`，等价于 `deletedParentIds.indexOf(properties[1].parentId) !== -1`，永远判断数组第二位元素。
+
+- `index--` 为**先运行、后计算**，对于 `index === 1` 的情况 ` properties.splice(index--, 1)` 等价于 ` properties.splice(1, 1)`，依然会只判断数组第二位元素而忽略第一位元素。
+
+建议修改为：
+
+```
+        if (deletedParentIds.indexOf(properties[index].parentId) !== -1) {
+          deletedParentIds.push(properties[index].id)
+          properties.splice(index, 1)
+          index = -1 // 强制从头开始查找，避免漏掉后代属性
+        }
+```
+
+
+### 驼峰与下划线互转
+
+```
+// 下划线转换驼峰
+function toHump(name) {
+    return name.replace(/\_(\w)/g, function(all, letter){
+        return letter.toUpperCase();
+    });
+}
+// 驼峰转换下划线
+function toLine(name) {
+  return name.replace(/([A-Z])/g,"_$1").toLowerCase();
 }
 ```

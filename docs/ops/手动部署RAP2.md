@@ -270,8 +270,6 @@ alias pandoc=/usr/local/bin/pandoc/bin/pandoc
 ## clone 仓库到本地
 
 ```
-    git clone ssh://git@git.intra.weibo.com:2222/ad/fe/rap2-delos.git // 超粉 rap2
-
     git clone https://github.com/thx/rap2-delos // 官方 rap2
 ```
 
@@ -383,11 +381,11 @@ server {
 #       ssl on;
         ssl_certificate cert/server.pem;
         ssl_certificate_key cert/privkey.pem;
-        server_name   mock.biz.weibo.com;
+        server_name   rap2.angry.link;
         root   /data0/jenkins_deploy/rap2;
         error_log /data0/jenkins_deploy/rap2/error.log;
         location ~ ^/(api)/.*$ {
-          proxy_pass http://127.0.0.1:40041;
+          proxy_pass http://127.0.0.1:40441;
         }
         location / {
             try_files       $uri    $uri    @router;
