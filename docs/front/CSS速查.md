@@ -102,44 +102,46 @@ p::before { content: "Hello world!"; }
 > 平时都是写实线，实在忘了虚线的写法
 
 
-### css hover 显示/隐藏
+### css hover 效果
 
 
 - html
 
 ```
-          <div class="cv-with-data-name-p">
-            <span> {{scope.row.name + 'test'}} </span>
+          <div class="hover-demo">
+            <span> 这里是 hover 内容 </span>
             
-             <icon class="el-icon-edit cv-with-data-name-edit" /> 
+             <span class="hover-demo-hover"" >这里是根据 hover 是否显示的内容</span> 
          
           </div>
 ```
-- css
+- scss
 
 ```
-.cv-with-data-name-p {
+.hover-demo {
   display: flex;
   align-items: center;
     &:hover {
-      .cv-with-data-name-edit{
-           visibility: visible;
+      .hover-demo-hover{
+           display: none;
          
       }
     } 
 }
 ```
 
+> 精髓是使用 `&:hover` 
+
 ### element 重写 messagebox 样式
 
 ```
- this.$confirm('删除该条转化后，不可以用于计划投放，是否确认删除？', '确认删除', {
-        customClass: 'cv-with-data-message-box', // <===这里
+ this.$confirm('啦啦啦啦德玛西亚', '确认', {
+        customClass: 'data-message-box', // <===这里
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          deleteFunc({ id: row.id, sdk_id: id })
+          deleteFunc({ id })
         }).catch(() => {
           this.$message({
             type: 'info',
