@@ -661,3 +661,9 @@ function toLine(name) {
   return name.replace(/([A-Z])/g,"_$1").toLowerCase();
 }
 ```
+
+## a 标签刷新
+
+```
+<a href="javascript:location.reload();">刷新</a>
+```
