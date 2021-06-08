@@ -667,3 +667,40 @@ function toLine(name) {
 ```
 <a href="javascript:location.reload();">刷新</a>
 ```
+
+## `element-ui` 组件库中 `radio-group` 切换改变值的问题
+
+> 所有编程中的问题都可以通过引入一个中间层来解决，如果没有解决则再引入一个
+
+问题描述：对于 `radio-group` 里的 `@change` 事件，一个坑爹的前提是：该事件的触发是在值改变以后。因此如果想做一些切换前防手贱的操作 —— 比如防止误触而弹出确认框，该事件无法进行拦截。
+
+而 `radio-group` 亦不支持 `before-change` 这样的骚操作，所以如何处理此类场景需要换个思路。
+
+具体场景：假设有组件 A，其中有 RadioGroup 内包含 2 个 RadioBotton B 和 C，以及由 BC 分辨控制显示的 D 和 E 界面。要求选中 B 时展示 D，选中 C 时展示 E。切换 B 和 C 选项时弹出提示，而只有确认时才进行切换操作。而 D 和 E 中分别会有一些半持久化的数据，要求弹出提示并取消时保留这些数据，而确认切换时清掉数据。
+
+代码 & 处理思路：
+
+使用 innerStatus 表示 `RadioGroup` 的状态，使用 status 标记 B 和 C 的状态。
+
+因此组件写法为：
+
+```
+// A.vue
+
+render() {
+  return <div>
+  <el-radio-group v-model="innerStatus">
+    <el-radio-button key="B"></el-radio-button>
+    <el-radio-button key="C"></el-radio-button>
+  </el-radio-group>
+  {
+    status === 'B' ? <DDDDDD></DDDDDD>:<EEEEEE></EEEEEE>
+  }
+</div>
+}
+
+```
+
+此时 `innerStatus` 与 `status` 的值是互相独立的，即便 `@change` 时 `innerStatus` 的值发生了改变，而 `status` 的值是木有问题的。因此只要在 `@change` 中进行判断，如果用户确认则 `status =innerStatus`，否则 `innerStatus = status`。
+
+完美结束。
