@@ -704,3 +704,7 @@ render() {
 此时 `innerStatus` 与 `status` 的值是互相独立的，即便 `@change` 时 `innerStatus` 的值发生了改变，而 `status` 的值是木有问题的。因此只要在 `@change` 中进行判断，如果用户确认则 `status =innerStatus`，否则 `innerStatus = status`。
 
 完美结束。
+
+## 查看本机链接 github 地址
+
+[这里](http://www.github.com.ipaddress.com/)
