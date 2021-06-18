@@ -258,3 +258,10 @@
 - spring cloud的五大模块和作用
 
 ### 一个思考：如何把 websocket 也纳入 async/await 体系
+
+
+### Vue 组件动态渲染
+
+[官方文档](https://cn.vuejs.org/v2/guide/render-function.html)
+
+> 如何手写一个 vue-router 
