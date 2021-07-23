@@ -65,7 +65,9 @@ server {
     openssl req -new -x509 -key privkey.pem -out server.pem -days 365
 ```
 
-> 我运行完命令后，文件生成在桌面
+> 生成文件在运行命令的文件夹内
+
+> `privkey.pem` => `server.key`，`server.pem` => `server.crt`
 
 复制生成的文件到`/usr/local/etc/nginx/ssl/`(上文配置的位置)并!改!名!，重启 nginx
 
