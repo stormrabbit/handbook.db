@@ -708,3 +708,18 @@ render() {
 ## 查看本机链接 github 地址
 
 [这里](http://www.github.com.ipaddress.com/)
+
+## element-plus dialog 相关问题
+
+今日份的坑爹问题，原本可以滚动的页面“偶现”滚动不能。经过排查发现，当使用 element 的 lock-scroll 的时候，启动 dialog 的同时会自动给最顶层的 html 增加 class `el-popup-parent--hidden`，唯一的属性就是 `overflow: hidden`。因此如果原本有表单项的 dialog 的惯常做法 
+
+```
+<el-dialog 
+  v-if="dialogVisible"
+  v-model="dialogVisible"
+>
+```
+
+会造成 dialog 消失后 `el-popup-parent--hidden` 依然挂在 html 标签的情况，造成原本可以滚动的页面无法滚动，影响体验。
+
+解决方法是，重置表单的时候使用 form 的 reset 方法。
