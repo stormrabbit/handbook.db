@@ -723,3 +723,13 @@ render() {
 会造成 dialog 消失后 `el-popup-parent--hidden` 依然挂在 html 标签的情况，造成原本可以滚动的页面无法滚动，影响体验。
 
 解决方法是，重置表单的时候使用 form 的 reset 方法。
+
+## false 与 undefined 不相等的问题
+
+今日份的坑爹 bug，线上版本。
+
+直接原因是因为 watch 中 `newVal !== oldVal` 时，newVal 的值为 `false` 而 oldVal 的值为 `undefined`。两者同为`非 true`却并不相同，造成了 watch 毫无必要的触发、对属性进行了二次修改。
+
+处理方式：
+
+所有 `true` `false` 比较类判断 `newVal === oldVal` 前面都应该加上双 `!`，写作 `!!newVal === !!oldVal`。 
