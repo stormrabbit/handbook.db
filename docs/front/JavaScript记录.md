@@ -732,4 +732,17 @@ render() {
 
 处理方式：
 
-所有 `true` `false` 比较类判断 `newVal === oldVal` 前面都应该加上双 `!`，写作 `!!newVal === !!oldVal`。 
+所有 `true` `false` 比较类判断 `newVal === oldVal` 前面都应该加上双 `!`，写作 `!!newVal === !!oldVal`。
+
+## 通过字体计算 div 的实际宽度
+
+```
+export function calculateTextWidth (text, font) {
+  const canvas = calculateTextWidth.canvas || (calculateTextWidth.canvas = document.createElement('canvas'))
+  const context = canvas.getContext('2d')
+  context.font = font
+  const metrics = context.measureText(text)
+  return metrics.width
+}
+
+```
