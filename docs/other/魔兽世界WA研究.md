@@ -74,6 +74,12 @@
 /cast [pet:地狱猎犬,@player]吞噬魔法
 ```
 
+## 设置血条显示距离
+
+```
+/run SetCVar("nameplateMaxDistance", "4e1")
+```
+
 ## 参考
 
 [[宏指南] 从入门到精通，授人以鱼不如授人以渔](https://nga.178.com/read.php?tid=17098451)
