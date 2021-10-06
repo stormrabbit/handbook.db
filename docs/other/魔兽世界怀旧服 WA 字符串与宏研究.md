@@ -80,6 +80,10 @@
 /run SetCVar("nameplateMaxDistance", "4e1")
 ```
 
+
+## 猎人宏
+
+[这里](https://bbs.nga.cn/read.php?tid=18370262&rand=500)
 ## 参考
 
 [[宏指南] 从入门到精通，授人以鱼不如授人以渔](https://nga.178.com/read.php?tid=17098451)
