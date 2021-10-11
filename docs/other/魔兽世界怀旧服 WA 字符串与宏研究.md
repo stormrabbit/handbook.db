@@ -83,6 +83,40 @@
 
 ## 猎人宏
 
+### 假死收宝宝
+
+```
+#showtooltip
+/PetPassiveMode
+/petpassive
+/施放 假死
+```
+
+### 切换守护
+
+```
+#showtooltips
+/castsequence 雄鹰守护,猎豹守护
+
+```
+
+### 宠物万能
+
+```
+#showtooltip 治疗宠物
+/cast [modifier:shift]解散野兽
+/cast [modifier:alt,pet,nocombat]喂养宠物
+/use [modifier:alt,pet,nocombat]烤鹌鹑
+/stopmacro [modifier:shift][modifier:alt]
+/castsequence [@pet,dead] 复活宠物;[nopet]reset=2 召唤宠物,复活宠物;治疗宠物
+```
+
+### 鼠标指向照明弹
+
+```
+#showtooltip
+/cast [@cursor] 照明弹
+```
 [这里](https://bbs.nga.cn/read.php?tid=18370262&rand=500)
 ## 参考
 
