@@ -60,6 +60,7 @@
 * 杂七杂八
 	* [2021年个人述职报告](./docs/other/2021年个人述职报告.md)
 	* [2021年度技术文档整理](./docs/other/2021年度技术文档整理.md)
+	* [Dockerfile](./docs/other/Dockerfile)
 	* [Mac使用手册](./docs/other/Mac使用手册.md)
 	* [Redis操作](./docs/other/Redis操作.md)
 	* [TBC战熊骑分析报告](./docs/other/TBC战熊骑分析报告.md)
