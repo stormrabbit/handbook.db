@@ -60,6 +60,7 @@
 * 杂七杂八
 	* [2021年个人述职报告](./docs/other/2021年个人述职报告.md)
 	* [2021年度技术文档整理](./docs/other/2021年度技术文档整理.md)
+	* [2022年度技术文档整理](./docs/other/2022年度技术文档整理.md)
 	* [Dockerfile](./docs/other/Dockerfile)
 	* [Mac使用手册](./docs/other/Mac使用手册.md)
 	* [Redis操作](./docs/other/Redis操作.md)
@@ -68,6 +69,7 @@
 	* [mods](./docs/other/mods.md)
 	* [《三国志11威力加强版》技能sql](./docs/other/《三国志11威力加强版》技能sql.md)
 	* [《唐探3》影评](./docs/other/《唐探3》影评.md)
+	* [《正义之怒》整理](./docs/other/《正义之怒》整理.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [入党申请书v2](./docs/other/入党申请书v2.md)
 	* [年夜饭](./docs/other/年夜饭.md)
