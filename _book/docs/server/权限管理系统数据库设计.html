@@ -1,0 +1,1624 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>权限管理系统数据库设计 · 法师的卷轴包</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="龙骑将杨影枫">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="权限管理系统服务器设计.html" />
+    
+    
+    <link rel="prev" href="Nestjs学习记录（总纲） .html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://angrykitty.link" target="_blank" class="custom-link">龙骑将的魔法书</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    前端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../front/Axios相关.html">
+            
+                <a href="../front/Axios相关.html">
+            
+                    
+                    Axios相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../front/CSS速查.html">
+            
+                <a href="../front/CSS速查.html">
+            
+                    
+                    CSS速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../front/JavaScript记录.html">
+            
+                <a href="../front/JavaScript记录.html">
+            
+                    
+                    JavaScript记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../front/To-do-List.html">
+            
+                <a href="../front/To-do-List.html">
+            
+                    
+                    To-do-List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../front/TypeScript记录.html">
+            
+                <a href="../front/TypeScript记录.html">
+            
+                    
+                    TypeScript记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../front/Vue3记录.html">
+            
+                <a href="../front/Vue3记录.html">
+            
+                    
+                    Vue3记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../front/Vue的Ts写法.html">
+            
+                <a href="../front/Vue的Ts写法.html">
+            
+                    
+                    Vue的Ts写法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../front/Vue速查.html">
+            
+                <a href="../front/Vue速查.html">
+            
+                    
+                    Vue速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../front/npm常见问题.html">
+            
+                <a href="../front/npm常见问题.html">
+            
+                    
+                    npm常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../front/svg转字体文件方法.html">
+            
+                <a href="../front/svg转字体文件方法.html">
+            
+                    
+                    svg转字体文件方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../front/vue-introjs.html">
+            
+                <a href="../front/vue-introjs.html">
+            
+                    
+                    vue-introjs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../front/从零开始的前端环境搭建.html">
+            
+                <a href="../front/从零开始的前端环境搭建.html">
+            
+                    
+                    从零开始的前端环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../front/前端自动化测试研究报告.html">
+            
+                <a href="../front/前端自动化测试研究报告.html">
+            
+                    
+                    前端自动化测试研究报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../front/南瓜电影动态布局讲座笔记.html">
+            
+                <a href="../front/南瓜电影动态布局讲座笔记.html">
+            
+                    
+                    南瓜电影动态布局讲座笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../front/微前端听课笔记1.html">
+            
+                <a href="../front/微前端听课笔记1.html">
+            
+                    
+                    微前端听课笔记1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../front/微前端听课笔记2.html">
+            
+                <a href="../front/微前端听课笔记2.html">
+            
+                    
+                    微前端听课笔记2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../front/有关分片上传的总结.html">
+            
+                <a href="../front/有关分片上传的总结.html">
+            
+                    
+                    有关分片上传的总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../front/权限管理系统前端页面.html">
+            
+                <a href="../front/权限管理系统前端页面.html">
+            
+                    
+                    权限管理系统前端页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../front/正则表达式搜集.html">
+            
+                <a href="../front/正则表达式搜集.html">
+            
+                    
+                    正则表达式搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../front/跨域处理方式.html">
+            
+                <a href="../front/跨域处理方式.html">
+            
+                    
+                    跨域处理方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    服务端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="MongoDB常用命令.html">
+            
+                <a href="MongoDB常用命令.html">
+            
+                    
+                    MongoDB常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="MySql常用命令总结.html">
+            
+                <a href="MySql常用命令总结.html">
+            
+                    
+                    MySql常用命令总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Nestjs学习记录-CRUD写法.html">
+            
+                <a href="Nestjs学习记录-CRUD写法.html">
+            
+                    
+                    Nestjs学习记录-CRUD写法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html">
+            
+                <a href="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html">
+            
+                    
+                    Nestjs学习记录-中间件、拦截器、过滤器（上） copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="Nestjs学习记录-中间件、拦截器、过滤器（下）.html">
+            
+                <a href="Nestjs学习记录-中间件、拦截器、过滤器（下）.html">
+            
+                    
+                    Nestjs学习记录-中间件、拦截器、过滤器（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="Nestjs学习记录-使用Multer上传文件.html">
+            
+                <a href="Nestjs学习记录-使用Multer上传文件.html">
+            
+                    
+                    Nestjs学习记录-使用Multer上传文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="Nestjs学习记录-使用jwt进行用户认证.html">
+            
+                <a href="Nestjs学习记录-使用jwt进行用户认证.html">
+            
+                    
+                    Nestjs学习记录-使用jwt进行用户认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="Nestjs学习记录-安装与常用命令.html">
+            
+                <a href="Nestjs学习记录-安装与常用命令.html">
+            
+                    
+                    Nestjs学习记录-安装与常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="Nestjs学习记录-链接数据库.html">
+            
+                <a href="Nestjs学习记录-链接数据库.html">
+            
+                    
+                    Nestjs学习记录-链接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="Nestjs学习记录（总纲） .html">
+            
+                <a href="Nestjs学习记录（总纲） .html">
+            
+                    
+                    Nestjs学习记录（总纲） 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.11" data-path="权限管理系统数据库设计.html">
+            
+                <a href="权限管理系统数据库设计.html">
+            
+                    
+                    权限管理系统数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="权限管理系统服务器设计.html">
+            
+                <a href="权限管理系统服务器设计.html">
+            
+                    
+                    权限管理系统服务器设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    安卓
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../android/ReactNative使用.html">
+            
+                <a href="../android/ReactNative使用.html">
+            
+                    
+                    ReactNative使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../android/flutter错误集合.html">
+            
+                <a href="../android/flutter错误集合.html">
+            
+                    
+                    flutter错误集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    运维
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ops/Docker常用命令集.html">
+            
+                <a href="../ops/Docker常用命令集.html">
+            
+                    
+                    Docker常用命令集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ops/Gitbook常用命令.html">
+            
+                <a href="../ops/Gitbook常用命令.html">
+            
+                    
+                    Gitbook常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ops/Hexo常用命令.html">
+            
+                <a href="../ops/Hexo常用命令.html">
+            
+                    
+                    Hexo常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ops/Jenkins自动部署Vue项目.html">
+            
+                <a href="../ops/Jenkins自动部署Vue项目.html">
+            
+                    
+                    Jenkins自动部署Vue项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ops/Linux美化记录.html">
+            
+                <a href="../ops/Linux美化记录.html">
+            
+                    
+                    Linux美化记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ops/Mac系统处理rar文件.html">
+            
+                <a href="../ops/Mac系统处理rar文件.html">
+            
+                    
+                    Mac系统处理rar文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ops/Nginx常见抽风处理.html">
+            
+                <a href="../ops/Nginx常见抽风处理.html">
+            
+                    
+                    Nginx常见抽风处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ops/PM2常用命令.html">
+            
+                <a href="../ops/PM2常用命令.html">
+            
+                    
+                    PM2常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ops/Rsync使用笔记.html">
+            
+                <a href="../ops/Rsync使用笔记.html">
+            
+                    
+                    Rsync使用笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../ops/Shell脚本.html">
+            
+                <a href="../ops/Shell脚本.html">
+            
+                    
+                    Shell脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../ops/Windows设置SSH.html">
+            
+                <a href="../ops/Windows设置SSH.html">
+            
+                    
+                    Windows设置SSH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../ops/sshpass使用踩坑.html">
+            
+                <a href="../ops/sshpass使用踩坑.html">
+            
+                    
+                    sshpass使用踩坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../ops/使用Docker部署及维护Jenkins镜像.html">
+            
+                <a href="../ops/使用Docker部署及维护Jenkins镜像.html">
+            
+                    
+                    使用Docker部署及维护Jenkins镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../ops/使用Nginx配置本地https代理.html">
+            
+                <a href="../ops/使用Nginx配置本地https代理.html">
+            
+                    
+                    使用Nginx配置本地https代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../ops/手动部署RAP2.html">
+            
+                <a href="../ops/手动部署RAP2.html">
+            
+                    
+                    手动部署RAP2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../ops/手动部署富文本编辑器 Codemi.html">
+            
+                <a href="../ops/手动部署富文本编辑器 Codemi.html">
+            
+                    
+                    手动部署富文本编辑器 Codemi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../ops/阿里云部署RAP2.html">
+            
+                <a href="../ops/阿里云部署RAP2.html">
+            
+                    
+                    阿里云部署RAP2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../ops/阿里云部署服务器.html">
+            
+                <a href="../ops/阿里云部署服务器.html">
+            
+                    
+                    阿里云部署服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    杂七杂八
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../other/2021年个人述职报告.md">
+            
+                <span>
+            
+                    
+                    2021年个人述职报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../other/2021年度技术文档整理.html">
+            
+                <a href="../other/2021年度技术文档整理.html">
+            
+                    
+                    2021年度技术文档整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../other/2022年度技术文档整理.html">
+            
+                <a href="../other/2022年度技术文档整理.html">
+            
+                    
+                    2022年度技术文档整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../other/Dockerfile.md">
+            
+                <span>
+            
+                    
+                    Dockerfile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../other/Mac使用手册.html">
+            
+                <a href="../other/Mac使用手册.html">
+            
+                    
+                    Mac使用手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../other/Redis操作.md">
+            
+                <span>
+            
+                    
+                    Redis操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../other/TBC战熊骑分析报告.html">
+            
+                <a href="../other/TBC战熊骑分析报告.html">
+            
+                    
+                    TBC战熊骑分析报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../other/Vim快捷键.html">
+            
+                <a href="../other/Vim快捷键.html">
+            
+                    
+                    Vim快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../other/mods.html">
+            
+                <a href="../other/mods.html">
+            
+                    
+                    mods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../other/《三国志11威力加强版》技能sql.html">
+            
+                <a href="../other/《三国志11威力加强版》技能sql.html">
+            
+                    
+                    《三国志11威力加强版》技能sql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../other/《唐探3》影评.html">
+            
+                <a href="../other/《唐探3》影评.html">
+            
+                    
+                    《唐探3》影评
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../other/《正义之怒》整理.html">
+            
+                <a href="../other/《正义之怒》整理.html">
+            
+                    
+                    《正义之怒》整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../other/二手房计算规则.html">
+            
+                <a href="../other/二手房计算规则.html">
+            
+                    
+                    二手房计算规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../other/入党申请书v2.md">
+            
+                <span>
+            
+                    
+                    入党申请书v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../other/年夜饭.html">
+            
+                <a href="../other/年夜饭.html">
+            
+                    
+                    年夜饭
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="../other/机战a.html">
+            
+                <a href="../other/机战a.html">
+            
+                    
+                    机战a
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.17" data-path="../other/血缘铭文搜集.html">
+            
+                <a href="../other/血缘铭文搜集.html">
+            
+                    
+                    血缘铭文搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.18" data-path="../other/错误搜集.md">
+            
+                <span>
+            
+                    
+                    错误搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.19" data-path="../other/魔兽世界怀旧服 WA 字符串与宏研究.html">
+            
+                <a href="../other/魔兽世界怀旧服 WA 字符串与宏研究.html">
+            
+                    
+                    魔兽世界怀旧服 WA 字符串与宏研究
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >权限管理系统数据库设计</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6743;&#x9650;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;">&#x6743;&#x9650;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;</h1>
+<h2 id="&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;">&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</h2>
+<ul>
+<li>domain &#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5C42;</li>
+<li>common &#x901A;&#x7528;&#x903B;&#x8F91;&#x5C42;</li>
+<li>entity &#x6570;&#x636E;&#x5E93;</li>
+</ul>
+<h2 id="domain-&#x4E1A;&#x52A1;&#x8BF4;&#x660E;">domain &#x4E1A;&#x52A1;&#x8BF4;&#x660E;</h2>
+<h3 id="auth">auth</h3>
+<ul>
+<li>&#x7528;&#x6237;&#x767B;&#x5F55;</li>
+<li>token &#x9274;&#x5B9A;</li>
+</ul>
+<h3 id="user">user</h3>
+<ul>
+<li>&#x7528;&#x6237;&#x5217;&#x8868;&#x67E5;&#x8BE2;</li>
+<li>&#x7528;&#x6237;&#x8BE6;&#x60C5;&#x67E5;&#x8BE2;</li>
+<li>&#x7528;&#x6237;&#x4FE1;&#x606F;&#x66F4;&#x65B0;</li>
+</ul>
+<h3 id="role">role</h3>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x89D2;&#x8272;&#x5217;&#x8868;</li>
+<li>&#x67E5;&#x8BE2;&#x89D2;&#x8272;&#x8BE6;&#x60C5;</li>
+<li>&#x521B;&#x5EFA;&#x89D2;&#x8272;</li>
+<li>&#x66F4;&#x65B0;&#x89D2;&#x8272;&#x4FE1;&#x606F;</li>
+</ul>
+<h3 id="group">group</h3>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x7EC4;&#x5217;&#x8868;</li>
+<li>&#x521B;&#x5EFA;&#x7EC4;</li>
+</ul>
+<h3 id="assignment">assignment</h3>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x7528;&#x6237;&#x4E0B;&#x89D2;&#x8272;</li>
+<li>&#x4E3A;&#x7528;&#x6237;&#x5206;&#x914D;&#x89D2;&#x8272;</li>
+<li>&#x67E5;&#x8BE2;&#x89D2;&#x8272;&#x4E0B;&#x6743;&#x9650;</li>
+<li>&#x4E3A;&#x89D2;&#x8272;&#x5206;&#x914D;&#x6743;&#x9650;</li>
+<li>&#x67E5;&#x8BE2;&#x7EC4;&#x4E0B;&#x89D2;&#x8272;</li>
+<li>&#x4E3A;&#x89D2;&#x8272;&#x5206;&#x914D;&#x7EC4;</li>
+</ul>
+<h3 id="endpoint">endpoint</h3>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x6743;&#x9650;&#x5217;&#x8868;</li>
+<li>&#x67E5;&#x8BE2;&#x6743;&#x9650;&#x8BE6;&#x60C5;</li>
+<li>&#x521B;&#x5EFA;&#x6743;&#x9650;</li>
+</ul>
+<h6 id="">#</h6>
+<p>2021 &#x5E74;</p>
+<ul>
+<li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</li>
+</ul>
+<pre><code>    CREATE DATABASE IF NOT EXISTS rebecca DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+</code></pre><ul>
+<li>&#x8FDB;&#x5165;&#x6570;&#x636E;&#x5E93;</li>
+</ul>
+<pre><code>    show databases;
+    use rebecca;
+    show tables;
+</code></pre><h1 id="&#x7528;&#x6237;&#x8868;">&#x7528;&#x6237;&#x8868;</h1>
+<ul>
+<li>&#x521B;&#x5EFA;&#x7528;&#x6237;&#x8868;</li>
+</ul>
+<pre><code>    drop table if exists users;
+
+    CREATE TABLE IF NOT EXISTS `users`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(40) NOT NULL,
+   `pwd` VARCHAR(40) DEFAULT &apos;&apos;,
+   `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    INSERT INTO users ( name )
+                       VALUES
+                       ( &apos;sunny&apos; );
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x53EF;&#x7528;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    select * from users where status &lt;&gt;1;
+</code></pre><ul>
+<li>&#x66F4;&#x65B0;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    UPDATE users SET name=&apos;&#x7528;&#x6237;A&apos; where id=1;
+</code></pre><ul>
+<li>&#x5220;&#x9664;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    UPDATE users SET status=1 where id=1;
+</code></pre><h1 id="&#x89D2;&#x8272;&#x8868;">&#x89D2;&#x8272;&#x8868;</h1>
+<ul>
+<li>&#x521B;&#x5EFA;&#x89D2;&#x8272;&#x8868;</li>
+</ul>
+<pre><code>    drop table if exists roles;
+
+    CREATE TABLE IF NOT EXISTS `roles`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(40) NOT NULL,
+   `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x89D2;&#x8272;</li>
+</ul>
+<pre><code>    INSERT INTO roles ( name )
+                       VALUES
+                       ( &apos;admin&apos; );
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x53EF;&#x7528;&#x89D2;&#x8272;</li>
+</ul>
+<pre><code>    select * from roles where status &lt;&gt;1;
+</code></pre><ul>
+<li>&#x66F4;&#x65B0;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    UPDATE roles SET name=&apos;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458;&apos; where id=1;
+</code></pre><ul>
+<li>&#x5220;&#x9664;&#x7528;&#x6237;</li>
+</ul>
+<pre><code>    UPDATE roles SET status=1 where id=1;
+</code></pre><h1 id="&#x6743;&#x9650;&#x8868;">&#x6743;&#x9650;&#x8868;</h1>
+<ul>
+<li>&#x521B;&#x5EFA;&#x6743;&#x9650;&#x8868;</li>
+</ul>
+<pre><code>    drop table if exists authorities;
+
+    CREATE TABLE IF NOT EXISTS `authorities`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(40) NOT NULL,
+   `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li>&#x63D2;&#x5165;&#x6743;&#x9650;</li>
+</ul>
+<pre><code>    INSERT INTO authorities ( name )
+                       VALUES
+                       ( &apos;&#x7BA1;&#x7406;&#x5458;&apos; );
+    INSERT INTO authorities ( name )
+                       VALUES
+                       ( &apos;&#x5F00;&#x53D1;&#x8005;&apos; );
+    INSERT INTO authorities ( name )
+                       VALUES
+                       ( &apos;&#x6E38;&#x5BA2;&apos; );
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x53EF;&#x7528;&#x6743;&#x9650;</li>
+</ul>
+<pre><code>    select * from authorities where status &lt;&gt;1;
+</code></pre><ul>
+<li>&#x66F4;&#x65B0;&#x6743;&#x9650;</li>
+</ul>
+<pre><code>    UPDATE authorities SET name=&apos;&#x7BA1;&#x7406;&#x5458;&apos; where id=1;
+</code></pre><ul>
+<li>&#x5220;&#x9664;&#x6743;&#x9650;</li>
+</ul>
+<pre><code>    UPDATE authorities SET status=1 where id=1;
+</code></pre><h1 id="&#x7528;&#x6237;&#x89D2;&#x8272;&#x5173;&#x7CFB;&#x8868;">&#x7528;&#x6237;&#x89D2;&#x8272;&#x5173;&#x7CFB;&#x8868;</h1>
+<ul>
+<li>&#x521B;&#x5EFA;&#x5173;&#x7CFB;&#x8868;</li>
+</ul>
+<pre><code>    drop table if exists user_role_relations;
+
+    CREATE TABLE IF NOT EXISTS `user_role_relations`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `user_id` INT UNSIGNED NOT NULL,
+   `role_id`  INT UNSIGNED NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li>&#x521B;&#x5EFA;&#x7528;&#x6237; - &#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    INSERT INTO user_role_relations ( user_id,role_id )
+                       VALUES
+                       ( 1, 1 );
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x7528;&#x6237; - &#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    select * from  user_role_relations where status &lt;&gt; 1
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x7684;&#x7528;&#x6237;&#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    select ur.id id, u.name user_name, r.name role_name from users u,roles r,user_role_relations ur where ur.user_id = u.id and ur.role_id = r.id;
+</code></pre><h1 id="&#x89D2;&#x8272;&#x6743;&#x9650;&#x5173;&#x7CFB;&#x8868;">&#x89D2;&#x8272;&#x6743;&#x9650;&#x5173;&#x7CFB;&#x8868;</h1>
+<ul>
+<li>&#x521B;&#x5EFA;&#x5173;&#x7CFB;&#x8868;</li>
+</ul>
+<pre><code>    drop table if exists role_authority_relations;
+
+    CREATE TABLE IF NOT EXISTS `role_authority_relations`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `role_id` INT UNSIGNED NOT NULL,
+   `authority_id`  INT UNSIGNED NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li>&#x521B;&#x5EFA;&#x7528;&#x6237; - &#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    INSERT INTO role_authority_relations ( role_id,authority_id  )
+                       VALUES
+                       ( 1, 1 );
+  INSERT INTO role_authority_relations ( role_id,authority_id  )
+                       VALUES
+                       ( 2, 2 );
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x7528;&#x6237; - &#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    select * from  role_authority_relations where status &lt;&gt; 1
+</code></pre><ul>
+<li>&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x7684;&#x7528;&#x6237;&#x89D2;&#x8272;&#x5173;&#x7CFB;</li>
+</ul>
+<pre><code>    select ra.id id, r.name role_name, a.name authority_name from roles r, authorities a,role_authority_relations ra where ra.role_id = r.id and ra.authority_id = a.id;
+</code></pre><h2 id="&#x67E5;&#x8BE2;&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;">&#x67E5;&#x8BE2;&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;</h2>
+<ul>
+<li>&#x65B9;&#x6848;&#x4E00;</li>
+</ul>
+<pre><code>    select  u.name user_name, r.name role_name, a.name authority_name from users u,roles r,authorities a, user_role_relations ur,role_authority_relations ra where ra.role_id = r.id and ra.authority_id = a.id and  ur.user_id = u.id and ur.role_id = r.id;
+</code></pre><ul>
+<li>&#x65B9;&#x6848;&#x4E8C;</li>
+</ul>
+<h1 id="&#x529F;&#x80FD;&#x8868;">&#x529F;&#x80FD;&#x8868;</h1>
+<pre><code>    drop table if exists endpoints;
+
+    CREATE TABLE IF NOT EXISTS `endpoints`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(50) NOT NULL,
+   `methods` VARCHAR(50) NOT NULL,
+   `description` VARCHAR(100) ,
+   `url` VARCHAR(100) NOT NULL,
+   `parent_id` INT UNSIGNED,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><h1 id="&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x529F;&#x80FD;">&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x529F;&#x80FD;</h1>
+<pre><code>select * from endpoints;
+</code></pre><h1 id="&#x63D2;&#x5165;&#x529F;&#x80FD;">&#x63D2;&#x5165;&#x529F;&#x80FD;</h1>
+<pre><code>    INSERT INTO endpoints ( name,methods,url ,description) VALUES ( &apos;&#x63A8;&#x5E7F;&#x9875;&apos;,&apos;get&apos;,&apos;/promote2&apos;, &apos;&#x8BBF;&#x95EE;&#x63A8;&#x5E7F;&#x9875;&#x6743;&#x9650;&apos;);
+
+    INSERT INTO endpoints ( name,methods,url ,description) VALUES ( &apos;&#x5DE5;&#x5177;&#x7BB1;&#x6240;&#x6709;&#x8005;&apos;,&apos;get,post,put,patch&apos;,&apos;/tools&apos;, &apos;&#x8BBF;&#x95EE;&#x63A8;&#x5E7F;&#x9875;&#x6743;&#x9650;&apos;);
+
+    INSERT INTO endpoints ( name,methods,url ,description, parent_id) VALUES ( &apos;&#x63A8;&#x5E7F;&#x9875;&#x5E7F;&#x544A;&#x8BA1;&#x5212;&apos;,&apos;get&apos;,&apos;/promote2/advertisements&apos;, &apos;&#x8BBF;&#x95EE;&#x5E7F;&#x544A;&#x8BA1;&#x5212;&#x6743;&#x9650;&apos;, 1);
+
+      INSERT INTO endpoints ( name,methods,url ,description, parent_id) VALUES ( &apos;&#x63A8;&#x5E7F;&#x9875;&#x5E7F;&#x544A;&#x521B;&#x610F;&apos;,&apos;get&apos;,&apos;/promote2/creatives&apos;, &apos;&#x8BBF;&#x95EE;&#x5E7F;&#x544A;&#x521B;&#x610F;&#x6743;&#x9650;&apos;, 1);
+
+    INSERT INTO endpoints ( name,methods,url ,description, parent_id) VALUES ( &apos;&#x63A8;&#x5E7F;&#x9875;&#x5E7F;&#x544A;&#x7CFB;&#x5217;&apos;,&apos;get&apos;,&apos;/promote2/campaigns&apos;, &apos;&#x8BBF;&#x95EE;&#x5E7F;&#x544A;&#x7CFB;&#x5217;&#x6743;&#x9650;&apos;, 1);
+
+        INSERT INTO endpoints ( name,methods,url ,description, parent_id) VALUES ( &apos;&#x5DE5;&#x5177;&#x9875;&#x5E94;&#x7528;&#x7BA1;&#x7406;&apos;,&apos;get&apos;,&apos;/tools/launch/appcenter&apos;, &apos;&#x8BBF;&#x95EE;&#x5E94;&#x7528;&#x7BA1;&#x7406;&#x9875;&#x9762;&apos;, 2);
+</code></pre><blockquote>
+<p>&#x8E29;&#x5751;&#xFF1A;&#x63CF;&#x8FF0; description &#x5343;&#x4E07;&#x4E0D;&#x8981;&#x7528;&#x7B80;&#x5199; desc&#xFF0C;&#x56E0;&#x4E3A; mysql &#x4E2D;&#x7684; desc &#x662F;&#x6392;&#x5E8F;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x5C5E;&#x4E8E;&#x7CFB;&#x7EDF;&#x5173;&#x952E;&#x5B57;&#x3002;</p>
+</blockquote>
+<h1 id="&#x66F4;&#x65B0;&#x529F;&#x80FD;">&#x66F4;&#x65B0;&#x529F;&#x80FD;</h1>
+<pre><code>  UPDATE endpoints SET name=&apos;&#x63A8;&#x5E7F;&#x9875;&#x5E7F;&#x544A;&#x7CFB;&#x5217;&apos; where id=5;
+</code></pre><h1 id="&#x6743;&#x9650;&#x64CD;&#x4F5C;&#x5173;&#x8054;&#x8868;">&#x6743;&#x9650;&#x64CD;&#x4F5C;&#x5173;&#x8054;&#x8868;</h1>
+<pre><code>    drop table if exists authority_endpoint_relations;
+
+    CREATE TABLE IF NOT EXISTS `authority_endpoint_relations`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `endpoint_id` INT UNSIGNED NOT NULL,
+   `authority_id`  INT UNSIGNED NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><h1 id="&#x67E5;&#x8BE2;">&#x67E5;&#x8BE2;</h1>
+<pre><code>    select * from authority_endpoint_relations;
+</code></pre><h1 id="&#x63D2;&#x5165;&#x6743;&#x9650;&#x64CD;&#x4F5C;">&#x63D2;&#x5165;&#x6743;&#x9650;&#x64CD;&#x4F5C;</h1>
+<pre><code>    insert into authority_endpoint_relations (authority_id, endpoint_id) values (1, 1)
+     insert into authority_endpoint_relations (authority_id, endpoint_id) values (1, 2)
+     insert into authority_endpoint_relations (authority_id, endpoint_id) values (2, 2)
+     insert into authority_endpoint_relations (authority_id, endpoint_id) values (3, 4)
+</code></pre><h1 id="&#x8FDE;&#x7EED;&#x8BE6;&#x7EC6;&#x60C5;&#x51B5;">&#x8FDE;&#x7EED;&#x8BE6;&#x7EC6;&#x60C5;&#x51B5;</h1>
+<pre><code>select a.name authority_name, e.name endpoint_name,e.description, e.url from authority_endpoint_relations ae,authorities a,endpoints e where ae.authority_id=a.id and ae.endpoint_id = e.id;
+
+select a.name authority_name, e.name endpoint_name, e.description, e.url ,ae.authority_id from authority_endpoint_relations ae,authorities a,endpoints e where ae.authority_id = 1 and a.id=1;
+
+select ae.authority_id id , a.name authority_name, e.name endpoint_name, e.description, e.url  from authority_endpoint_relations ae,authorities a,endpoints e where ae.authority_id = 1 and a.id=1 and ae.endpoint_id = e.id;
+
+
+// &#x67E5;&#x8BE2;&#x67D0;&#x89D2;&#x8272;&#x4E0B;&#x6743;&#x9650;
+select a.name authority_name ,e.name endpoint_name, e.description description from authorities a, endpoints e where a.id=3 and (e.id in (select endpoint_id from authority_endpoint_relations where authority_id=3) or e.parent_id in  (select endpoint_id from authority_endpoint_relations where authority_id=3)  );
+
+
+// &#x67E5;&#x8BE2;&#x67D0;&#x6743;&#x9650;&#x6709;&#x591A;&#x5C11;&#x89D2;&#x8272;&#x62E5;&#x6709;
+select a.name authority_name ,e.name endpoint_name, e.description description, e.parent_id from authorities a, endpoints e where e.id=4 and (a.id in (select authority_id from authority_endpoint_relations where endpoint_id=4)  or a.id in ( select authority_id from authority_endpoint_relations where endpoint_id in (select parent_id from endpoints where id=4))   );
+</code></pre><h1 id="group">Group</h1>
+<h2 id="&#x521B;&#x5EFA;&#x7EC4;">&#x521B;&#x5EFA;&#x7EC4;</h2>
+<pre><code>     drop table if exists groups;
+
+    CREATE TABLE IF NOT EXISTS `groups`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(50) NOT NULL,
+   `parent_id` INT UNSIGNED,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><h2 id="&#x63D2;&#x5165;&#x7EC4;&#x4FE1;&#x606F;">&#x63D2;&#x5165;&#x7EC4;&#x4FE1;&#x606F;</h2>
+<pre><code>    insert into groups (name) values (&apos;&#x8D85;&#x7EA7;&#x7C89;&#x4E1D;&#x901A;&#x524D;&#x7AEF;&apos;);
+    insert into groups (name, parent_id) values (&apos;&#x5E94;&#x7528;&#x4E2D;&#x5FC3;&#x5F00;&#x53D1;&#x7EC4;&apos;, 1);
+     insert into groups (name, parent_id) values (&apos;&#x8F6C;&#x5316;&#x5F52;&#x56E0;&#x5F00;&#x53D1;&#x7EC4;&apos;, 1);
+</code></pre><h1 id="&#x7528;&#x6237;&#x548C;&#x7EC4;&#x7684;&#x5173;&#x7CFB;&#x8868;">&#x7528;&#x6237;&#x548C;&#x7EC4;&#x7684;&#x5173;&#x7CFB;&#x8868;</h1>
+<h2 id="&#x521B;&#x5EFA;">&#x521B;&#x5EFA;</h2>
+<pre><code>     drop table if exists user_group_relations;
+
+    CREATE TABLE IF NOT EXISTS `user_group_relations`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `user_id` INT UNSIGNED NOT NULL,
+   `group_id`  INT UNSIGNED NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><h2 id="&#x63D2;&#x5165;">&#x63D2;&#x5165;</h2>
+<pre><code>    insert into user_group_relations (user_id, group_id) values (1, 1);
+    insert into user_group_relations (user_id, group_id) values (3, 2);
+</code></pre><h2 id="&#x67E5;&#x8BE2;">&#x67E5;&#x8BE2;</h2>
+<pre><code>    select g.name group_name, u.name user_name from user_group_relations ug,users u,groups g where ug.user_id=u.id and ug.group_id = g.id;
+</code></pre><h1 id="&#x7EC4;&#x4E0E;&#x89D2;&#x8272;&#x5173;&#x7CFB;&#x8868;">&#x7EC4;&#x4E0E;&#x89D2;&#x8272;&#x5173;&#x7CFB;&#x8868;</h1>
+<pre><code>
+  drop table if exists group_role_relations;
+
+    CREATE TABLE IF NOT EXISTS `group_role_relations`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `group_id` INT UNSIGNED NOT NULL,
+   `role_id`  INT UNSIGNED NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><h2 id="&#x521B;&#x5EFA;&#x4E00;&#x6761;&#x6570;&#x636E;">&#x521B;&#x5EFA;&#x4E00;&#x6761;&#x6570;&#x636E;</h2>
+<pre><code>    insert into group_role_relations (group_id, role_id) values (1,2);
+</code></pre><h2 id="&#x67E5;&#x8BE2;&#x7EC4;&#x548C;&#x89D2;&#x8272;">&#x67E5;&#x8BE2;&#x7EC4;&#x548C;&#x89D2;&#x8272;</h2>
+<pre><code>       select g.name group_name, r.name role_name from group_role_relations gr,groups g,roles r where gr.group_id=g.id and gr.role_id = r.id;
+</code></pre><h3 id="&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x5982;&#x4F55;&#x6807;&#x8BB0;-1-&#x4E2A;&#x4EBA;&#x6240;&#x6709;&#x7684;&#x6743;&#x9650;&#xFF1F;">&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x5982;&#x4F55;&#x6807;&#x8BB0; 1 &#x4E2A;&#x4EBA;&#x6240;&#x6709;&#x7684;&#x6743;&#x9650;&#xFF1F;</h3>
+<ol>
+<li>&#x67E5;&#x8BE2;&#x8BE5;&#x4EBA;&#x540D;&#x4E0B;&#x7684;&#x89D2;&#x8272;</li>
+<li>&#x67E5;&#x8BE2;&#x8BE5;&#x4EBA;&#x6240;&#x5728;&#x7684;&#x7EC4;</li>
+<li>&#x67E5;&#x8BE2;&#x7EC4;&#x4E0B;&#x6240;&#x62E5;&#x6709;&#x7684;&#x89D2;&#x8272;</li>
+<li>&#x67E5;&#x8BE2;&#x89D2;&#x8272;&#x4E0B;&#x6240;&#x6709;&#x6743;&#x9650;</li>
+<li>&#x67E5;&#x8BE2;&#x6743;&#x9650;&#x5BF9;&#x5E94;&#x7684;&#x5177;&#x4F53; url</li>
+</ol>
+<pre><code>    &#x7528;&#x6237; &#x7528;&#x6237;A id
+
+    // 1  uid 1
+    select r.id role_id, u.name user_name, r.name role_name from users u,roles r,user_role_relations ur where ur.user_id = u.id and ur.role_id = r.id and u.id = 1;
+
+    // 2 uid 1
+    select g.id group_id, g.name group_name, u.name user_name from user_group_relations ug,users u,groups g where ug.user_id=u.id and ug.group_id = g.id and u.id = 1;
+
+    // 3 grou
+    select r.id role_id, g.name group_name, r.name role_name from group_role_relations gr,groups g,roles r where gr.group_id=g.id and gr.role_id = r.id and g.id=1;
+
+    // 4
+     select a.id athority_id, r.name role_name, a.name authority_name from roles r, authorities a,role_authority_relations ra where ra.role_id = r.id and ra.authority_id = a.id and r.id in (1,2);
+
+    // 5 
+    select a.name authority_name, e.name endpoint_name,e.description, e.url from authority_endpoint_relations ae,authorities a,endpoints e where ae.authority_id=a.id and ae.endpoint_id = e.id and  a.id in (1,2);
+</code></pre><ul>
+<li>&#x5206;&#x914D;&#x8868;</li>
+</ul>
+<pre><code>drop table if exists assignments;
+
+    CREATE TABLE IF NOT EXISTS `assignments`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `x_name` VARCHAR(20) NOT NULL,
+   `x_id` INT UNSIGNED NOT NULL,
+   `y_name` VARCHAR(20) NOT NULL,
+   `y_id` INT UNSIGNED NOT NULL,
+   `type` VARCHAR(40) NOT NULL,
+    `status` TINYINT NOT NULL DEFAULT 0,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Nestjs学习记录（总纲） .html" class="navigation navigation-prev " aria-label="Previous page: Nestjs学习记录（总纲） ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="权限管理系统服务器设计.html" class="navigation navigation-next " aria-label="Next page: 权限管理系统服务器设计">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"权限管理系统数据库设计","level":"1.3.11","depth":2,"next":{"title":"权限管理系统服务器设计","level":"1.3.12","depth":2,"path":"docs/server/权限管理系统服务器设计.md","ref":"./docs/server/权限管理系统服务器设计.md","articles":[]},"previous":{"title":"Nestjs学习记录（总纲） ","level":"1.3.10","depth":2,"path":"docs/server/Nestjs学习记录（总纲） .md","ref":"./docs/server/Nestjs学习记录（总纲） .md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"龙骑将杨影枫","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"法师的卷轴包","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"龙骑将的魔法书":"http://angrykitty.link"}},"gitbook":"*","description":"技术总结，主要是理论和心得体会","extension":null},"file":{"path":"docs/server/权限管理系统数据库设计.md","mtime":"2021-04-26T03:14:13.622Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-07T06:33:53.017Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1530 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Nestjs学习记录-中间件、拦截器、过滤器（下） · 法师的卷轴包</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="龙骑将杨影枫">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Nestjs学习记录-使用Multer上传文件.html" />
+    
+    
+    <link rel="prev" href="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://angrykitty.link" target="_blank" class="custom-link">龙骑将的魔法书</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    前端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../front/Axios相关.html">
+            
+                <a href="../front/Axios相关.html">
+            
+                    
+                    Axios相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../front/CSS速查.html">
+            
+                <a href="../front/CSS速查.html">
+            
+                    
+                    CSS速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../front/JavaScript记录.html">
+            
+                <a href="../front/JavaScript记录.html">
+            
+                    
+                    JavaScript记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../front/To-do-List.html">
+            
+                <a href="../front/To-do-List.html">
+            
+                    
+                    To-do-List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../front/TypeScript记录.html">
+            
+                <a href="../front/TypeScript记录.html">
+            
+                    
+                    TypeScript记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../front/Vue3记录.html">
+            
+                <a href="../front/Vue3记录.html">
+            
+                    
+                    Vue3记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../front/Vue的Ts写法.html">
+            
+                <a href="../front/Vue的Ts写法.html">
+            
+                    
+                    Vue的Ts写法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../front/Vue速查.html">
+            
+                <a href="../front/Vue速查.html">
+            
+                    
+                    Vue速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../front/npm常见问题.html">
+            
+                <a href="../front/npm常见问题.html">
+            
+                    
+                    npm常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../front/svg转字体文件方法.html">
+            
+                <a href="../front/svg转字体文件方法.html">
+            
+                    
+                    svg转字体文件方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../front/vue-introjs.html">
+            
+                <a href="../front/vue-introjs.html">
+            
+                    
+                    vue-introjs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../front/从零开始的前端环境搭建.html">
+            
+                <a href="../front/从零开始的前端环境搭建.html">
+            
+                    
+                    从零开始的前端环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../front/前端自动化测试研究报告.html">
+            
+                <a href="../front/前端自动化测试研究报告.html">
+            
+                    
+                    前端自动化测试研究报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../front/南瓜电影动态布局讲座笔记.html">
+            
+                <a href="../front/南瓜电影动态布局讲座笔记.html">
+            
+                    
+                    南瓜电影动态布局讲座笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../front/微前端听课笔记1.html">
+            
+                <a href="../front/微前端听课笔记1.html">
+            
+                    
+                    微前端听课笔记1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../front/微前端听课笔记2.html">
+            
+                <a href="../front/微前端听课笔记2.html">
+            
+                    
+                    微前端听课笔记2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../front/有关分片上传的总结.html">
+            
+                <a href="../front/有关分片上传的总结.html">
+            
+                    
+                    有关分片上传的总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../front/权限管理系统前端页面.html">
+            
+                <a href="../front/权限管理系统前端页面.html">
+            
+                    
+                    权限管理系统前端页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../front/正则表达式搜集.html">
+            
+                <a href="../front/正则表达式搜集.html">
+            
+                    
+                    正则表达式搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../front/跨域处理方式.html">
+            
+                <a href="../front/跨域处理方式.html">
+            
+                    
+                    跨域处理方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    服务端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="MongoDB常用命令.html">
+            
+                <a href="MongoDB常用命令.html">
+            
+                    
+                    MongoDB常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="MySql常用命令总结.html">
+            
+                <a href="MySql常用命令总结.html">
+            
+                    
+                    MySql常用命令总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Nestjs学习记录-CRUD写法.html">
+            
+                <a href="Nestjs学习记录-CRUD写法.html">
+            
+                    
+                    Nestjs学习记录-CRUD写法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html">
+            
+                <a href="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html">
+            
+                    
+                    Nestjs学习记录-中间件、拦截器、过滤器（上） copy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5" data-path="Nestjs学习记录-中间件、拦截器、过滤器（下）.html">
+            
+                <a href="Nestjs学习记录-中间件、拦截器、过滤器（下）.html">
+            
+                    
+                    Nestjs学习记录-中间件、拦截器、过滤器（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="Nestjs学习记录-使用Multer上传文件.html">
+            
+                <a href="Nestjs学习记录-使用Multer上传文件.html">
+            
+                    
+                    Nestjs学习记录-使用Multer上传文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="Nestjs学习记录-使用jwt进行用户认证.html">
+            
+                <a href="Nestjs学习记录-使用jwt进行用户认证.html">
+            
+                    
+                    Nestjs学习记录-使用jwt进行用户认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="Nestjs学习记录-安装与常用命令.html">
+            
+                <a href="Nestjs学习记录-安装与常用命令.html">
+            
+                    
+                    Nestjs学习记录-安装与常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="Nestjs学习记录-链接数据库.html">
+            
+                <a href="Nestjs学习记录-链接数据库.html">
+            
+                    
+                    Nestjs学习记录-链接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="Nestjs学习记录（总纲） .html">
+            
+                <a href="Nestjs学习记录（总纲） .html">
+            
+                    
+                    Nestjs学习记录（总纲） 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="权限管理系统数据库设计.html">
+            
+                <a href="权限管理系统数据库设计.html">
+            
+                    
+                    权限管理系统数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="权限管理系统服务器设计.html">
+            
+                <a href="权限管理系统服务器设计.html">
+            
+                    
+                    权限管理系统服务器设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    安卓
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../android/ReactNative使用.html">
+            
+                <a href="../android/ReactNative使用.html">
+            
+                    
+                    ReactNative使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../android/flutter错误集合.html">
+            
+                <a href="../android/flutter错误集合.html">
+            
+                    
+                    flutter错误集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    运维
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ops/Docker常用命令集.html">
+            
+                <a href="../ops/Docker常用命令集.html">
+            
+                    
+                    Docker常用命令集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ops/Gitbook常用命令.html">
+            
+                <a href="../ops/Gitbook常用命令.html">
+            
+                    
+                    Gitbook常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ops/Hexo常用命令.html">
+            
+                <a href="../ops/Hexo常用命令.html">
+            
+                    
+                    Hexo常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ops/Jenkins自动部署Vue项目.html">
+            
+                <a href="../ops/Jenkins自动部署Vue项目.html">
+            
+                    
+                    Jenkins自动部署Vue项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ops/Linux美化记录.html">
+            
+                <a href="../ops/Linux美化记录.html">
+            
+                    
+                    Linux美化记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ops/Mac系统处理rar文件.html">
+            
+                <a href="../ops/Mac系统处理rar文件.html">
+            
+                    
+                    Mac系统处理rar文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ops/Nginx常见抽风处理.html">
+            
+                <a href="../ops/Nginx常见抽风处理.html">
+            
+                    
+                    Nginx常见抽风处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ops/PM2常用命令.html">
+            
+                <a href="../ops/PM2常用命令.html">
+            
+                    
+                    PM2常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ops/Rsync使用笔记.html">
+            
+                <a href="../ops/Rsync使用笔记.html">
+            
+                    
+                    Rsync使用笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../ops/Shell脚本.html">
+            
+                <a href="../ops/Shell脚本.html">
+            
+                    
+                    Shell脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../ops/Windows设置SSH.html">
+            
+                <a href="../ops/Windows设置SSH.html">
+            
+                    
+                    Windows设置SSH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../ops/sshpass使用踩坑.html">
+            
+                <a href="../ops/sshpass使用踩坑.html">
+            
+                    
+                    sshpass使用踩坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../ops/使用Docker部署及维护Jenkins镜像.html">
+            
+                <a href="../ops/使用Docker部署及维护Jenkins镜像.html">
+            
+                    
+                    使用Docker部署及维护Jenkins镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../ops/使用Nginx配置本地https代理.html">
+            
+                <a href="../ops/使用Nginx配置本地https代理.html">
+            
+                    
+                    使用Nginx配置本地https代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../ops/手动部署RAP2.html">
+            
+                <a href="../ops/手动部署RAP2.html">
+            
+                    
+                    手动部署RAP2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../ops/手动部署富文本编辑器 Codemi.html">
+            
+                <a href="../ops/手动部署富文本编辑器 Codemi.html">
+            
+                    
+                    手动部署富文本编辑器 Codemi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../ops/阿里云部署RAP2.html">
+            
+                <a href="../ops/阿里云部署RAP2.html">
+            
+                    
+                    阿里云部署RAP2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../ops/阿里云部署服务器.html">
+            
+                <a href="../ops/阿里云部署服务器.html">
+            
+                    
+                    阿里云部署服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    杂七杂八
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../other/2021年个人述职报告.md">
+            
+                <span>
+            
+                    
+                    2021年个人述职报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../other/2021年度技术文档整理.html">
+            
+                <a href="../other/2021年度技术文档整理.html">
+            
+                    
+                    2021年度技术文档整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../other/2022年度技术文档整理.html">
+            
+                <a href="../other/2022年度技术文档整理.html">
+            
+                    
+                    2022年度技术文档整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../other/Dockerfile.md">
+            
+                <span>
+            
+                    
+                    Dockerfile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../other/Mac使用手册.html">
+            
+                <a href="../other/Mac使用手册.html">
+            
+                    
+                    Mac使用手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../other/Redis操作.md">
+            
+                <span>
+            
+                    
+                    Redis操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../other/TBC战熊骑分析报告.html">
+            
+                <a href="../other/TBC战熊骑分析报告.html">
+            
+                    
+                    TBC战熊骑分析报告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../other/Vim快捷键.html">
+            
+                <a href="../other/Vim快捷键.html">
+            
+                    
+                    Vim快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../other/mods.html">
+            
+                <a href="../other/mods.html">
+            
+                    
+                    mods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../other/《三国志11威力加强版》技能sql.html">
+            
+                <a href="../other/《三国志11威力加强版》技能sql.html">
+            
+                    
+                    《三国志11威力加强版》技能sql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../other/《唐探3》影评.html">
+            
+                <a href="../other/《唐探3》影评.html">
+            
+                    
+                    《唐探3》影评
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../other/《正义之怒》整理.html">
+            
+                <a href="../other/《正义之怒》整理.html">
+            
+                    
+                    《正义之怒》整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../other/二手房计算规则.html">
+            
+                <a href="../other/二手房计算规则.html">
+            
+                    
+                    二手房计算规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../other/入党申请书v2.md">
+            
+                <span>
+            
+                    
+                    入党申请书v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../other/年夜饭.html">
+            
+                <a href="../other/年夜饭.html">
+            
+                    
+                    年夜饭
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="../other/机战a.html">
+            
+                <a href="../other/机战a.html">
+            
+                    
+                    机战a
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.17" data-path="../other/血缘铭文搜集.html">
+            
+                <a href="../other/血缘铭文搜集.html">
+            
+                    
+                    血缘铭文搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.18" data-path="../other/错误搜集.md">
+            
+                <span>
+            
+                    
+                    错误搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.19" data-path="../other/魔兽世界怀旧服 WA 字符串与宏研究.html">
+            
+                <a href="../other/魔兽世界怀旧服 WA 字符串与宏研究.html">
+            
+                    
+                    魔兽世界怀旧服 WA 字符串与宏研究
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Nestjs学习记录-中间件、拦截器、过滤器（下）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x62E6;&#x622A;&#x5668;&#x548C;&#x8FC7;&#x6EE4;&#x5668;&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;">&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x62E6;&#x622A;&#x5668;&#x548C;&#x8FC7;&#x6EE4;&#x5668;&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;</h1>
+<h2 id="&#x4E2D;&#x95F4;&#x4EF6;">&#x4E2D;&#x95F4;&#x4EF6;</h2>
+<h3 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h3>
+<p>&#x8FD9;&#x91CC;&#x5199;&#x51FA;&#x4E2A;&#x4EBA;&#x5BF9;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x7406;&#x89E3;&#xFF1A;&#x6240;&#x8C13;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x4E2D;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x7684;&#x4E00;&#x73AF;&#x3002;&#x901A;&#x8FC7;&#x5BF9;&#x7EAF;&#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x8F93;&#x5165;&#x503C;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x8F93;&#x51FA;&#x503C;&#xFF0C;&#x5728;&#x4FDD;&#x8BC1;&#x529F;&#x80FD;&#x6269;&#x5C55;&#x7684;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x7684;&#x4FDD;&#x8BC1;&#x9AD8;&#x5EA6;&#x7684;&#x72EC;&#x7ACB;&#x6027;&#x3002;</p>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x8BF7;&#x6C42;&#x548C;&#x76F8;&#x5E94;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x66F4;&#x6539;&#x3002;</li>
+<li>&#x7ED3;&#x675F;&#x8BF7;&#x6C42; - &#x54CD;&#x5E94;&#x5468;&#x7426;&#x3002;</li>
+<li>&#x4F7F;&#x7528; next() &#x8C03;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;&#x51FD;&#x6570;&#x3002;</li>
+</ol>
+<blockquote>
+<p>&#x8DD1;&#x9898;&#xFF0C;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684; <strong>redux</strong> &#x4E2D;&#x95F4;&#x4EF6;&#x5199;&#x6CD5;&#xFF1A;<code>state =&gt; next =&gt; action =&gt; { ....  return next(action)}</code>&#xFF08;<a href="http://angrykitty.link:40440/2020/07/03/redux-code-review/#more&#xFF09;&#x3002;
+&#x8DD1;&#x9898;2&#xFF0C;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x672C;&#x8D28;&#x662F;&#x7EC4;&#x5408;&#x51FD;&#x6570;&#xFF0C;&#x53C8;&#x79F0; [compose &#x51FD;&#x6570;](https://juejin.cn/post/6844903988647690254" target="_blank">&#x4F3C;&#x66FE;&#x76F8;&#x8BC6;</a>&#x3002;</p>
+</blockquote>
+<h3 id="&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;&#x8BB0;&#x5F55;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;">&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;&#x8BB0;&#x5F55;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;</h3>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E2D;&#x95F4;&#x4EF6;</li>
+</ol>
+<pre><code>nest g middleware logger middleware // &#x5728; middleware &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x521B;&#x5EFA;&#x540D;&#x4E3A; logger.middleware.ts &#x7684;&#x4E2D;&#x95F4;&#x4EF6;
+</code></pre><ol>
+<li>&#x4FEE;&#x6539; <code>src/middleware/logger.middleware.ts</code> &#x6587;&#x4EF6;</li>
+</ol>
+<pre><code>import { Injectable, NestMiddleware } from &apos;@nestjs/common&apos;;
+import { Request, Response } from &apos;express&apos;;
+import { Logger } from &apos;src/utils/log4js&apos;;
+
+// &#x8FD9;&#x91CC;&#x662F;&#x521B;&#x5EFA;&#x4E2D;&#x95F4;&#x4EF6;&#x65F6; nest &#x63D0;&#x4F9B;&#x7684;&#x6807;&#x51C6;&#x5199;&#x6CD5;
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: () =&gt; void) {
+    const code = res.statusCode;
+    next();
+    // &#x7EC4;&#x88C5;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;
+    const logFormat = `Method: ${req.method} \n Request original url: ${req.originalUrl} \n IP: ${req.ip} \n Status code: ${code} \n`;
+    // &#x6839;&#x636E;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x7C7B;&#x578B;&#x533A;&#x5206;
+    if (code &gt;= 500) {
+      Logger.error(logFormat);
+    } else if (code &gt;= 400) {
+      Logger.warn(logFormat);
+    } else {
+      Logger.access(logFormat);
+      Logger.log(logFormat);
+    }
+  }
+}
+
+// &#x8FD9;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x5199;&#x6CD5;&#xFF0C;&#x4E8C;&#x9009;&#x4E00;&#x5373;&#x53EF;
+export function logger(
+  req: Request,
+  // @Body() body,
+  res: Response,
+  next: () =&gt; any,
+) {
+  const code = res.statusCode;
+  next();
+  const logFormat = ` &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+    Request original url: ${req.originalUrl}
+    Method: ${req.method}
+    IP: ${req.ip}
+    Status code: ${code}
+    Parmas: ${JSON.stringify(req.params)}
+    Query: ${JSON.stringify(req.query)}
+    Body: ${JSON.stringify(
+      req.body,
+    )} \n  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+  `;
+  if (code &gt;= 500) {
+    Logger.error(logFormat);
+  } else if (code &gt;= 400) {
+    Logger.warn(logFormat);
+  } else {
+    Logger.access(logFormat);
+    // Logger.log(logFormat);
+  }
+}
+</code></pre><ol>
+<li>&#x5728; <code>main.ts</code> &#x5F15;&#x5165;&#x4E2D;&#x95F4;&#x4EF6;</li>
+</ol>
+<pre><code>import { NestFactory } from &apos;@nestjs/core&apos;;
+import { AppModule } from &apos;./app.module&apos;;
+import { logger } from &apos;./middleware/logger.middleware&apos;;
+import * as express from &apos;express&apos;;
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(express.json()); // For parsing application/json
+  app.use(express.urlencoded({ extended: true }));
+  app.use(logger); // &#x5F15;&#x5165;&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;
+  await app.listen(3000);
+}
+bootstrap();
+</code></pre><blockquote>
+<p>&#x6CE8;&#xFF1A;&#x9700;&#x8981;<code>app.use(express.json())</code> &#x548C; <code>app.use(express.json())</code> &#x624D;&#x80FD;&#x62FF;&#x5230; <code>req,body</code> &#x548C; <code>req.params</code>&#x3002;
+&#x6CE8;2&#xFF1A;<code>body-parser</code> &#x5DF2;&#x88AB;&#x5E9F;&#x5F03;&#x800C;&#x4E14;&#x6BDB;&#x7528;&#x6CA1;&#x6709;&#xFF0C;&#x522B;&#x95EE;&#x6211;&#x548B;&#x77E5;&#x9053;&#x3002;</p>
+</blockquote>
+<h2 id="&#x62E6;&#x622A;&#x5668;">&#x62E6;&#x622A;&#x5668;</h2>
+<h3 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h3>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x9488;&#x5BF9; request&#xFF0C;&#x62E6;&#x622A;&#x5668;&#x9488;&#x5BF9; response&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;&#x62E6;&#x622A;&#x5668;&#x8BB0;&#x5F55;-response-&#x65E5;&#x5FD7;">&#x4F7F;&#x7528;&#x62E6;&#x622A;&#x5668;&#x8BB0;&#x5F55; response &#x65E5;&#x5FD7;</h3>
+<ol>
+<li>&#x521B;&#x5EFA;&#x62E6;&#x622A;&#x5668;</li>
+</ol>
+<pre><code>  nest g interceptor transform interceptor // &#x5728; interceptor &#x6587;&#x4EF6;&#x4E0B;&#x521B;&#x5EFA;&#x540D;&#x4E3A; transform.interceptor.ts &#x7684;&#x62E6;&#x622A;&#x5668;
+</code></pre><ol>
+<li>&#x4FEE;&#x6539; transform.interceptor.ts &#x6587;&#x4EF6;</li>
+</ol>
+<pre><code>import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from &apos;@nestjs/common&apos;;
+import { Logger } from &apos;../utils/log4js&apos;;
+import { Observable } from &apos;rxjs&apos;;
+import { map } from &apos;rxjs/operators&apos;;
+
+@Injectable()
+export class TransformInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    const req = context.getArgByIndex(1).req;
+
+    return next.handle().pipe(
+      map((data) =&gt; {
+        const logFormat = ` &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+    Request original url: ${req.originalUrl}
+    Method: ${req.method}
+    IP: ${req.ip}
+    User: ${JSON.stringify(req.user)}
+    Response data:\n ${JSON.stringify(data.data)}
+    &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;`;
+        Logger.info(logFormat);
+        Logger.access(logFormat);
+        return data;
+      }),
+    );
+  }
+}
+</code></pre><blockquote>
+<p>&#x6B64;&#x5904;&#x7528;&#x5230;&#x4E86; pip &#x548C; rxjs&#x3002;</p>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x65F6; User &#x4E3A; undefiend &#x662F;&#x56E0;&#x4E3A;&#x672A;&#x5C06;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x7ED1;&#x5B9A;&#x5728; req &#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; AuthGuards(&apos;jwt) &#x5219;&#x4F1A;&#x663E;&#x793A;&#xFF08;&#x89E3;&#x5BC6;&#x540E;&#x7684;&#xFF09; user &#x4FE1;&#x606F;&#x3002;</p>
+</blockquote>
+<ol>
+<li>&#x5728; main.ts &#x4E2D;&#x5F15;&#x5165;</li>
+</ol>
+<pre><code>import { NestFactory } from &apos;@nestjs/core&apos;;
+import { AppModule } from &apos;./app.module&apos;;
+import { logger } from &apos;./middleware/logger.middleware&apos;;
+import * as express from &apos;express&apos;;
+import { TransformInterceptor } from &apos;./interceptor/transform.interceptor&apos;;
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(express.json()); // For parsing application/json
+  app.use(express.urlencoded({ extended: true }));
+  app.use(logger); // &#x5F15;&#x5165;&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;
+  app.useGlobalInterceptors(new TransformInterceptor());
+  await app.listen(3000);
+}
+bootstrap();
+</code></pre><h3 id="&#x4F7F;&#x7528;&#x62E6;&#x622A;&#x5668;&#x89C4;&#x8303;&#x5316;&#x8FD4;&#x56DE;&#x503C;">&#x4F7F;&#x7528;&#x62E6;&#x622A;&#x5668;&#x89C4;&#x8303;&#x5316;&#x8FD4;&#x56DE;&#x503C;</h3>
+<ol>
+<li>&#x521B;&#x5EFA; <code>data.interceptor.ts</code> &#x6587;&#x4EF6;</li>
+</ol>
+<pre><code>nest g interceptor data interceptor
+</code></pre><ol>
+<li>&#x4FEE;&#x6539; <code>data.interceptor.ts</code> &#x6587;&#x4EF6;</li>
+</ol>
+<pre><code>import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from &apos;@nestjs/common&apos;;
+import { Observable } from &apos;rxjs&apos;;
+import { map } from &apos;rxjs/operators&apos;;
+
+@Injectable()
+export class DataInterceptor implements NestInterceptor {
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler&lt;any&gt;,
+  ): Observable&lt;any&gt; {
+    return next.handle().pipe(map((data) =&gt; ({ code: 200, data })));
+  }
+}
+</code></pre><ol>
+<li>&#x5F15;&#x5165; main.ts</li>
+</ol>
+<pre><code>import { NestFactory } from &apos;@nestjs/core&apos;;
+import { AppModule } from &apos;./app.module&apos;;
+import { logger } from &apos;./middleware/logger.middleware&apos;;
+import * as express from &apos;express&apos;;
+import { TransformInterceptor } from &apos;./interceptor/transform.interceptor&apos;;
+import { DataInterceptor } from &apos;./interceptor/data.interceptor&apos;;
+import { AllExceptionFilter } from &apos;./filter/exception.filter&apos;;
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(express.json()); // For parsing application/json
+  app.use(express.urlencoded({ extended: true }));
+  app.use(logger); // &#x5F15;&#x5165;&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;
+  app.useGlobalInterceptors(new TransformInterceptor()); // &#x65E5;&#x5FD7;&#x8BB0;&#x5F55;
+  app.useGlobalInterceptors(new DataInterceptor()); // &#x8FD4;&#x56DE;&#x503C;&#x89C4;&#x8303;&#x5316;
+  await app.listen(3000);
+}
+bootstrap();
+</code></pre><h2 id="&#x8FC7;&#x6EE4;&#x5668;">&#x8FC7;&#x6EE4;&#x5668;</h2>
+<h3 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h3>
+<p>nestjs &#x4E2D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x5168;&#x79F0;&#x5E94;&#x8BE5;&#x662F;<strong>&#x5F02;&#x5E38;&#x8FC7;&#x6EE4;&#x5668;</strong>&#xFF0C;&#x548C;&#x4F20;&#x7EDF;&#x670D;&#x52A1;&#x5668;&#x5F00;&#x53D1;&#xFF08;spring&#x3001;php&#xFF09;&#x4E2D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x6982;&#x5FF5;&#x5E76;&#x4E0D;&#x662F;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x3002;</p>
+<blockquote>
+<p>&#x4E8B;&#x5B9E;&#x4E0A; nest &#x4E2D;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x76F8;&#x5F53;&#x4E8E;&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x62E6;&#x622A;&#x5668;&#x76F8;&#x5F53;&#x4E8E;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x800C;&#x8FC7;&#x6EE4;&#x5668;&#x4E8B;&#x5B9E;&#x4E0A;&#x662F;&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x5904;&#x7406;....</p>
+</blockquote>
+<h3 id="&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;">&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;</h3>
+<ol>
+<li>&#x521B;&#x5EFA;&#x8FC7;&#x6EE4;&#x5668;</li>
+</ol>
+<pre><code>  nest g filter all-exception filter
+</code></pre><ol>
+<li>&#x7F16;&#x5199; <code>all-exception.filter.ts</code></li>
+</ol>
+<pre><code>import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  HttpStatus,
+} from &apos;@nestjs/common&apos;;
+import { Request, Response } from &apos;express&apos;;
+import { Logger } from &apos;src/utils/log4js&apos;;
+
+@Catch()
+export class AllExceptionFilter implements ExceptionFilter {
+  catch(exception: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse&lt;Response&gt;();
+    const request = ctx.getRequest&lt;Request&gt;();
+    const status =
+      exception instanceof HttpException
+        ? exception.getStatus()
+        : HttpStatus.INTERNAL_SERVER_ERROR;
+
+    const logFormat = ` &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+    Request original url: ${request.originalUrl}
+    Method: ${request.method}
+    IP: ${request.ip}
+    Status code: ${status}
+    Response: ${exception.toString()} \n  &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+    `;
+    Logger.error(logFormat);
+    response.status(status).json({
+      statusCode: status,
+      error: exception.message,
+      msg: `${status &gt;= 500 ? &apos;&#x8BBF;&#x95EE;&#x51FA;&#x9519;&apos; : &apos;&#x94FE;&#x63A5;&#x5F02;&#x5E38;&apos;}`,
+    });
+  }
+}
+</code></pre><ol>
+<li>&#x5728; main.ts &#x4E2D;&#x5F15;&#x5165;</li>
+</ol>
+<pre><code>import { NestFactory } from &apos;@nestjs/core&apos;;
+import { AppModule } from &apos;./app.module&apos;;
+import { logger } from &apos;./middleware/logger.middleware&apos;;
+import * as express from &apos;express&apos;;
+import { TransformInterceptor } from &apos;./interceptor/transform.interceptor&apos;;
+import { DataInterceptor } from &apos;./interceptor/data.interceptor&apos;;
+import { AllExceptionFilter } from &apos;./filter/exception.filter&apos;;
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(express.json()); // For parsing application/json
+  app.use(express.urlencoded({ extended: true }));
+  app.use(logger); // &#x5F15;&#x5165;&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;
+  app.useGlobalInterceptors(new TransformInterceptor()); // &#x5F15;&#x5165;&#x65E5;&#x5FD7;&#x62E6;&#x622A;&#x5668;
+  app.useGlobalInterceptors(new DataInterceptor()); // &#x5F15;&#x5165;&#x6570;&#x636E;&#x5904;&#x7406;&#x62E6;&#x622A;&#x5668;
+  app.useGlobalFilters(new AllExceptionFilter()); // &#x5F15;&#x5165;&#x5F02;&#x5E38;&#x8FC7;&#x6EE4;&#x5668;
+  await app.listen(3000);
+}
+bootstrap();
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Nestjs学习记录-中间件、拦截器、过滤器（上） copy.html" class="navigation navigation-prev " aria-label="Previous page: Nestjs学习记录-中间件、拦截器、过滤器（上） copy">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Nestjs学习记录-使用Multer上传文件.html" class="navigation navigation-next " aria-label="Next page: Nestjs学习记录-使用Multer上传文件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Nestjs学习记录-中间件、拦截器、过滤器（下）","level":"1.3.5","depth":2,"next":{"title":"Nestjs学习记录-使用Multer上传文件","level":"1.3.6","depth":2,"path":"docs/server/Nestjs学习记录-使用Multer上传文件.md","ref":"./docs/server/Nestjs学习记录-使用Multer上传文件.md","articles":[]},"previous":{"title":"Nestjs学习记录-中间件、拦截器、过滤器（上） copy","level":"1.3.4","depth":2,"path":"docs/server/Nestjs学习记录-中间件、拦截器、过滤器（上） copy.md","ref":"./docs/server/Nestjs学习记录-中间件、拦截器、过滤器（上） copy.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"龙骑将杨影枫","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"法师的卷轴包","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"龙骑将的魔法书":"http://angrykitty.link"}},"gitbook":"*","description":"技术总结，主要是理论和心得体会","extension":null},"file":{"path":"docs/server/Nestjs学习记录-中间件、拦截器、过滤器（下）.md","mtime":"2021-04-25T01:30:54.501Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-07T06:33:53.017Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
