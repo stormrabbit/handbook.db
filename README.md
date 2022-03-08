@@ -17,9 +17,9 @@
 
 > 自动化
 
-[SpellBook](http://angrykitty.link:40441/)
+[Valuable_Prescptions_For_Enmergency](http://angrykitty.link:40441/)
 
-> Vue 前端项目 | 跑团自用 | 练手研究
+> Vue 前端项目 | 给老爸的千金方记录系统 | 练手研究
 
 [SlamDumk](http://angrykitty.link:40439/v1/events)
 
