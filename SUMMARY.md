@@ -71,6 +71,6 @@
 	* [《正义之怒》整理](./docs/other/《正义之怒》整理.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [年夜饭](./docs/other/年夜饭.md)
-	* [机战a](./docs/other/机战a.md)
 	* [血缘铭文搜集](./docs/other/血缘铭文搜集.md)
+	* [超级机器人大战ap隐藏要素](./docs/other/超级机器人大战ap隐藏要素.md)
 	* [魔兽世界怀旧服 WA 字符串与宏研究](./docs/other/魔兽世界怀旧服 WA 字符串与宏研究.md)
