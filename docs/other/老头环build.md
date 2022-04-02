@@ -106,6 +106,7 @@
 ## 参考
 
 - [法环地图](https://app.gamersky.com/db/eldenring)
+- [质变小刀](https://api.xiaoheihe.cn/maxnews/app/share/detail/2496866)
 
 
 
