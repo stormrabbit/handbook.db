@@ -108,6 +108,7 @@
 - [法环地图](https://app.gamersky.com/db/eldenring)
 - [艾尔登全搜集](https://www.bilibili.com/read/cv15464977)
 - [质变小刀](https://api.xiaoheihe.cn/maxnews/app/share/detail/2496866)
+- [卡 bug 上天空之城](https://www.bilibili.com/video/BV1VY41177ut)
 
 
 
