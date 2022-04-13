@@ -111,5 +111,6 @@
 - [卡 bug 上天空之城](https://www.bilibili.com/video/BV1VY41177ut)
 - [老头环支线](https://docs.qq.com/doc/DVEVuZ05DeXVaT2hv)
 - [法环无名之辈](https://www.bilibili.com/video/BV1iL4y1779a)
-
+- [全网首发？艾尔登法环武器及质变属性补正曲线研究（上）](https://www.bilibili.com/read/cv15606370)
+- [艾尔登法环武器及质变属性补正曲线研究（下）](https://www.bilibili.com/read/cv15681746)
 
