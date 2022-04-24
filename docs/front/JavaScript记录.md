@@ -790,3 +790,13 @@ function x(xpath) {
   return result.iterateNext()
 }
 ```
+
+## 如何用正则替换 http 为 https 
+
+```
+export const urlConversion = (path) => {
+  const reg = /^(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/i;
+  path = path.replace(reg, 'https://$2$3$4$5$6');
+  return path;
+};
+```
