@@ -800,3 +800,7 @@ export const urlConversion = (path) => {
   return path;
 };
 ```
+
+## 今日份的 bug 解决
+
+vue 2.x 需要配合 antd-vue 1.x，用 latest 会引用 2 或者 3，对应都是 vue3，会报错。
