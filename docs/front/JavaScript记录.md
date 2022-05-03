@@ -790,3 +790,17 @@ function x(xpath) {
   return result.iterateNext()
 }
 ```
+
+## 如何用正则替换 http 为 https 
+
+```
+export const urlConversion = (path) => {
+  const reg = /^(https?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&=]+)?(#[0-9-a-z]+)?/i;
+  path = path.replace(reg, 'https://$2$3$4$5$6');
+  return path;
+};
+```
+
+## 今日份的 bug 解决
+
+vue 2.x 需要配合 antd-vue 1.x，用 latest 会引用 2 或者 3，对应都是 vue3，会报错。
