@@ -804,3 +804,14 @@ export const urlConversion = (path) => {
 ## 今日份的 bug 解决
 
 vue 2.x 需要配合 antd-vue 1.x，用 latest 会引用 2 或者 3，对应都是 vue3，会报错。
+
+## 今日份的操蛋问题解决
+
+执行 es-lint 的时候一直报错：
+
+```
+✖ vue-cli-service lint:
+ ERROR  TypeError: Cannot read property 'range' of null
+```
+
+解决方式：[修改 eslint.js ](https://github.com/babel/babel-eslint/issues/681)
