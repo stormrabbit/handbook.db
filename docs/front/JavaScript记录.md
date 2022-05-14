@@ -804,3 +804,28 @@ export const urlConversion = (path) => {
 ## 今日份的 bug 解决
 
 vue 2.x 需要配合 antd-vue 1.x，用 latest 会引用 2 或者 3，对应都是 vue3，会报错。
+
+## 今日份的操蛋问题解决
+
+执行 es-lint 的时候一直报错：
+
+```
+✖ vue-cli-service lint:
+ ERROR  TypeError: Cannot read property 'range' of null
+```
+
+解决方式：[修改 eslint.js ](https://github.com/babel/babel-eslint/issues/681)
+
+## 今日份的踩坑记录
+
+对于和权限相关的菜单，调整层级以及增删菜单项时一定要先确认权限关系。有可能原本的有权限的二级菜单挪动到无权限的一级菜单后，二级菜单权限会一并丢失。
+
+确认删除的权限是否与多数人关联。
+
+确认删除权限的逻辑是硬删除还是软删除。
+
+没事少动数据库，多备份。
+
+实在要改时，提前通知后端备份数据库。
+
+离删库到跑路只有一步之遥。
