@@ -829,3 +829,7 @@ vue 2.x 需要配合 antd-vue 1.x，用 latest 会引用 2 或者 3，对应都�
 实在要改时，提前通知后端备份数据库。
 
 离删库到跑路只有一步之遥。
+
+## 今日份的踩坑之旅
+
+使用 el-upload 的时候，在 `before-upload` 返回时，要么返回 false，要么返回 Promise 并用 reject 返回错误， async/await 并返回 false 是无法阻止继续进行上传的。
