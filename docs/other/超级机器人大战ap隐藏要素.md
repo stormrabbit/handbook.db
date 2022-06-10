@@ -92,3 +92,4 @@
 全装甲zz：杰多击坠大于5。
 
 [v隐藏要素](https://gl.ali213.net/html/2019-10/370845_9.html)
+[v ace](https://www.gamersky.com/handbook/201702/873133.shtml)
