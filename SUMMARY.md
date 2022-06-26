@@ -69,6 +69,7 @@
 	* [mods](./docs/other/mods.md)
 	* [《三国志11威力加强版》技能sql](./docs/other/《三国志11威力加强版》技能sql.md)
 	* [《唐探3》影评](./docs/other/《唐探3》影评.md)
+	* [《怪物猎人崛起》开荒](./docs/other/《怪物猎人崛起》开荒.md)
 	* [《正义之怒》整理](./docs/other/《正义之怒》整理.md)
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [年夜饭](./docs/other/年夜饭.md)
