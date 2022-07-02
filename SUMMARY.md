@@ -7,6 +7,7 @@
 	* [JavaScript记录](./docs/front/JavaScript记录.md)
 	* [To-do-List](./docs/front/To-do-List.md)
 	* [TypeScript记录](./docs/front/TypeScript记录.md)
+	* [Vue3组件库相关](./docs/front/Vue3组件库相关.md)
 	* [Vue3记录](./docs/front/Vue3记录.md)
 	* [Vue的Ts写法](./docs/front/Vue的Ts写法.md)
 	* [Vue速查](./docs/front/Vue速查.md)
