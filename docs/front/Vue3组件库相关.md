@@ -232,6 +232,31 @@ export default defineConfig({
 - `formats` 的类型和区别，[umd 和 es 的区别](https://juejin.cn/post/7009971893281226759)
 - 如何打包的时候把 d.ts 文件也打进去
 
+## 7.3
+
+### 打包出的 webcomponent 在 react 中可以显示，但是编译时报错 `Property 'web-component' does not exist on type 'JSX.IntrinsicElements'.`
+
+[解决方法](https://codingdict.com/questions/80730)
+
+```
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'current-time': CurrentTimeProps
+    }
+  }
+}
+
+interface CurrentTimeProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+  // propsName?: propsType
+}
+```
+
+### 7.3 总结
+
+- 打包以及运行踩坑
+- .d.ts 问题如何处理？
+
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
