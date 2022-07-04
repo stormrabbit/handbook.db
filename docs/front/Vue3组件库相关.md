@@ -257,6 +257,34 @@ interface CurrentTimeProps extends React.DetailedHTMLProps<React.HTMLAttributes<
 - 打包以及运行踩坑
 - .d.ts 问题如何处理？
 
+## 7.4 
+
+- 打包与样式问题
+
+### [vite 项目引入 scss loader](https://cn.vitejs.dev/guide/features.html#css)
+
+```
+# .scss and .sass
+npm add -D sass
+
+# .less
+npm add -D less
+
+# .styl and .stylus
+npm add -D stylus
+```
+
+#### 因此对于 element-plus 组件样式有了新的解法
+
+```
+@import "./node_modules/element-plus/theme-chalk/el-menu.css";
+@import "./node_modules/element-plus/theme-chalk/el-input.css";
+@import "./node_modules/element-plus/theme-chalk/el-icon.css";
+@import "./node_modules/element-plus/theme-chalk/el-tag.css";
+```
+
+
+
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
