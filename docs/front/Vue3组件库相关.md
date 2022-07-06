@@ -284,6 +284,50 @@ npm add -D stylus
 ```
 
 
+## 7.5 
+
+- 预备多组件导出的打包改动
+- 移动 index.d.ts 位置与 declare function
+
+### 导出多个组件预备
+
+重新划分了代码结构，分为 `components` 与 `module`，`components` 是使用 `element-plus` 直接写组件，`module` 存放 `web components` 的包装。
+
+增加了 `index.d.ts` 声明 register 方法，不然 react build 会报错
+
+```
+// index.ts
+import { register } from "./module/currenttime/index";
+
+export default {
+  registerCurrentTime: register,
+};
+```
+
+```
+// index.d.ts
+export declare const registerCurrentTime: (tagName?: string) => void;
+```
+
+## 7.6 
+
+- 导出后组件引用问题
+
+### 导出后组件引用问题
+
+使用 `export default` 导出后，无法在使用 es6 的解构方式进行引入
+
+```
+import {register} from 'vite-components'
+```
+> 这样引用会报错，原因和解决方式在[这里](https://www.jianshu.com/p/ba6f582d5249)
+
+我还是使用了 default，并且使用整体作为一个组件库引入。
+
+```
+import ViteComponents from 'vite-components'
+ViteComponents.register()
+```
 
 ## 参考 & 感谢
 
