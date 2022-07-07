@@ -332,6 +332,7 @@ ViteComponents.register()
 ## 7.7
 
 - 编译运行时黄字错误（不影响使用）处理
+- webcomponent props 传值
 
 ### 编译运行时黄字错误（不影响使用）处理
 
@@ -352,6 +353,38 @@ ViteComponents.register()
 
 > 参考文章中的写法是 `isCustomElement: (tag: string[]) => tag.includes('-')`，然而在项目中使用报错。其一是参数 tag 类型为 `string` 而不是 `string[]`；其二是 `tag.includes` 会报错 `string 上不存在 includes`。按照其他文章修改在 `tsconfig.json` 里增加 `"lib": ["esnext", "dom", "es6", "es2017"]` 依旧无效，所以换成了 `tag.indexOf("-") !== -1`。
 > 使用 `tag.indexOf("-") !== -1` 容易误伤，改成特殊前缀 ` (tag.indexOf('wbcp-') !== -1)` 后可以正常显示。
+
+
+### webcomponent props 传值
+
+参考[官方文档](https://v3.cn.vuejs.org/guide/web-components.html#%E4%BC%A0%E9%80%92-dom-property)写法
+
+```
+<my-element :user.prop="{ name: 'jack' }"></my-element>
+
+<!-- 等效的简写 -->
+<my-element .user="{ name: 'jack' }"></my-element>
+
+App.vue
+<!-- currenttime 写法-->
+<wbcp-current-time .format="'HH:mm:ss'"></wbcp-current-time>
+```
+
+
+```
+// src/module/currenttime/index.ce.vue
+// setup 定义 props
+const props = defineProps({
+  format: {
+    type: String,
+    default: 'YYYY-MM-DD HH:mm:ss'
+  }
+})
+```
+
+> 补充阅读：[Vue3中 <script setup lang="ts"> 使用总结](https://juejin.cn/post/7031565983269519367)
+> [vue3 中的 provide 和 inject 是什么？](https://juejin.cn/post/6973450516294533151)
+
 
 ## 参考 & 感谢
 
