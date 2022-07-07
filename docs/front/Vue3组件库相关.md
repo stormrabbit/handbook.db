@@ -329,6 +329,30 @@ import ViteComponents from 'vite-components'
 ViteComponents.register()
 ```
 
+## 7.7
+
+- 编译运行时黄字错误（不影响使用）处理
+
+### 编译运行时黄字错误（不影响使用）处理
+
+错误内容：`Failed to resolve component: wbcp-current-time If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. at <App>`
+
+解决方式：
+
+```
+  // vite.config.ts
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => (tag.indexOf('wbcp-') !== -1)
+        },
+      },
+    }),
+```
+
+> 参考文章中的写法是 `isCustomElement: (tag: string[]) => tag.includes('-')`，然而在项目中使用报错。其一是参数 tag 类型为 `string` 而不是 `string[]`；其二是 `tag.includes` 会报错 `string 上不存在 includes`。按照其他文章修改在 `tsconfig.json` 里增加 `"lib": ["esnext", "dom", "es6", "es2017"]` 依旧无效，所以换成了 `tag.indexOf("-") !== -1`。
+> 使用 `tag.indexOf("-") !== -1` 容易误伤，改成特殊前缀 ` (tag.indexOf('wbcp-') !== -1)` 后可以正常显示。
+
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
