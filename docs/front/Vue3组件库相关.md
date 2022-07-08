@@ -385,6 +385,31 @@ const props = defineProps({
 > 补充阅读：[Vue3中 <script setup lang="ts"> 使用总结](https://juejin.cn/post/7031565983269519367)
 > [vue3 中的 provide 和 inject 是什么？](https://juejin.cn/post/6973450516294533151)
 
+## 7.8 
+
+- [package json 中的 export 是什么](https://runebook.dev/zh-CN/docs/webpack/guides/package-exports)
+- [组件库搭建总结](https://www.cnblogs.com/shapeY/p/14659660.html)
+- [tsconfig 中的 include 是什么]
+- 组件库包结构处理
+
+### package json 中的 export 是什么？
+
+起因是看到别人的组件库中有：
+
+```
+  "main": "./dist/mzl-ui.umd.js",
+  "module": "./dist/mzl-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mzl-ui.es.js",
+      "require": "./dist/mzl-ui.umd.js"
+    }
+  },
+```
+
+### 组件库搭建总结
+
+包结构布局：参考 [element-plus](https://github.com/element-plus/element-plus)
 
 ## 参考 & 感谢
 
