@@ -417,6 +417,149 @@ const props = defineProps({
 - [vue3 引入 tsx](https://juejin.cn/post/6972094589251354632)
 - [tsx Render 是什么？]
 
+### 如何在 vue3 引入 tsx
+
+
+运行命令行：
+
+```
+npm install @vitejs/plugin-vue-jsx -D
+```
+
+配置 `vite.config.ts`
+
+```
+import vueJsx from "@vitejs/plugin-vue-jsx";
+
+export default defineConfig({
+  plugins: [
+      // 其他插件
+      vueJsx(), // <== 这里
+    ],
+})
+```
+
+新增 `App.tsx` 并修改 `main.ts` 引入
+
+```
+// App.tsx
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    setup() {
+        return () => <div>hello world</div> //写一个 hello world祭天
+    }
+})
+```
+
+```
+// main.ts
+import { createApp } from 'vue'
+import App from './App'
+
+createApp(App).mount('#app')
+
+```
+
+#### 拓展 
+
+- [在 Visual Studio Code 中添加自定义的代码片段](https://blog.csdn.net/WPwalter/article/details/105214110)
+> tsx 文件居然要使用 `Typescript for React` 类型是我没想道的
+
+### 增加 eslint + prettier 的代码校验
+
+```
+// 命令行运行
+
+npm i eslint eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+npm i prettier eslint-config-prettier eslint-plugin-prettier -D     
+
+```
+
+```
+// .eslintrc.js
+
+module.exports = {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module', // Allows for the use of imports
+    ecmaFeatures: {
+      // Allows for the parsing of JSX
+      jsx: true,
+    },
+  },
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  rules: {
+    // 解决末尾分号问题，配置完要重新启动 vscode 否则不生效（墨了快1个小时的血泪教训）
+        semi: 0,
+    // 解决 eslint 和 prettier 单双引号冲突检测的问题
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        parser: 'flow',
+      },
+    ],
+  },
+};
+
+```
+
+```
+//.prettierrc.js
+module.exports = {
+    printWidth: 100,
+    tabWidth: 2,
+    useTabs: false,
+    semi: false, // 未尾逗号
+    vueIndentScriptAndStyle: true,
+    singleQuote: true, // 单引号
+    quoteProps: 'as-needed',
+    bracketSpacing: true,
+    trailingComma: 'none', // 未尾分号
+    jsxBracketSameLine: false,
+    jsxSingleQuote: false,
+    arrowParens: 'always',
+    insertPragma: false,
+    requirePragma: false,
+    proseWrap: 'never',
+    htmlWhitespaceSensitivity: 'strict',
+    endOfLine: 'lf'
+  };
+
+```
+
+- [解决Eslint 和 Prettier 之间的冲突](https://juejin.cn/post/7012160233061482532)
+
+#### 千奇百怪的奇葩错误
+
+- import TsxDemo
+不能将类型“{}”分配给类型“IntrinsicAttributes & (Partial<{ [x: number]: string; } | {}> & Omit<({} & (Readonly<readonly string[] | ExtractPropTypes<Readonly<ComponentObjectPropsOptions<Data>>>> & {})) & (VNodeProps & ... 3 more ... & {}), never>)”。ts(2322)
+No quick fixes available
+
+系统内禁用 Vetur & 标签换成小写
+
+- (property) div: ElementAttrs<HTMLAttributes>
+找不到名称“React”。ts(2304)
+
+可能原因之一：[参考这里](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-the-workspace-version-of-typescript)
+> 没有效果，我 TMD 都想禁用 eslint 了
+
+可能原因之二：
+
+```
+// tsconfig.json
+
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "package/**/*.tsx", "package/**/*.ts"], // <== 因为是组件库，所以拆分了 package 结构，拆分完要引进来
+
+```
+> 一个破运行问题折腾了 2 个小时 +，我 tm 谢谢你啊 vscode
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
