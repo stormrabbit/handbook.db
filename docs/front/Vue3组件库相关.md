@@ -534,8 +534,18 @@ module.exports = {
   };
 
 ```
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix --ext .ts,.tsx",
+    "lint-pack": "eslint package",
+    "lint-pack:fix": "eslint package --fix --ext .ts,.tsx"
+```
+//package.json 
+
+
+```
 
 - [解决Eslint 和 Prettier 之间的冲突](https://juejin.cn/post/7012160233061482532)
+
 
 #### 千奇百怪的奇葩错误
 
@@ -543,7 +553,8 @@ module.exports = {
 不能将类型“{}”分配给类型“IntrinsicAttributes & (Partial<{ [x: number]: string; } | {}> & Omit<({} & (Readonly<readonly string[] | ExtractPropTypes<Readonly<ComponentObjectPropsOptions<Data>>>> & {})) & (VNodeProps & ... 3 more ... & {}), never>)”。ts(2322)
 No quick fixes available
 
-系统内禁用 Vetur & 标签换成小写
+原因之一：系统内禁用 Vetur & 标签换成小写（然后会有黄色错误标记，被当作自定义标签了）
+原因之二：https://www.cnblogs.com/wandoupeas/p/15662884.html，去除无用的 props
 
 - (property) div: ElementAttrs<HTMLAttributes>
 找不到名称“React”。ts(2304)
@@ -560,6 +571,14 @@ No quick fixes available
 
 ```
 > 一个破运行问题折腾了 2 个小时 +，我 tm 谢谢你啊 vscode
+> 不是好办法的办法，[都去死吧](https://zhuanlan.zhihu.com/p/37918096)（调的心态炸了）。
+> 想了想，还是把 tsx 版本和 vue 版本拆开了，有个 eslint 的问题始终无法通过。
+
+### [tsx 引入本地图片](https://segmentfault.com/a/1190000041782913)
+```
+const  tsIcon = new URL( '../../assets/icon.png', import.meta.url).href;
+console.log(tsIcon)
+```
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
