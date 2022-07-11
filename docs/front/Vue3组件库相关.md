@@ -466,6 +466,13 @@ createApp(App).mount('#app')
 - [在 Visual Studio Code 中添加自定义的代码片段](https://blog.csdn.net/WPwalter/article/details/105214110)
 > tsx 文件居然要使用 `Typescript for React` 类型是我没想道的
 
+
+## 7.11
+
+- 增加 eslint + prettier 的代码校验
+- tsx 引入本地图片
+> 我花了一天的时间，把南墙装了个遍。证明使用 tsx 制作组件库是个大坑；使用 tsx 搞 webcomponents 是坑中之坑；使用 tsx 搞 webcomponents 还要过验证是无底深坑。
+> 累了，毁灭吧。
 ### 增加 eslint + prettier 的代码校验
 
 ```
