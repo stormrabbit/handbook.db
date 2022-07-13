@@ -479,7 +479,9 @@ createApp(App).mount('#app')
 // 命令行运行
 
 npm i eslint eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
-npm i prettier eslint-config-prettier eslint-plugin-prettier -D     
+npm i prettier eslint-config-prettier eslint-plugin-prettier -D    
+npm i @vue/eslint-config-prettier
+ 
 
 ```
 
@@ -494,27 +496,20 @@ module.exports = {
     sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
       // Allows for the parsing of JSX
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   rules: {
-    // 解决末尾分号问题，配置完要重新启动 vscode 否则不生效（墨了快1个小时的血泪教训）
-        semi: 0,
-    // 解决 eslint 和 prettier 单双引号冲突检测的问题
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        parser: 'flow',
-      },
-    ],
-  },
-};
+    'vue/multi-word-component-names': 'off',
+    'prettier/prettier': 'warn'
+  }
+}
+
 
 ```
 
@@ -586,6 +581,37 @@ No quick fixes available
 const  tsIcon = new URL( '../../assets/icon.png', import.meta.url).href;
 console.log(tsIcon)
 ```
+
+## 7.12
+
+- 决定模仿 vant 研究 tsx 组件库（[tsx 开发组件库的优点](https://www.zhihu.com/question/436260027)），同时保留 `template` 继续研究 webcomponents 的方式（jsx 导入样式过于操蛋）。
+
+
+### 模仿 vant 研究 tsx 组件库
+
+重新修改了 eslint 的配置，参考[这篇文章](https://juejin.cn/post/6990929456382607374)增加了 `npm i @vue/eslint-config-prettier` 和 `'prettier/prettier': 'warn'`。
+
+同时 vite 的 readme 中明确提出：
+
+```
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+
+```
+
+这个世界清净了。
+
+引入 jsx 后，eslint 的检测范围不再包含 vue（虽然 ide 还是会有黄色警告提示）。
+
+#### element-plus 引入问题
+
+之前使用 `unplugin-vue-components` 与 `unplugin-auto-import` 进行自动导入，然而在 jsx 中似乎会造成样式丢失的问题（jsx 中自定义组件推荐用大小写字母命名而不是纯小写）。所以必须使用 `[unplugin-element-plus](https://github.com/element-plus/unplugin-element-plus/blob/main/README.zh-CN.md)` 进行独立引入。
+
+
+#### tsx 与 tsx Render
+
+tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层、使用 render 处理表现层，使得逻辑更清晰更易于分离。
+
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
@@ -593,3 +619,5 @@ console.log(tsIcon)
 [Building Web Components with Vue 3.2](https://www.thisdot.co/blog/building-web-components-with-vue-3-2)
 [https://www.programminghunter.com/article/8286638691/](https://www.programminghunter.com/article/8286638691/)
 [将Vue组件封装为Web Component](https://juejin.cn/post/7072715334519619598)
+[Vue3 + TS 最佳实践](https://juejin.cn/post/7001897686567747598) 与姊妹篇 [Vue3 + TSX 最佳实践？不存在的](https://juejin.cn/post/7007731144418394149/)
+[用 mpvue 写个【微博-青铜版】微信小程序](https://juejin.cn/post/6844903740764323848)
