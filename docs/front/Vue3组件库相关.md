@@ -612,6 +612,13 @@ console.log(tsIcon)
 
 tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层、使用 render 处理表现层，使得逻辑更清晰更易于分离。
 
+
+## 7.13
+
+- 运行小问题整理
+  - [vue3中如何定义name](https://blog.csdn.net/qq_40230735/article/details/123497609)
+  - [vue3 defineProps 引入定义的接口报错](https://segmentfault.com/q/1010000042014549)
+  - [xxx must be hyphenated](https://www.cnblogs.com/ChineseLiao/p/10650010.html)
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
