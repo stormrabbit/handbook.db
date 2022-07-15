@@ -619,12 +619,16 @@ tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层
   - [vue3中如何定义name](https://blog.csdn.net/qq_40230735/article/details/123497609)
   - [vue3 defineProps 引入定义的接口报错](https://segmentfault.com/q/1010000042014549)
   - [xxx must be hyphenated](https://www.cnblogs.com/ChineseLiao/p/10650010.html)
+
+## 7.15
+
+- jsx 样式引入失败的处理
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
 [Vue3 按需引入 ElementPlus](https://segmentfault.com/a/1190000041116726)
 [Building Web Components with Vue 3.2](https://www.thisdot.co/blog/building-web-components-with-vue-3-2)
-[https://www.programminghunter.com/article/8286638691/](https://www.programminghunter.com/article/8286638691/)
+[使用CLI 3 创建发布Web Components](https://www.programminghunter.com/article/8286638691/)
 [将Vue组件封装为Web Component](https://juejin.cn/post/7072715334519619598)
 [Vue3 + TS 最佳实践](https://juejin.cn/post/7001897686567747598) 与姊妹篇 [Vue3 + TSX 最佳实践？不存在的](https://juejin.cn/post/7007731144418394149/)
 [用 mpvue 写个【微博-青铜版】微信小程序](https://juejin.cn/post/6844903740764323848)
