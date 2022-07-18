@@ -623,6 +623,10 @@ tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层
 ## 7.15
 
 - jsx 样式引入失败的处理
+
+## 7.18
+
+- 今日份的大坑爹：使用 ele-plus 编写 webcomponents 后，与 element-io 样式冲突的问题
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
