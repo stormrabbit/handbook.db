@@ -627,6 +627,11 @@ tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层
 ## 7.18
 
 - 今日份的大坑爹：使用 ele-plus 编写 webcomponents 后，与 element-io 样式冲突的问题
+
+## 7.19
+
+- 样式问题没有解决，只能暂时手动修改 css 文件。
+- 经测试，发现是 element-plus 和 element 中 input 和 button（至少我用的是这几个）样式有冲突。
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
