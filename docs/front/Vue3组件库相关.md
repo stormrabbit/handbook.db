@@ -329,10 +329,316 @@ import ViteComponents from 'vite-components'
 ViteComponents.register()
 ```
 
+## 7.7
+
+- 编译运行时黄字错误（不影响使用）处理
+- webcomponent props 传值
+
+### 编译运行时黄字错误（不影响使用）处理
+
+错误内容：`Failed to resolve component: wbcp-current-time If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. at <App>`
+
+解决方式：
+
+```
+  // vite.config.ts
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => (tag.indexOf('wbcp-') !== -1)
+        },
+      },
+    }),
+```
+
+> 参考文章中的写法是 `isCustomElement: (tag: string[]) => tag.includes('-')`，然而在项目中使用报错。其一是参数 tag 类型为 `string` 而不是 `string[]`；其二是 `tag.includes` 会报错 `string 上不存在 includes`。按照其他文章修改在 `tsconfig.json` 里增加 `"lib": ["esnext", "dom", "es6", "es2017"]` 依旧无效，所以换成了 `tag.indexOf("-") !== -1`。
+> 使用 `tag.indexOf("-") !== -1` 容易误伤，改成特殊前缀 ` (tag.indexOf('wbcp-') !== -1)` 后可以正常显示。
+
+
+### webcomponent props 传值
+
+参考[官方文档](https://v3.cn.vuejs.org/guide/web-components.html#%E4%BC%A0%E9%80%92-dom-property)写法
+
+```
+<my-element :user.prop="{ name: 'jack' }"></my-element>
+
+<!-- 等效的简写 -->
+<my-element .user="{ name: 'jack' }"></my-element>
+
+App.vue
+<!-- currenttime 写法-->
+<wbcp-current-time .format="'HH:mm:ss'"></wbcp-current-time>
+```
+
+
+```
+// src/module/currenttime/index.ce.vue
+// setup 定义 props
+const props = defineProps({
+  format: {
+    type: String,
+    default: 'YYYY-MM-DD HH:mm:ss'
+  }
+})
+```
+
+> 补充阅读：[Vue3中 <script setup lang="ts"> 使用总结](https://juejin.cn/post/7031565983269519367)
+> [vue3 中的 provide 和 inject 是什么？](https://juejin.cn/post/6973450516294533151)
+
+## 7.8 
+
+- [package json 中的 export 是什么](https://runebook.dev/zh-CN/docs/webpack/guides/package-exports)
+- [组件库搭建总结](https://www.cnblogs.com/shapeY/p/14659660.html)
+- [tsconfig 中的 include 是什么]
+- 组件库包结构处理
+
+### package json 中的 export 是什么？
+
+起因是看到别人的组件库中有：
+
+```
+  "main": "./dist/mzl-ui.umd.js",
+  "module": "./dist/mzl-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mzl-ui.es.js",
+      "require": "./dist/mzl-ui.umd.js"
+    }
+  },
+```
+
+### 组件库搭建总结
+
+包结构布局：参考 [element-plus](https://github.com/element-plus/element-plus)
+
+
+## 7.10
+
+- [vue3 引入 tsx](https://juejin.cn/post/6972094589251354632)
+- [tsx Render 是什么？]
+
+### 如何在 vue3 引入 tsx
+
+
+运行命令行：
+
+```
+npm install @vitejs/plugin-vue-jsx -D
+```
+
+配置 `vite.config.ts`
+
+```
+import vueJsx from "@vitejs/plugin-vue-jsx";
+
+export default defineConfig({
+  plugins: [
+      // 其他插件
+      vueJsx(), // <== 这里
+    ],
+})
+```
+
+新增 `App.tsx` 并修改 `main.ts` 引入
+
+```
+// App.tsx
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    setup() {
+        return () => <div>hello world</div> //写一个 hello world祭天
+    }
+})
+```
+
+```
+// main.ts
+import { createApp } from 'vue'
+import App from './App'
+
+createApp(App).mount('#app')
+
+```
+
+#### 拓展 
+
+- [在 Visual Studio Code 中添加自定义的代码片段](https://blog.csdn.net/WPwalter/article/details/105214110)
+> tsx 文件居然要使用 `Typescript for React` 类型是我没想道的
+
+
+## 7.11
+
+- 增加 eslint + prettier 的代码校验
+- tsx 引入本地图片
+> 我花了一天的时间，把南墙装了个遍。证明使用 tsx 制作组件库是个大坑；使用 tsx 搞 webcomponents 是坑中之坑；使用 tsx 搞 webcomponents 还要过验证是无底深坑。
+> 累了，毁灭吧。
+### 增加 eslint + prettier 的代码校验
+
+```
+// 命令行运行
+
+npm i eslint eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+npm i prettier eslint-config-prettier eslint-plugin-prettier -D    
+npm i @vue/eslint-config-prettier
+ 
+
+```
+
+```
+// .eslintrc.js
+
+module.exports = {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module', // Allows for the use of imports
+    ecmaFeatures: {
+      // Allows for the parsing of JSX
+      jsx: true
+    }
+  },
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
+  ],
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'prettier/prettier': 'warn'
+  }
+}
+
+
+```
+
+```
+//.prettierrc.js
+module.exports = {
+    printWidth: 100,
+    tabWidth: 2,
+    useTabs: false,
+    semi: false, // 未尾逗号
+    vueIndentScriptAndStyle: true,
+    singleQuote: true, // 单引号
+    quoteProps: 'as-needed',
+    bracketSpacing: true,
+    trailingComma: 'none', // 未尾分号
+    jsxBracketSameLine: false,
+    jsxSingleQuote: false,
+    arrowParens: 'always',
+    insertPragma: false,
+    requirePragma: false,
+    proseWrap: 'never',
+    htmlWhitespaceSensitivity: 'strict',
+    endOfLine: 'lf'
+  };
+
+```
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix --ext .ts,.tsx",
+    "lint-pack": "eslint package",
+    "lint-pack:fix": "eslint package --fix --ext .ts,.tsx"
+```
+//package.json 
+
+
+```
+
+- [解决Eslint 和 Prettier 之间的冲突](https://juejin.cn/post/7012160233061482532)
+
+
+#### 千奇百怪的奇葩错误
+
+- import TsxDemo
+不能将类型“{}”分配给类型“IntrinsicAttributes & (Partial<{ [x: number]: string; } | {}> & Omit<({} & (Readonly<readonly string[] | ExtractPropTypes<Readonly<ComponentObjectPropsOptions<Data>>>> & {})) & (VNodeProps & ... 3 more ... & {}), never>)”。ts(2322)
+No quick fixes available
+
+原因之一：系统内禁用 Vetur & 标签换成小写（然后会有黄色错误标记，被当作自定义标签了）
+原因之二：https://www.cnblogs.com/wandoupeas/p/15662884.html，去除无用的 props
+
+- (property) div: ElementAttrs<HTMLAttributes>
+找不到名称“React”。ts(2304)
+
+可能原因之一：[参考这里](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-the-workspace-version-of-typescript)
+> 没有效果，我 TMD 都想禁用 eslint 了
+
+可能原因之二：
+
+```
+// tsconfig.json
+
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "package/**/*.tsx", "package/**/*.ts"], // <== 因为是组件库，所以拆分了 package 结构，拆分完要引进来
+
+```
+> 一个破运行问题折腾了 2 个小时 +，我 tm 谢谢你啊 vscode
+> 不是好办法的办法，[都去死吧](https://zhuanlan.zhihu.com/p/37918096)（调的心态炸了）。
+> 想了想，还是把 tsx 版本和 vue 版本拆开了，有个 eslint 的问题始终无法通过。
+
+### [tsx 引入本地图片](https://segmentfault.com/a/1190000041782913)
+```
+const  tsIcon = new URL( '../../assets/icon.png', import.meta.url).href;
+console.log(tsIcon)
+```
+
+## 7.12
+
+- 决定模仿 vant 研究 tsx 组件库（[tsx 开发组件库的优点](https://www.zhihu.com/question/436260027)），同时保留 `template` 继续研究 webcomponents 的方式（jsx 导入样式过于操蛋）。
+
+
+### 模仿 vant 研究 tsx 组件库
+
+重新修改了 eslint 的配置，参考[这篇文章](https://juejin.cn/post/6990929456382607374)增加了 `npm i @vue/eslint-config-prettier` 和 `'prettier/prettier': 'warn'`。
+
+同时 vite 的 readme 中明确提出：
+
+```
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+
+```
+
+这个世界清净了。
+
+引入 jsx 后，eslint 的检测范围不再包含 vue（虽然 ide 还是会有黄色警告提示）。
+
+#### element-plus 引入问题
+
+之前使用 `unplugin-vue-components` 与 `unplugin-auto-import` 进行自动导入，然而在 jsx 中似乎会造成样式丢失的问题（jsx 中自定义组件推荐用大小写字母命名而不是纯小写）。所以必须使用 `[unplugin-element-plus](https://github.com/element-plus/unplugin-element-plus/blob/main/README.zh-CN.md)` 进行独立引入。
+
+
+#### tsx 与 tsx Render
+
+tsx render 实际上是 tsx 语法糖的糖上糖，使用 setup 处理逻辑层、使用 render 处理表现层，使得逻辑更清晰更易于分离。
+
+
+## 7.13
+
+- 运行小问题整理
+  - [vue3中如何定义name](https://blog.csdn.net/qq_40230735/article/details/123497609)
+  - [vue3 defineProps 引入定义的接口报错](https://segmentfault.com/q/1010000042014549)
+  - [xxx must be hyphenated](https://www.cnblogs.com/ChineseLiao/p/10650010.html)
+
+## 7.15
+
+- jsx 样式引入失败的处理
+
+## 7.18
+
+- 今日份的大坑爹：使用 ele-plus 编写 webcomponents 后，与 element-io 样式冲突的问题
+
+## 7.19
+
+- 样式问题没有解决，只能暂时手动修改 css 文件。
+- 经测试，发现是 element-plus 和 element 中 input 和 button（至少我用的是这几个）样式有冲突。
+
 ## 参考 & 感谢
 
 [vite](https://cn.vitejs.dev/)
 [Vue3 按需引入 ElementPlus](https://segmentfault.com/a/1190000041116726)
 [Building Web Components with Vue 3.2](https://www.thisdot.co/blog/building-web-components-with-vue-3-2)
-[https://www.programminghunter.com/article/8286638691/](https://www.programminghunter.com/article/8286638691/)
+[使用CLI 3 创建发布Web Components](https://www.programminghunter.com/article/8286638691/)
 [将Vue组件封装为Web Component](https://juejin.cn/post/7072715334519619598)
+[Vue3 + TS 最佳实践](https://juejin.cn/post/7001897686567747598) 与姊妹篇 [Vue3 + TSX 最佳实践？不存在的](https://juejin.cn/post/7007731144418394149/)
+[用 mpvue 写个【微博-青铜版】微信小程序](https://juejin.cn/post/6844903740764323848)
