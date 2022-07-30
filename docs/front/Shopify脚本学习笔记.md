@@ -261,6 +261,115 @@ end
 Output.cart = Input.cart
 ```
 
+2. 按消费金额提供分级折扣
+
+```
+# ================================ Customizable Settings ================================
+# ================================================================
+# Tiered Discounts by Spend Threshold
+#
+# If the cart total is greater than (or equal to) an entered
+# threshold, the associated discount is applied to each item.
+#
+# - 'threshold' is the spend amount needed to qualify
+# - 'discount_type' is the type of discount to provide. Can be
+# either:
+# - ':percent'
+# - ':dollar'
+# - 'discount_amount' is the percentage/dollar discount to
+# apply (per item)
+# - 'discount_message' is the message to show when a discount
+# is applied
+# ================================================================
+SPENDING_THRESHOLDS = [
+  {
+    threshold: 30,
+    discount_type: :percent,
+    discount_amount: 10,
+    discount_message: 'Spend $30 and get 10% off!',
+  },
+  {
+    threshold: 50,
+    discount_type: :percent,
+    discount_amount: 15,
+    discount_message: 'Spend $50 and get 15% off!',
+  },
+  {
+    threshold: 100,
+    discount_type: :percent,
+    discount_amount: 20,
+    discount_message: 'Spend $100 and get 20% off!',
+  },
+]
+
+# ================================ Script Code (do not edit) ================================
+# ================================================================
+# DiscountApplicator
+#
+# Applies the entered discount to the supplied line item.
+# ================================================================
+class DiscountApplicator
+  def initialize(discount_type, discount_amount, discount_message)
+    @discount_type = discount_type
+    @discount_message = discount_message
+
+    @discount_amount = if discount_type == :percent
+      1 - (discount_amount * 0.01)
+    else
+      Money.new(cents: 100) * discount_amount
+    end
+  end
+
+  def apply(line_item)
+    new_line_price = if @discount_type == :percent
+      line_item.line_price * @discount_amount
+    else
+      [line_item.line_price - (@discount_amount * line_item.quantity), Money.zero].max
+    end
+
+    line_item.change_line_price(new_line_price, message: @discount_message)
+  end
+end
+
+# ================================================================
+# TieredDiscountBySpendCampaign
+#
+# If the cart total is greater than (or equal to) an entered
+# threshold, the associated discount is applied to each item.
+# ================================================================
+class TieredDiscountBySpendCampaign
+  def initialize(tiers)
+    @tiers = tiers.sort_by { |tier| tier[:threshold] }.reverse
+  end
+
+  def run(cart)
+    applicable_tier = @tiers.find { |tier| cart.subtotal_price >= (Money.new(cents: 100) * tier[:threshold]) }
+    return if applicable_tier.nil?
+
+    discount_applicator = DiscountApplicator.new(
+      applicable_tier[:discount_type],
+      applicable_tier[:discount_amount],
+      applicable_tier[:discount_message]
+    )
+
+    cart.line_items.each do |line_item|
+      next if line_item.variant.product.gift_card?
+      discount_applicator.apply(line_item)
+    end
+  end
+end
+
+CAMPAIGNS = [
+  TieredDiscountBySpendCampaign.new(SPENDING_THRESHOLDS),
+]
+
+CAMPAIGNS.each do |campaign|
+  campaign.run(Input.cart)
+end
+
+Output.cart = Input.cart
+```
+
 - [Ruby中的关键字nil](https://blog.csdn.net/wangjianno2/article/details/51704351)
 - [Ruby Integer to_f用法及代码示例](https://vimsky.com/examples/usage/ruby-integer-to_f-function-with-example.html)
 - [Ruby 注释](https://www.runoob.com/ruby/ruby-comment.html)
