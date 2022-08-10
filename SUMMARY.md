@@ -12,6 +12,7 @@
 	* [Vue3记录](./docs/front/Vue3记录.md)
 	* [Vue的Ts写法](./docs/front/Vue的Ts写法.md)
 	* [Vue速查](./docs/front/Vue速查.md)
+	* [chrome插件学习笔记](./docs/front/chrome插件学习笔记.md)
 	* [npm常见问题](./docs/front/npm常见问题.md)
 	* [svg转字体文件方法](./docs/front/svg转字体文件方法.md)
 	* [vue-introjs](./docs/front/vue-introjs.md)
@@ -65,6 +66,7 @@
 * 杂七杂八
 	* [2021年度技术文档整理](./docs/other/2021年度技术文档整理.md)
 	* [2022年度技术文档整理](./docs/other/2022年度技术文档整理.md)
+	* [B站动态评论抽奖.js](./docs/other/B站动态评论抽奖.js)
 	* [Mac使用手册](./docs/other/Mac使用手册.md)
 	* [TBC战熊骑分析报告](./docs/other/TBC战熊骑分析报告.md)
 	* [Vim快捷键](./docs/other/Vim快捷键.md)
@@ -77,6 +79,7 @@
 	* [二手房计算规则](./docs/other/二手房计算规则.md)
 	* [入党申请书](./docs/other/入党申请书.md)
 	* [年夜饭](./docs/other/年夜饭.md)
+	* [最终幻想战略版金手指](./docs/other/最终幻想战略版金手指.md)
 	* [老头环build](./docs/other/老头环build.md)
 	* [血缘铭文搜集](./docs/other/血缘铭文搜集.md)
 	* [超级机器人大战ap隐藏要素](./docs/other/超级机器人大战ap隐藏要素.md)
