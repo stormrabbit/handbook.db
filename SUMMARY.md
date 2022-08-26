@@ -59,6 +59,7 @@
 	* [sshpass使用踩坑](./docs/ops/sshpass使用踩坑.md)
 	* [使用Docker部署及维护Jenkins镜像](./docs/ops/使用Docker部署及维护Jenkins镜像.md)
 	* [使用Nginx配置本地https代理](./docs/ops/使用Nginx配置本地https代理.md)
+	* [前端docker化经验](./docs/ops/前端docker化经验.md)
 	* [手动部署RAP2](./docs/ops/手动部署RAP2.md)
 	* [手动部署富文本编辑器 Codemi](./docs/ops/手动部署富文本编辑器 Codemi.md)
 	* [阿里云部署RAP2](./docs/ops/阿里云部署RAP2.md)
@@ -66,7 +67,6 @@
 * 杂七杂八
 	* [2021年度技术文档整理](./docs/other/2021年度技术文档整理.md)
 	* [2022年度技术文档整理](./docs/other/2022年度技术文档整理.md)
-	* [B站动态评论抽奖.js](./docs/other/B站动态评论抽奖.js)
 	* [Mac使用手册](./docs/other/Mac使用手册.md)
 	* [TBC战熊骑分析报告](./docs/other/TBC战熊骑分析报告.md)
 	* [Vim快捷键](./docs/other/Vim快捷键.md)
