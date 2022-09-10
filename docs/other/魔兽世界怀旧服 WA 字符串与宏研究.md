@@ -1,12 +1,18 @@
 # 魔兽世界怀旧服 WA 字符串与宏研究
 
-## 敌方xx | 友方则友方的目标 xx | xx
+## 对敌方释放攻击技能 | 友方则对友方的目标释放攻击技能 | xx
 
 ```
 #showtooltip
 /cast [harm,@target] 技能;[help,@targettarget] 技能; 技能
 ```
 
+## 对友方释放保护技能 | 敌方则对敌方的目标释放保护技能 | xx
+
+```
+#showtooltip
+/cast [help][@targettarget,help,nodead][]圣光道标
+```
 
 ## 战士宏
 
