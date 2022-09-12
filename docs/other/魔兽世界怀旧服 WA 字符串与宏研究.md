@@ -1,5 +1,14 @@
 # 魔兽世界怀旧服 WA 字符串与宏研究
 
+## 飞行/陆地坐骑
+
+```
+#showtooltips 召唤军马
+/stopmacro [flying]
+/cast [outdoors,nomounted,nomodifier:ctrl,flyable] 茶色驭风者; [outdoors,nomounted] 召唤军马(召唤)
+/dismount [mounted]
+```
+
 ## 对敌方释放攻击技能 | 友方则对友方的目标释放攻击技能 | xx
 
 ```
