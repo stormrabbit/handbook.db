@@ -20,7 +20,7 @@
 
 ```
 #showtooltip
-/cast [help][@targettarget,help,nodead][]圣光道标
+/cast [mod:ctrl,@player][@mouseover,help,nodead][help][@targettarget,help,nodead][]圣光道标
 ```
 
 ## 战士宏
