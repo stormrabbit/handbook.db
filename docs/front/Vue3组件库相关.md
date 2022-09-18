@@ -249,7 +249,11 @@ declare global {
 
 interface CurrentTimeProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   // propsName?: propsType
+  index?: Number,
 }
+
+<current-time index={1}></current-time>
+
 ```
 
 ### 7.3 总结
