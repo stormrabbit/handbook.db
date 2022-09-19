@@ -843,3 +843,8 @@ Avoid mutating a prop directly since the value will be overwritten whenever the 
 ```
 
 错误原因：[element 版本太高了。](https://blog.csdn.net/weixin_45884050/article/details/125583638)
+
+## 9。19
+
+今日份的傻逼问题：为 element-plus 设置 table 宽度后，在 windows 机器上不起作用。
+解决方式：设置宽度的同时设置 min-width。
