@@ -1,5 +1,9 @@
 # 魔兽世界怀旧服 WA 字符串与宏研究
 
+#showtooltip
+/castsequence reset=combat 雷霆一击, 挫志怒吼
+/cast 血性狂暴
+
 ## 飞行/陆地坐骑
 
 ```
