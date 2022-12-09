@@ -1,5 +1,9 @@
 # 魔兽世界怀旧服 WA 字符串与宏研究
 
+#showtooltip
+/castsequence reset=combat 雷霆一击, 挫志怒吼
+/cast 血性狂暴
+
 ## 飞行/陆地坐骑
 
 ```
@@ -124,3 +128,5 @@
 ## 参考
 
 [[宏指南] 从入门到精通，授人以鱼不如授人以渔](https://nga.178.com/read.php?tid=17098451)
+
+看着他死 https://jingyan.baidu.com/article/3c48dd3484650ce10ae35870.html
