@@ -485,4 +485,78 @@ export default {
 
 在上述代码中，我们添加了一个名为 contentType 的可选参数，用于指定请求类型。对于支持的三种 POST 请求类型（json、urlencoded 和 formdata），我们根据指定的类型来设置请求头和请求体。在 post 方法中，我们首先根据传入的 contentType 来设置请求头和请求体，然后使用 Axios 实例发送 POST 请求。在请求失败时，我们将抛出一个错误，以便让调用方知道发生了什么错误。
 
+## 在js中，如何优雅的比较数组是否相等？
+
+在 JavaScript 中，可以使用 JSON.stringify() 方法将数组转化为字符串，然后再进行比较，如下：
+
+```
+const arr1 = [1, 2, 3];
+const arr2 = [1, 2, 3];
+const arr3 = [1, 2, 4];
+
+// 比较 arr1 和 arr2 是否相等
+console.log(JSON.stringify(arr1) === JSON.stringify(arr2)); // true
+
+// 比较 arr1 和 arr3 是否相等
+console.log(JSON.stringify(arr1) === JSON.stringify(arr3)); // false
+
+```
+
+上面的代码中，我们将 arr1 和 arr2 使用 JSON.stringify() 方法转化为字符串进行比较，输出结果为 true，说明两个数组相等。将 arr1 和 arr3 转化为字符串进行比较，输出结果为 false，说明两个数组不相等。
+
+需要注意的是，该方法对于包含对象的数组，可能会存在无法正确比较的情况，因为该方法会忽略对象的属性顺序。在这种情况下，可以考虑使用第三方库，如 Lodash 的 isEqual() 方法进行深度比较。
+
+### 追问：那如何比较包含对象的数组相等？
+
+对于包含对象的数组，可以使用 JSON.stringify() 方法将数组转换为字符串，然后比较字符串是否相等。但是这种方法存在一些限制，例如对象属性的顺序不同，也会被认为是不相等的，而两个数组元素的对象的属性名称相同，但是属性值类型不同的情况也会被认为是不相等的。
+
+更通用的方法是遍历数组，逐个比较数组元素的属性值是否相等。可以使用 Array.prototype.every() 方法来判断每个元素的属性值是否相等，如果每个元素都相等，则整个数组相等。
+
+以下是一个比较包含对象的数组是否相等的示例代码：
+
+```
+function arraysAreEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  return arr1.every((item1, index) => {
+    const item2 = arr2[index];
+    const keys1 = Object.keys(item1);
+    const keys2 = Object.keys(item2);
+
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+
+    return keys1.every((key) => {
+      return item1[key] === item2[key];
+    });
+  });
+}
+
+```
+
+这个函数接受两个数组作为参数，返回一个布尔值，表示两个数组是否相等。在比较每个元素的属性值时，使用了 Object.keys() 方法获取对象的所有属性名，遍历这些属性名，比较对应的属性值是否相等。
+
+### 追问：如何快速的进行数组复制，注意有可能是含有对象的数组。
+
+在 JavaScript 中，可以使用 Array.from() 方法或者展开语法（spread syntax）来快速复制一个数组。例如：
+
+```
+const originalArray = [1, 2, 3];
+const copiedArray1 = Array.from(originalArray); // 使用 Array.from() 复制数组
+const copiedArray2 = [...originalArray]; // 使用展开语法复制数组
+
+```
+
+如果数组中含有对象，那么使用上述方法复制的是对象的引用，而不是对象本身。这意味着，如果你修改了复制后的数组中的对象，原始数组中相应的对象也会受到影响。为了避免这种情况，你需要使用深拷贝（deep copy）方法来复制含有对象的数组。常见的深拷贝方法有递归拷贝和 JSON 序列化/反序列化拷贝。例如：
+
+```
+const originalArray = [{ name: 'John', age: 30 }, { name: 'Jane', age: 25 }];
+const copiedArray1 = JSON.parse(JSON.stringify(originalArray)); // 使用 JSON 序列化/反序列化深拷贝
+const copiedArray2 = originalArray.map(obj => ({ ...obj })); // 使用展开语法进行递归拷贝
+
+```
+需要注意的是，递归拷贝虽然看起来简单，但是如果对象的结构非常复杂，会导致性能问题。因此，如果需要复制的数组中含有对象，请谨慎选择合适的深拷贝方法。
 
