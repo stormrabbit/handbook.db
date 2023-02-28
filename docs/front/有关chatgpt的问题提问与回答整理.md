@@ -514,7 +514,7 @@ console.log(JSON.stringify(arr1) === JSON.stringify(arr3)); // false
 
 以下是一个比较包含对象的数组是否相等的示例代码：
 
-```
+```javascript
 function arraysAreEqual(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
@@ -522,6 +522,9 @@ function arraysAreEqual(arr1, arr2) {
 
   return arr1.every((item1, index) => {
     const item2 = arr2[index];
+    if(!item1 || !item2) {
+      return false
+    }
     const keys1 = Object.keys(item1);
     const keys2 = Object.keys(item2);
 
