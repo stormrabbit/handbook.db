@@ -614,3 +614,79 @@ router.beforeEach((to, from, next) => {
 ```
 
 在上面的代码中，我们在 meta 属性中添加了一个 requiresPermission 属性，用于标识该路由需要检查用户权限。在全局路由守卫中，我们根据这个标识来检查用户权限。
+
+## vue2中，进入大部分页面都要检测是否登陆，未登陆则强制跳转至登陆页面；如果是在登陆页面，则不检测是否登陆。这种需求应该如何处理
+
+可以通过路由守卫（router guards）来实现该需求。
+
+首先，在路由配置中定义一个名为 requiresAuth 的 meta 字段，用于标识该路由需要进行登陆检测：
+
+```javascript
+const routes = [
+  { path: '/login', component: LoginComponent },
+  { path: '/home', component: HomeComponent, meta: { requiresAuth: true } },
+  // ...
+]
+
+```
+
+接下来，在路由实例化时，定义全局的路由守卫。在路由跳转前检查当前路由是否需要进行登陆检测，并且当前用户是否已经登陆，如果未登陆，则重定向到登陆页面：
+
+```
+const router = new VueRouter({ routes })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!isUserLoggedIn()) { // 检查用户是否已经登陆
+      next({ path: '/login', query: { redirect: to.fullPath }})
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
+
+```
+
+上述代码中，isUserLoggedIn() 函数用于检查用户是否已经登陆。如果用户未登陆，通过 next() 函数跳转到登陆页面。同时，将当前路由的路径保存在 query 字段中，以便用户登陆后能够跳转回原来的页面。如果用户已经登陆，则直接跳转到目标路由。
+
+在登陆页面中，由于无需检查用户是否已经登陆，因此不需要定义 requiresAuth meta 字段即可。
+
+### 追问：路由守卫中可以使用 async/await 函数吗？
+
+在 Vue.js 中使用路由守卫时，是可以使用 async/await 的。在官方文档中，对于 beforeRouteEnter 和 beforeRouteUpdate 钩子函数，也给出了使用 async/await 的示例。
+
+例如，在 beforeRouteEnter 钩子中，可以返回一个 Promise，来等待异步操作完成：
+
+```
+beforeRouteEnter (to, from, next) {
+  return axios.get('/user').then(user => {
+    if (user.loggedIn) {
+      next()
+    } else {
+      next('/login')
+    }
+  })
+}
+
+```
+
+当然，在使用 async/await 时，需要注意处理错误的情况，例如：
+
+```
+beforeRouteEnter: async (to, from, next) => {
+  try {
+    const user = await axios.get('/user')
+    if (user.loggedIn) {
+      next()
+    } else {
+      next('/login')
+    }
+  } catch (error) {
+    next('/error')
+  }
+}
+```
+
+需要注意的是，在使用 beforeRouteLeave 钩子时，由于它不支持异步操作，因此不能使用 async/await，需要手动调用 next 方法。
