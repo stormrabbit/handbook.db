@@ -24,8 +24,15 @@ window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.starts
 
 总的来说，问题越具体、目的性越强，chatgpt 的回答越有参考价值。比如“推荐两个前端项目”的回答，就不如“推荐两个易于上手的 vue 脚手架项目”来的高效。因此 chatgpt 回答的精确程度和提问者的专业程度成正比。
 
+以下是几个有代表性的 chatgpt 提问：
+
+1. 对于 js 代码 `data.aaa && data.aaa[0].bbb === 1 ? 'aaa' : ((data.aaa && data.aaa[0].bbb) > 1 && data.ccc > 2) ? 'bbb' : '-'`，有没有可读性更高且更为安全稳定的写法。
+2. 在页面中会同时调用 a、b、c 三个接口，三个接口都需要登陆才可以使用。应该如何处理，在调用 a 接口发现未登陆，跳转到登陆页面，同时不需要继续调用b 和 c 接口。
+3. 使用 element 组件库实现这么一个组件：该组件是一个 input 输入框，该输入框可以根据 prefix 的选择切换查询条件 a 或者条件 b
+
 > 从这一点来说，chatgpt 永远只是工具而已，不会有代替人的可能。
 
 ### chatgpt 回答准确率的问题
 
 chatgpt 回答并不是百分之百准确，从代码层面来说，编写长的代码时也会有一些很无语的问题。虽然和逻辑，但是不合常理。因此在使用完 chatgpt 生成代码后，还是需要运行并检查一下。
+
