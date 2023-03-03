@@ -690,3 +690,57 @@ beforeRouteEnter: async (to, from, next) => {
 ```
 
 需要注意的是，在使用 beforeRouteLeave 钩子时，由于它不支持异步操作，因此不能使用 async/await，需要手动调用 next 方法。
+
+## axios 处理并抛出 502 404 等异常
+
+在使用 Axios 进行网络请求时，可能会出现服务器返回的异常状态码，例如 404、502 等。为了更好的处理这些异常，可以在 Axios 中使用 interceptors 来拦截错误请求并抛出异常。
+
+以下是一个处理 502 和 404 异常的示例代码：
+
+```
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: 'https://api.example.com',
+});
+
+// 添加请求拦截器
+instance.interceptors.request.use(
+  function (config) {
+    // 在发送请求之前做些什么
+    return config;
+  },
+  function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+  }
+);
+
+// 添加响应拦截器
+instance.interceptors.response.use(
+  function (response) {
+    // 对响应数据做点什么
+    return response.data;
+  },
+  function (error) {
+    // 对响应错误做点什么
+    if (error.response) {
+      switch (error.response.status) {
+        case 502:
+          throw new Error('Bad Gateway');
+        case 404:
+          throw new Error('Not Found');
+        // ... 其他异常状态码的处理
+        default:
+          throw new Error('Network Error');
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default instance;
+
+```
+
+在这段代码中，我们通过 interceptors 对请求和响应进行拦截，如果出现 502 和 404 状态码，我们将抛出一个自定义的错误信息。
