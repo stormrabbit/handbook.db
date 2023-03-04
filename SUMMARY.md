@@ -4,6 +4,7 @@
 * 前端
 	* [Axios相关](./docs/front/Axios相关.md)
 	* [CSS速查](./docs/front/CSS速查.md)
+	* [Chatgpt使用整理](./docs/front/Chatgpt使用整理.md)
 	* [JavaScript记录](./docs/front/JavaScript记录.md)
 	* [Shopify脚本学习笔记](./docs/front/Shopify脚本学习笔记.md)
 	* [To-do-List](./docs/front/To-do-List.md)
@@ -21,6 +22,7 @@
 	* [南瓜电影动态布局讲座笔记](./docs/front/南瓜电影动态布局讲座笔记.md)
 	* [微前端听课笔记1](./docs/front/微前端听课笔记1.md)
 	* [微前端听课笔记2](./docs/front/微前端听课笔记2.md)
+	* [有关chatgpt的问题提问与回答整理](./docs/front/有关chatgpt的问题提问与回答整理.md)
 	* [有关分片上传的总结](./docs/front/有关分片上传的总结.md)
 	* [权限管理系统前端页面](./docs/front/权限管理系统前端页面.md)
 	* [正则表达式搜集](./docs/front/正则表达式搜集.md)
@@ -77,6 +79,7 @@
 	* [《怪物猎人崛起》开荒](./docs/other/《怪物猎人崛起》开荒.md)
 	* [《正义之怒》整理](./docs/other/《正义之怒》整理.md)
 	* [《腐烂国度2》攻略整理](./docs/other/《腐烂国度2》攻略整理.md)
+	* [《霍格沃滋之遗》简评](./docs/other/《霍格沃滋之遗》简评.md)
 	* [三国志文章搜集](./docs/other/三国志文章搜集.md)
 	* [中招记](./docs/other/中招记.md)
 	* [二十大心得体会](./docs/other/二十大心得体会.md)
