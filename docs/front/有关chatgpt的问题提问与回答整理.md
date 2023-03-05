@@ -744,3 +744,60 @@ export default instance;
 ```
 
 在这段代码中，我们通过 interceptors 对请求和响应进行拦截，如果出现 502 和 404 状态码，我们将抛出一个自定义的错误信息。
+
+## beforeRouteLeave 钩子是做什么的？
+
+beforeRouteLeave 是 Vue Router 提供的一个路由守卫钩子函数，用于在当前路由离开之前执行一些逻辑操作。具体来说，它会在当前路由准备跳转到另一个路由之前被调用，可以用于验证用户是否已保存当前编辑的表单，或者提示用户是否确定要离开当前页面等。
+
+在 beforeRouteLeave 钩子中，可以通过 next 回调函数传递一个参数，以确定路由跳转的行为。如果传递了 false，则表示取消路由跳转，如果传递了一个路由对象，则表示要跳转到该路由。如果不传递任何参数，则表示允许路由跳转。
+
+需要注意的是，在 beforeRouteLeave 中进行异步操作时，需要使用 Promise 或者 async/await 的方式，确保在异步操作完成之后才执行 next 回调函数。否则，路由可能会在异步操作完成之前就被跳转，导致操作失败。
+
+### 追问：给一个具体的用处
+
+beforeRouteLeave 钩子函数是 Vue Router 中的导航守卫之一，用于在用户离开当前路由之前执行一些逻辑操作，比如提示用户是否保存修改、清除表单数据等。
+
+以下是一个简单的使用 beforeRouteLeave 钩子的示例：
+
+```
+<template>
+  <div>
+    <h2>编辑文章</h2>
+    <form>
+      <div>
+        <label>标题：</label>
+        <input type="text" v-model="article.title">
+      </div>
+      <div>
+        <label>内容：</label>
+        <textarea v-model="article.content"></textarea>
+      </div>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      article: {
+        title: '',
+        content: ''
+      }
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.article.title !== '' || this.article.content !== '') {
+      if (confirm('您有未保存的修改，是否保存？')) {
+        // 保存修改操作
+        // ...
+      }
+    }
+    next();
+  }
+}
+</script>
+
+```
+
+在这个例子中，当用户离开当前页面之前，会检查当前文章是否有未保存的修改，如果有则弹出确认框提示用户是否保存修改，用户可以选择保存或者放弃修改，然后再执行跳转操作。
