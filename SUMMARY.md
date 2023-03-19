@@ -70,6 +70,7 @@
 	* [2022年度技术文档整理](./docs/other/2022年度技术文档整理.md)
 	* [2023每日积累](./docs/other/2023每日积累.md)
 	* [Mac使用手册](./docs/other/Mac使用手册.md)
+	* [Python3上手笔记](./docs/other/Python3上手笔记.md)
 	* [TBC战熊骑分析报告](./docs/other/TBC战熊骑分析报告.md)
 	* [Vim快捷键](./docs/other/Vim快捷键.md)
 	* [dnd](./docs/other/dnd.md)
