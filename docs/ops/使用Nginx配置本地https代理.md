@@ -1,8 +1,5 @@
-
-> 开发过程中的问题，本机开发使用的是 http 环境，但是 QA 使用的是 https 环境。因此每次想连 qa 环境都得脱层皮，拜托明月换端口。
-
 # 使用 Nginx 配置本地 https 代理
-
+> 开发过程中的问题，本机开发使用的是 http 环境，但是 QA 使用的是 https 环境。因此每次想连 qa 环境都得脱层皮，拜托明月换端口。
 ## 1. 安装 nginx && 鉴定是否安装 nginx
 
 ### 1.1 未安装进行安装
@@ -73,6 +70,8 @@ server {
 
 ### 2.3 信任证书
 
+#### 方法一：
+
 访问代理地址，点击地址前的`不安全`提示。
 
 查看证书，拖拽证书到桌面。
@@ -81,13 +80,64 @@ server {
 
 打开系统钥匙串，在系统一栏双击刚添加的证书。查看信任选项中，是否勾选始终信任（坑爹的是我上一步添加进去还是系统默认）。
 
+#### 方法二：
+
+在页面中输入 `thisisunsafe`（直接在页面中敲）。
+
 ### 2.4 访问
 
 访问地址，依然会有不安全提示 —— 不过点击高级选项可以选择继续前往。
 
 > 为了网络安全，谷歌真是操碎了心。 // <== 这是场面话。
+> 我 TM 真是谢谢你啊！ // <== 此句代表心声。
 
-> 我 TM 真是谢谢你啊！ // <== 此句代表折腾一圈后的心声。
+
+## 3. 一些常用的配置
+
+- 转发匹配 `/api/v1/` 的接口到对应域名下，通常用来转发接口。
+```conf
+    location ^~ /api/v1/ {
+        # proxy_set_header Host $host;
+        # proxy_set_header X-Real-IP $remote_addr;
+        # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # # 启用支持websocket连接
+        # proxy_set_header Upgrade $http_upgrade;
+        # proxy_set_header Connection "upgrade";
+        proxy_pass https://www.test.com;
+    }
+```
+> `https://xx.cn/api/v1/hello-world` 会被转发为 `https://www.test.com/api/v1/hello-world`
+
+- 转发并截取需要 path 到对应域名下，可以用来匹配、mock 数据。
+
+```conf
+    location /api {
+        rewrite ^/api/(.*)$ /$1 break;
+        proxy_pass https://www.test.com;
+    }
+```
+> `https://xx.cn/api/hello-world` 会被转发至 `https://www.test.com/hello-world`（没有 api）。
+
+- 域名映射本地端口，通常用来域名映射本地开发端口。
+```conf
+    location / {
+        proxy_pass https://127.0.0.1:8080;
+    }
+```
+> 访问 `https://xx.cn` 相当于访问 `https://127.0.0.1:8080`，使用域名后可以携带 cookie。
+
+
+- 域名映射本地文件，通常用来部署、上线。
+```conf
+  location / {
+    root /aaa/bbb/ccc;
+    try_files   $uri    $uri    @router;
+    index   index.html  index.htm;
+  }
+```
+> 访问 `https://xx.cn` 相当于访问 `/aaa/bbb/ccc/index.html`，并根据配置加载对应 js/css/img，等同于部署后正常访问流程。
+
+
 
 
 ## 参考 && 感谢
