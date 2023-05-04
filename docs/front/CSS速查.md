@@ -290,3 +290,10 @@ p::before { content: "Hello world!"; }
 ```
 
 > 以前一直写法一，现在被 cr 强制纠正为写法二，说是这样写起来更清晰。
+
+
+## 渐变色
+
+```css
+linear-gradient(to right, blue, pink)
+```
