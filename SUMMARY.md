@@ -93,5 +93,4 @@
 	* [老头环build](./docs/other/老头环build.md)
 	* [血源铭文搜集](./docs/other/血源铭文搜集.md)
 	* [超级机器人大战ap隐藏要素](./docs/other/超级机器人大战ap隐藏要素.md)
-	* [驾照错题集合](./docs/other/驾照错题集合.md)
 	* [魔兽世界怀旧服 WA 字符串与宏研究](./docs/other/魔兽世界怀旧服 WA 字符串与宏研究.md)
