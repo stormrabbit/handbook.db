@@ -422,8 +422,10 @@
                     console.log(row)
                     if(row && row['hp-normal'] && parseInt(row['hp-normal']) >= 30){
                         return 'success-row'
+                    } else  if(row && row['hp-normal'] && parseInt(row['hp-normal']) >= 6){
+                        return 'warning-row'  
                     }
-                    return 'warning-row'  
+                    return ''
                 }
             },
             template: `
