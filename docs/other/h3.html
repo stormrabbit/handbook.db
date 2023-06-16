@@ -418,8 +418,10 @@
                 }
             },
             methods: {
+                getData() {
+                    return 'test'
+                },
                 tableRowClassName({row,rowIndex}) {
-                    console.log(row)
                     if(row && row['hp-normal'] && parseInt(row['hp-normal']) >= 30){
                         return 'success-row'
                     } else  if(row && row['hp-normal'] && parseInt(row['hp-normal']) >= 6){
@@ -433,6 +435,13 @@
                     <el-table-column prop="name" label="单位" />
                     <el-table-column prop="hp-normal" label="hp"/>
                     <el-table-column prop="hp-ex" label="hpEx"/>
+                    <el-table-column
+                    prop="tst"
+                        label="换算比（每1000）">
+                        <template slot-scope="scope">
+                            <span style="margin-left: 10px">1</span>
+                        </template>
+                    </el-table-column>
                 </el-table>
             `
         }
