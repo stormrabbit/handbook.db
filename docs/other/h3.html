@@ -23,7 +23,6 @@
 
 <script>
     const { createApp } = Vue
-    console.log(ElementPlus)
     const monsters = [
         {
             "name": "农民（Peasant）",
@@ -215,7 +214,8 @@
         {
             "name": "尸巫（Lich）",
             "hp-normal": "30",
-            "hp-ex": "40"
+            "hp-ex": "40",
+            "temp": 11
         },
         {
             "name": "水元素（Water Elemental）",
@@ -418,6 +418,9 @@
                 }
             },
             methods: {
+                getSk(row) {
+                    return ((parseInt(row['hp-normal'] /6)>1)? 1: parseInt(scope.row['hp-normal'] /6 * 1000) 
+                },
                 getData() {
                     return 'test'
                 },
@@ -436,10 +439,12 @@
                     <el-table-column prop="hp-normal" label="hp"/>
                     <el-table-column prop="hp-ex" label="hpEx"/>
                     <el-table-column
-                    prop="tst"
-                        label="换算比（每1000）">
-                        <template slot-scope="scope">
-                            <span style="margin-left: 10px">1</span>
+                        prop="temp"
+                        label="骷髅换算比（每1000）">
+                        <template #default="scope">
+                            <div style="display: flex; align-items: center">
+                            <span style="margin-left: 10px">{{ getSk(scope.row) }}</span>
+                            </div>
                         </template>
                     </el-table-column>
                 </el-table>
