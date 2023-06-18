@@ -418,8 +418,8 @@
                 }
             },
             methods: {
-                getSk(row) {
-                    return ((parseInt(row['hp-normal'] /6)>1)? 1: parseInt(scope.row['hp-normal'] /6 * 1000) 
+                getSk(row, rate) {
+                    return Math.floor(((parseInt(row['hp-normal'] )/rate>1)? 1: parseInt(row['hp-normal'] ) /rate) * 1000) 
                 },
                 getData() {
                     return 'test'
@@ -443,7 +443,16 @@
                         label="骷髅换算比（每1000）">
                         <template #default="scope">
                             <div style="display: flex; align-items: center">
-                            <span style="margin-left: 10px">{{ getSk(scope.row) }}</span>
+                            <span style="margin-left: 10px">{{ getSk(scope.row, 6) }}</span>
+                            </div>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        prop="temp"
+                        label="尸巫换算比（每1000）">
+                        <template #default="scope">
+                            <div style="display: flex; align-items: center">
+                            <span style="margin-left: 10px">{{ getSk(scope.row, 30) }}</span>
                             </div>
                         </template>
                     </el-table-column>
