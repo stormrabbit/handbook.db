@@ -434,7 +434,7 @@
                 }
             },
             template: `
-                <el-table :data="monsters" border style="width: 30%" :row-class-name="tableRowClassName">
+                <el-table :data="monsters" border :row-class-name="tableRowClassName">
                     <el-table-column prop="name" label="单位" />
                     <el-table-column prop="hp-normal" label="hp"/>
                     <el-table-column prop="hp-ex" label="hpEx"/>
